@@ -6,5 +6,15 @@ export default defineConfig({
   server: {
     port: 3050,
     open: false,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true
+      },
+      '/data': {
+        target: 'http://localhost:3001',
+        changeOrigin: true
+      }
+    }
   }
 })

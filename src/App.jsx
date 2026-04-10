@@ -148,7 +148,8 @@ const INIT_PROJ = [
 {id:15,label:"Meubles",reste:30000,avance:0,devis:0},
 ];
 
-const SK = "villascope-v4";
+// API backup server URL (configurable)
+const BACKUP_API = "http://localhost:3001";
 const inS = {width:"100%",padding:"8px 10px",background:"#1e293b",border:"1px solid #334155",borderRadius:7,color:"#f1f5f9",fontSize:13,outline:"none",boxSizing:"border-box"};
 const selS = {...inS, appearance:"auto"};
 
@@ -209,41 +210,51 @@ export default function VillaScope() {
   const fileInputRef = useRef(null);
   const nid = useRef(10000);
 
+  const API = BACKUP_API;
+
   const loadSnapshotsList = async () => {
     try {
-      const result = await window.storage.list("vs-snap:");
-      if (result && result.keys) {
-        const snaps = result.keys.map(k => {
-          const ts = k.replace("vs-snap:", "");
-          return { key: k, date: ts };
-        }).sort((a, b) => b.date.localeCompare(a.date));
+      const res = await fetch(`${API}/api/backups`);
+      const json = await res.json();
+      if (json.ok) {
+        const snaps = (json.backups || []).map(b => ({
+          key: b.filename,
+          date: b.created,
+          size: b.size,
+        }));
         setServerSnapshots(snaps);
-        if (snaps.length > 0) setServerLastSave(snaps[0].date);
+        // Le "dernier save" = date du fichier live
+        if (json.live) setServerLastSave(json.live.lastModified);
       }
-    } catch (err) {}
+    } catch (err) { console.warn("Backup server non disponible:", err.message); }
   };
 
   useEffect(() => {
+    // Au démarrage: essayer de charger le fichier live depuis le serveur
     (async () => {
       try {
-        const r = await window.storage.get(SK);
-        if (r && r.value) {
-          const d = JSON.parse(r.value);
-          if (d.e) setExpenses(d.e);
-          if (d.p) setProjections(d.p);
-          if (d.c) setChahid(d.c);
+        const res = await fetch(`${API}/api/load`);
+        const json = await res.json();
+        if (json.ok && json.data) {
+          const d = json.data;
+          if (d.depenses?.length) setExpenses(d.depenses);
+          if (d.projections?.length) setProjections(d.projections);
+          if (d.fournisseur_chahid?.length) setChahid(d.fournisseur_chahid);
+          if (json.lastModified) setServerLastSave(json.lastModified);
         }
-      } catch(err) {}
+      } catch(err) { console.warn("Pas de fichier serveur, données initiales utilisées"); }
       await loadSnapshotsList();
     })();
   }, []);
 
-  useEffect(() => {
-    const t = setTimeout(async () => {
-      try { await window.storage.set(SK, JSON.stringify({e:expenses,p:projections,c:chahid})); } catch(err) {}
-    }, 800);
-    return () => clearTimeout(t);
-  }, [expenses, projections, chahid]);
+  // Auto-save désactivé — les sauvegardes se font manuellement via "Sauvegarder serveur"
+  // Pour réactiver l'auto-save sur le serveur, décommenter ci-dessous:
+  // useEffect(() => {
+  //   const t = setTimeout(async () => {
+  //     try { await fetch(`${API}/api/backup`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({depenses:expenses,projections,fournisseur_chahid:chahid}) }); } catch(err) {}
+  //   }, 5000);
+  //   return () => clearTimeout(t);
+  // }, [expenses, projections, chahid]);
 
   const totalSpent = useMemo(() => expenses.reduce((s,e) => s + (e.montant||0), 0), [expenses]);
   const totalProj = useMemo(() => projections.reduce((s,p) => s + (p.reste||0), 0), [projections]);
@@ -364,25 +375,29 @@ export default function VillaScope() {
     setTimeout(() => { setImportStatus(null); }, 3000);
   };
 
-  // ─── SERVER SAVE = create a new snapshot with datetime key ──────
+  // ─── SAUVEGARDER SERVEUR = POST /api/save
+  //     1) backup horodaté de l'ancien fichier live
+  //     2) écrase le fichier live avec les données actuelles
   const handleServerSave = async () => {
     setServerStatus("saving");
     try {
-      const now = new Date();
-      const ts = now.toISOString();
-      const payload = {
-        _meta: { app: "VillaScope", version: "4.0", savedAt: ts },
-        depenses: expenses,
-        projections: projections,
-        fournisseur_chahid: chahid,
-      };
-      const snapKey = "vs-snap:" + ts;
-      await window.storage.set(snapKey, JSON.stringify(payload));
-      // Also update the live working copy
-      await window.storage.set(SK, JSON.stringify({e:expenses,p:projections,c:chahid}));
-      setServerLastSave(ts);
-      await loadSnapshotsList();
-      setServerStatus("saved");
+      const res = await fetch(`${API}/api/save`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          depenses: expenses,
+          projections: projections,
+          fournisseur_chahid: chahid,
+        }),
+      });
+      const json = await res.json();
+      if (json.ok) {
+        setServerLastSave(json.savedAt);
+        await loadSnapshotsList();
+        setServerStatus("saved");
+      } else {
+        setServerStatus("error");
+      }
       setTimeout(() => setServerStatus(null), 3000);
     } catch (err) {
       setServerStatus("error");
@@ -390,41 +405,28 @@ export default function VillaScope() {
     }
   };
 
-  // ─── SERVER RELOAD = load latest (or specific) snapshot ─────────
-  const handleServerReload = async (specificKey) => {
+  // ─── RECHARGER SERVEUR = GET /api/load (fichier live)
+  //     ou POST /api/restore/:filename (restaurer un backup spécifique)
+  const handleServerReload = async (specificFilename) => {
     setServerStatus("loading");
     try {
-      let snapKey = specificKey;
-      if (!snapKey) {
-        // Find latest snapshot
-        const result = await window.storage.list("vs-snap:");
-        if (result && result.keys && result.keys.length > 0) {
-          const sorted = [...result.keys].sort().reverse();
-          snapKey = sorted[0];
-        }
+      let json;
+      if (specificFilename) {
+        // Restaurer un backup spécifique → il remplace le fichier live côté serveur
+        const res = await fetch(`${API}/api/restore/${specificFilename}`, { method: "POST" });
+        json = await res.json();
+      } else {
+        // Recharger le fichier live
+        const res = await fetch(`${API}/api/load`);
+        json = await res.json();
       }
-      if (!snapKey) {
-        // Fallback: load from working copy
-        const r = await window.storage.get(SK);
-        if (r && r.value) {
-          const d = JSON.parse(r.value);
-          if (d.e) setExpenses(d.e);
-          if (d.p) setProjections(d.p);
-          if (d.c) setChahid(d.c);
-          setServerStatus("loaded");
-        } else {
-          setServerStatus("error");
-        }
-        setTimeout(() => setServerStatus(null), 3000);
-        return;
-      }
-      const r = await window.storage.get(snapKey);
-      if (r && r.value) {
-        const d = JSON.parse(r.value);
+      if (json.ok && json.data) {
+        const d = json.data;
         if (d.depenses) setExpenses(d.depenses);
         if (d.projections) setProjections(d.projections);
         if (d.fournisseur_chahid) setChahid(d.fournisseur_chahid);
         if (d._meta?.savedAt) setServerLastSave(d._meta.savedAt);
+        await loadSnapshotsList();
         setServerStatus("loaded");
       } else {
         setServerStatus("error");
@@ -436,10 +438,10 @@ export default function VillaScope() {
     }
   };
 
-  // ─── DELETE A SNAPSHOT ──────────────────────────────────────────
-  const handleDeleteSnapshot = async (key) => {
+  // ─── DELETE A SNAPSHOT = DELETE /api/backup/:filename
+  const handleDeleteSnapshot = async (filename) => {
     try {
-      await window.storage.delete(key);
+      await fetch(`${API}/api/backup/${filename}`, { method: "DELETE" });
       await loadSnapshotsList();
     } catch (err) {}
   };
@@ -814,7 +816,7 @@ export default function VillaScope() {
                 </div>
                 <div style={{flex:1}}>
                   <p style={{margin:0,fontSize:14,fontWeight:700,color:"#f1f5f9"}}>Recharger serveur</p>
-                  <p style={{margin:"2px 0 0",fontSize:11,color:"#64748b"}}>{serverSnapshots.length > 0 ? `Dernier: ${new Date(serverSnapshots[0].date).toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",year:"2-digit",hour:"2-digit",minute:"2-digit"})}` : "Aucun snapshot disponible"}</p>
+                  <p style={{margin:"2px 0 0",fontSize:11,color:"#64748b"}}>{serverLastSave ? `Re-télécharger villascope_complet_data.json` : "Aucun fichier sur le serveur"}</p>
                 </div>
                 {serverStatus === "loading" && <div style={{width:16,height:16,border:"2px solid #06b6d4",borderTopColor:"transparent",borderRadius:"50%",animation:"spin .6s linear infinite"}}/>}
                 {serverStatus === "loaded" && <span style={{fontSize:14}}>✅</span>}
@@ -833,7 +835,7 @@ export default function VillaScope() {
                 </div>
                 <div style={{flex:1}}>
                   <p style={{margin:0,fontSize:14,fontWeight:700,color:"#f1f5f9"}}>Sauvegarder serveur</p>
-                  <p style={{margin:"2px 0 0",fontSize:11,color:"#64748b"}}>Créer un snapshot ({serverSnapshots.length} sauvegarde{serverSnapshots.length !== 1 ? "s" : ""})</p>
+                  <p style={{margin:"2px 0 0",fontSize:11,color:"#64748b"}}>Enregistrer sur le serveur ({serverSnapshots.length} backup{serverSnapshots.length !== 1 ? "s" : ""})</p>
                 </div>
                 {serverStatus === "saving" && <div style={{width:16,height:16,border:"2px solid #10b981",borderTopColor:"transparent",borderRadius:"50%",animation:"spin .6s linear infinite"}}/>}
                 {serverStatus === "saved" && <span style={{fontSize:14}}>✅</span>}
@@ -900,12 +902,13 @@ export default function VillaScope() {
             {serverSnapshots.length > 0 && (
               <div style={{padding:"4px 20px 12px"}}>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
-                  <span style={{fontSize:10,color:"#64748b",fontWeight:700,textTransform:"uppercase",letterSpacing:.5}}>Historique serveur ({serverSnapshots.length})</span>
+                  <span style={{fontSize:10,color:"#64748b",fontWeight:700,textTransform:"uppercase",letterSpacing:.5}}>Backups sur le serveur ({serverSnapshots.length})</span>
                 </div>
-                <div style={{maxHeight:140,overflowY:"auto",borderRadius:8,border:"1px solid #1e293b",background:"#0a0f1a"}}>
+                <div style={{maxHeight:160,overflowY:"auto",borderRadius:8,border:"1px solid #1e293b",background:"#0a0f1a"}}>
                   {serverSnapshots.map((snap, i) => {
                     const d = new Date(snap.date);
                     const isLatest = i === 0;
+                    const sizeKo = snap.size ? (snap.size / 1024).toFixed(0) : "?";
                     return (
                       <div key={snap.key} style={{display:"flex",alignItems:"center",gap:8,padding:"8px 12px",borderBottom:i < serverSnapshots.length - 1 ? "1px solid #1e293b" : "none"}}>
                         <div style={{width:6,height:6,borderRadius:3,background:isLatest ? "#10b981" : "#334155",flexShrink:0}}/>
@@ -913,6 +916,7 @@ export default function VillaScope() {
                           <p style={{margin:0,fontSize:11,fontWeight:isLatest?700:500,color:isLatest?"#f1f5f9":"#94a3b8",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>
                             {d.toLocaleDateString("fr-FR",{day:"2-digit",month:"short",year:"numeric"})} à {d.toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit",second:"2-digit"})}
                           </p>
+                          <p style={{margin:0,fontSize:9,color:"#475569"}}>{snap.key} · {sizeKo} Ko</p>
                         </div>
                         {isLatest && <span style={{fontSize:8,padding:"2px 6px",borderRadius:4,background:"rgba(16,185,129,.15)",color:"#10b981",fontWeight:700,flexShrink:0}}>DERNIER</span>}
                         <button onClick={() => handleServerReload(snap.key)} title="Restaurer ce snapshot" style={{background:"none",border:"none",cursor:"pointer",padding:2,color:"#06b6d4",fontSize:12,flexShrink:0}}>

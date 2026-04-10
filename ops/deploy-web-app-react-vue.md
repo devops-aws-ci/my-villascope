@@ -3,8 +3,7 @@
 mkdir projects
 cd /root/projects
 
-
-git clone https://<token>@github.com/devops-aws-ci/my-villascope.git
+git clone https://`<token>`@github.com/devops-aws-ci/my-villascope.git
 
 ## Update and re-Build new version of prod app react
 
@@ -35,5 +34,15 @@ sudo systemctl reload nginx
 
 # check web server url 
 curl http://ec2-18-200-174-106.eu-west-1.compute.amazonaws.com/
+
+
+## in new shell console
+
+cd /mnt/c/myworkspace/personel-repos/my-villascope/backoffice
+source ~/myenv_py3/bin/activate
+npm install express cors
+node save-server.cjs &
+
+
 
 ```
