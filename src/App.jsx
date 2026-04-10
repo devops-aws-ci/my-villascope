@@ -12,6 +12,7 @@ const ETAPES = ["Terrain","Plan","Controle","Muraille","Garage","Fas9iya","Chapp
 const CONTRES = ["Saif","El Chahid","KL BETON","Idriss Trax","Tarek Jrade","Ben ya9oub","Ihab","Telwine","BelHaj mhmed","Lotfi placo","SANI DECOR","COBAM","Mohamed ben gerdani","9aysse sfaxi","Bricola","Satourie Amina","Satouri Meryem","Nouriddine Jlidi","Yajini","Ben hamouda","Pisciniste","Menuiserie","Sonede","STEG","Administration","Impot","Notaire","Avocat","Frais Agence Immo","Kalid rais","Divers","Autres"];
 const SC = {"Fer":"#ef4444","Ciment":"#64748b","Briques":"#f97316","Gravier":"#06b6d4","Dwirette":"#eab308","Clous":"#94a3b8","Sika":"#8b5cf6","Soudure":"#ec4899","Pl\u00e2tre":"#f1f5f9","Transport":"#10b981","Divers":"#6b7280"};
 
+
 const CHAHID_DATA = [{"id": 5000, "date": "06/11/2024", "designation": "FER DE 6", "qte": 100.0, "prix": 3.2, "ttc": 320.0, "categorie": "Fer"}, {"id": 5001, "date": "06/02/2025", "designation": "PLATRE", "qte": 1.0, "prix": 7.299, "ttc": 7.299, "categorie": "Plâtre"}, {"id": 5002, "date": "12/05/2024", "designation": "SEMI GRAVIER BLEU", "qte": 1.0, "prix": 1250.0, "ttc": 1250.0, "categorie": "Gravier"}, {"id": 5003, "date": "14/05/2024", "designation": "CIMENT CPA KR", "qte": 80.0, "prix": 18.5, "ttc": 1479.979, "categorie": "Ciment"}, {"id": 5004, "date": "14/05/2024", "designation": "CLOUX 7", "qte": 2.96, "prix": 6.0, "ttc": 17.76, "categorie": "Clous"}, {"id": 5005, "date": "14/05/2024", "designation": "CLOUX 10", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5006, "date": "15/05/2024", "designation": "FER DE 12", "qte": 50.0, "prix": 26.0, "ttc": 1300.0, "categorie": "Fer"}, {"id": 5007, "date": "15/05/2024", "designation": "FER DE 10", "qte": 50.0, "prix": 19.0, "ttc": 950.0, "categorie": "Fer"}, {"id": 5008, "date": "21/05/2024", "designation": "FER DE 12", "qte": 50.0, "prix": 26.0, "ttc": 1300.0, "categorie": "Fer"}, {"id": 5009, "date": "21/05/2024", "designation": "FER DE 10", "qte": 30.0, "prix": 19.0, "ttc": 570.0, "categorie": "Fer"}, {"id": 5010, "date": "21/05/2024", "designation": "FIL D'ATTACHE", "qte": 10.0, "prix": 5.0, "ttc": 50.0, "categorie": "Fer"}, {"id": 5011, "date": "21/05/2024", "designation": "CLOUX 10", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5012, "date": "23/05/2024", "designation": "FER DE 6", "qte": 50.0, "prix": 3.2, "ttc": 160.0, "categorie": "Fer"}, {"id": 5013, "date": "26/05/2024", "designation": "CIMENT CPA KR", "qte": 40.0, "prix": 18.5, "ttc": 739.99, "categorie": "Ciment"}, {"id": 5014, "date": "26/05/2024", "designation": "SIKA LAIT 5 l OR", "qte": 1.0, "prix": 85.001, "ttc": 85.001, "categorie": "Sika"}, {"id": 5015, "date": "30/05/2024", "designation": "CIMENT CPA KR", "qte": 40.0, "prix": 18.5, "ttc": 739.99, "categorie": "Ciment"}, {"id": 5016, "date": "01/06/2024", "designation": "PLATRE", "qte": 1.0, "prix": 8.0, "ttc": 8.0, "categorie": "Plâtre"}, {"id": 5017, "date": "05/06/2024", "designation": "CIMENT CPA KR", "qte": 20.0, "prix": 18.6, "ttc": 371.994, "categorie": "Ciment"}, {"id": 5018, "date": "05/06/2024", "designation": "CIMENT CPA KR", "qte": 40.0, "prix": 18.6, "ttc": 744.0, "categorie": "Ciment"}, {"id": 5019, "date": "06/06/2024", "designation": "FER DE 12", "qte": 100.0, "prix": 26.0, "ttc": 2600.0, "categorie": "Fer"}, {"id": 5020, "date": "06/06/2024", "designation": "FER DE 10", "qte": 50.0, "prix": 19.0, "ttc": 950.0, "categorie": "Fer"}, {"id": 5021, "date": "08/06/2024", "designation": "FER DE 8", "qte": 20.0, "prix": 15.0, "ttc": 300.0, "categorie": "Fer"}, {"id": 5022, "date": "09/06/2024", "designation": "CLOUX 7", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5023, "date": "09/06/2024", "designation": "CLOUX 10", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5024, "date": "09/06/2024", "designation": "SEMI DWIRETTE Jaune", "qte": 1.0, "prix": 890.0, "ttc": 890.0, "categorie": "Dwirette"}, {"id": 5025, "date": "12/05/2024", "designation": "Semi Gros Biton", "qte": 1.0, "prix": 900.0, "ttc": 900.0, "categorie": "Gravier"}, {"id": 5026, "date": "12/05/2024", "designation": "SEMI DWIRETTE Jaune", "qte": 1.0, "prix": 950.0, "ttc": 950.0, "categorie": "Dwirette"}, {"id": 5027, "date": "10/06/2024", "designation": "SEMI GRAVIER BLEU", "qte": 1.0, "prix": 1250.0, "ttc": 1250.0, "categorie": "Gravier"}, {"id": 5028, "date": "11/06/2024", "designation": "CIMENT CPA KR", "qte": 6.0, "prix": 18.5, "ttc": 110.998, "categorie": "Ciment"}, {"id": 5029, "date": "22/06/2024", "designation": "CIMENT CPA KR", "qte": 40.0, "prix": 18.5, "ttc": 739.99, "categorie": "Ciment"}, {"id": 5030, "date": "25/06/2024", "designation": "BRIQUE DE 12 BCM", "qte": 322.0, "prix": 0.82, "ttc": 264.011, "categorie": "Briques"}, {"id": 5031, "date": "25/06/2024", "designation": "BRIQUE DE 12 BCM", "qte": 322.0, "prix": 0.82, "ttc": 264.011, "categorie": "Briques"}, {"id": 5032, "date": "29/06/2024", "designation": "SIKA POUDRE OR 1 KG", "qte": 15.0, "prix": 9.0, "ttc": 135.0, "categorie": "Sika"}, {"id": 5033, "date": "29/06/2024", "designation": "SIKA LAIT 5 l OR", "qte": 1.0, "prix": 85.001, "ttc": 85.001, "categorie": "Sika"}, {"id": 5034, "date": "30/06/2024", "designation": "FER DE 12", "qte": 50.0, "prix": 26.0, "ttc": 1300.0, "categorie": "Fer"}, {"id": 5035, "date": "30/06/2024", "designation": "FER DE 10", "qte": 50.0, "prix": 19.0, "ttc": 950.0, "categorie": "Fer"}, {"id": 5036, "date": "30/06/2024", "designation": "FER DE 6", "qte": 500.0, "prix": 2.9, "ttc": 1450.0, "categorie": "Fer"}, {"id": 5037, "date": "30/06/2024", "designation": "BRIQUE DE 12 cloture", "qte": 356.0, "prix": 0.82, "ttc": 291.888, "categorie": "Briques"}, {"id": 5038, "date": "30/06/2024", "designation": "BRIQUE DE 12 cloture", "qte": 300.0, "prix": 0.82, "ttc": 245.973, "categorie": "Briques"}, {"id": 5039, "date": "30/06/2024", "designation": "CIMENT CPA KR", "qte": 20.0, "prix": 18.5, "ttc": 369.995, "categorie": "Ciment"}, {"id": 5040, "date": "02/07/2024", "designation": "BRIQUE DE 12 cloture", "qte": 304.0, "prix": 0.8, "ttc": 243.2, "categorie": "Briques"}, {"id": 5041, "date": "03/07/2024", "designation": "BRIQUE DE 12 BCM", "qte": 453.0, "prix": 0.8, "ttc": 362.4, "categorie": "Briques"}, {"id": 5042, "date": "03/07/2024", "designation": "BRIQUE DE 12 cloture", "qte": 30.0, "prix": 0.8, "ttc": 24.0, "categorie": "Briques"}, {"id": 5043, "date": "03/07/2024", "designation": "FER DE 12", "qte": 70.0, "prix": 26.0, "ttc": 1820.0, "categorie": "Fer"}, {"id": 5044, "date": "03/07/2024", "designation": "FER DE 10", "qte": 70.0, "prix": 19.0, "ttc": 1330.0, "categorie": "Fer"}, {"id": 5045, "date": "03/07/2024", "designation": "FER DE 8", "qte": 20.0, "prix": 15.0, "ttc": 300.0, "categorie": "Fer"}, {"id": 5046, "date": "03/07/2024", "designation": "CLOUX 10", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5047, "date": "03/07/2024", "designation": "FIL D'ATTACHE", "qte": 10.0, "prix": 5.0, "ttc": 50.0, "categorie": "Fer"}, {"id": 5048, "date": "04/07/2024", "designation": "CIMENT CPA KR", "qte": 20.0, "prix": 18.6, "ttc": 372.0, "categorie": "Ciment"}, {"id": 5049, "date": "13/07/2024", "designation": "FER DE 8", "qte": 200.0, "prix": 14.5, "ttc": 2900.0, "categorie": "Fer"}, {"id": 5050, "date": "13/07/2024", "designation": "PLASTIC 1.5 M", "qte": 83.0, "prix": 2.7, "ttc": 224.1, "categorie": "Divers"}, {"id": 5051, "date": "17/07/2024", "designation": "FIL D'ATTACHE", "qte": 10.0, "prix": 5.0, "ttc": 50.0, "categorie": "Fer"}, {"id": 5052, "date": "17/07/2024", "designation": "PLASTIC 1.5 M", "qte": 8.0, "prix": 2.7, "ttc": 21.6, "categorie": "Divers"}, {"id": 5053, "date": "18/07/2024", "designation": "FER DE 8", "qte": 50.0, "prix": 15.0, "ttc": 750.0, "categorie": "Fer"}, {"id": 5054, "date": "18/07/2024", "designation": "FER DE 6", "qte": 100.0, "prix": 2.9, "ttc": 290.0, "categorie": "Fer"}, {"id": 5055, "date": "18/07/2024", "designation": "CIMENT CPA KR", "qte": 120.0, "prix": 18.35, "ttc": 2202.0, "categorie": "Ciment"}, {"id": 5056, "date": "18/07/2024", "designation": "SEMI DWIRETTE Jaune", "qte": 1.0, "prix": 890.0, "ttc": 890.0, "categorie": "Dwirette"}, {"id": 5057, "date": "20/07/2024", "designation": "CIMENT CPA KR", "qte": 120.0, "prix": 18.35, "ttc": 2201.976, "categorie": "Ciment"}, {"id": 5058, "date": "20/07/2024", "designation": "CIMENT CPA KR", "qte": 60.0, "prix": 18.35, "ttc": 1101.0, "categorie": "Ciment"}, {"id": 5059, "date": "20/07/2024", "designation": "SEMI GRAVIER BLEU", "qte": 1.0, "prix": 1320.0, "ttc": 1320.0, "categorie": "Gravier"}, {"id": 5060, "date": "21/07/2024", "designation": "FIL D'ATTACHE", "qte": 10.0, "prix": 5.0, "ttc": 50.0, "categorie": "Fer"}, {"id": 5061, "date": "27/07/2024", "designation": "CIMENT CPA KR", "qte": 20.0, "prix": 18.25, "ttc": 365.0, "categorie": "Ciment"}, {"id": 5062, "date": "28/07/2024", "designation": "CLOUX 7", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5063, "date": "30/07/2024", "designation": "FER DE 12", "qte": 50.0, "prix": 26.0, "ttc": 1300.0, "categorie": "Fer"}, {"id": 5064, "date": "30/07/2024", "designation": "FER DE 10", "qte": 50.0, "prix": 19.0, "ttc": 950.0, "categorie": "Fer"}, {"id": 5065, "date": "30/07/2024", "designation": "FER DE 6", "qte": 500.0, "prix": 3.2, "ttc": 1600.0, "categorie": "Fer"}, {"id": 5066, "date": "30/07/2024", "designation": "FER DE 14", "qte": 4.0, "prix": 42.0, "ttc": 168.0, "categorie": "Fer"}, {"id": 5067, "date": "30/07/2024", "designation": "FER DE 16", "qte": 3.0, "prix": 55.0, "ttc": 165.0, "categorie": "Fer"}, {"id": 5068, "date": "30/07/2024", "designation": "FIL D'ATTACHE", "qte": 20.0, "prix": 5.0, "ttc": 100.0, "categorie": "Fer"}, {"id": 5069, "date": "31/07/2024", "designation": "FER DE 8", "qte": 30.0, "prix": 15.0, "ttc": 450.0, "categorie": "Fer"}, {"id": 5070, "date": "10/08/2024", "designation": "CLOUX 7", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5071, "date": "10/08/2024", "designation": "CLOUX 10", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5072, "date": "21/08/2024", "designation": "CIMENT HRS (KR)", "qte": 60.0, "prix": 19.85, "ttc": 1191.0, "categorie": "Ciment"}, {"id": 5073, "date": "25/08/2024", "designation": "BRIQUE DE 12 BCM", "qte": 500.0, "prix": 0.82, "ttc": 409.955, "categorie": "Briques"}, {"id": 5074, "date": "25/08/2024", "designation": "CLOUX 10", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5075, "date": "26/08/2024", "designation": "FER DE 12", "qte": 100.0, "prix": 26.0, "ttc": 2600.0, "categorie": "Fer"}, {"id": 5076, "date": "26/08/2024", "designation": "FER DE 10", "qte": 100.0, "prix": 19.0, "ttc": 1900.0, "categorie": "Fer"}, {"id": 5077, "date": "26/08/2024", "designation": "BRIQUE DE 12 BCM", "qte": 500.0, "prix": 0.82, "ttc": 409.955, "categorie": "Briques"}, {"id": 5078, "date": "29/08/2024", "designation": "FER DE 12", "qte": 50.0, "prix": 26.0, "ttc": 1300.0, "categorie": "Fer"}, {"id": 5079, "date": "29/08/2024", "designation": "FER DE 10", "qte": 100.0, "prix": 19.0, "ttc": 1900.0, "categorie": "Fer"}, {"id": 5080, "date": "29/08/2024", "designation": "FIL D'ATTACHE", "qte": 20.0, "prix": 5.0, "ttc": 50.0, "categorie": "Fer"}, {"id": 5081, "date": "29/08/2024", "designation": "SEMI GRAVIER BLEU", "qte": 1.0, "prix": 1300.0, "ttc": 1300.0, "categorie": "Gravier"}, {"id": 5082, "date": "29/08/2024", "designation": "SEMI DWIRETTE Jaune", "qte": 1.0, "prix": 890.0, "ttc": 890.0, "categorie": "Dwirette"}, {"id": 5083, "date": "31/08/2024", "designation": "FER DE 8", "qte": 20.0, "prix": 14.5, "ttc": 290.0, "categorie": "Fer"}, {"id": 5084, "date": "31/08/2024", "designation": "FRAIS DE TRANSPORT", "qte": 1.0, "prix": 10.0, "ttc": 10.0, "categorie": "Transport"}, {"id": 5085, "date": "31/08/2024", "designation": "PLASTIC 1.5 M", "qte": 33.0, "prix": 2.7, "ttc": 89.1, "categorie": "Divers"}, {"id": 5086, "date": "01/09/2024", "designation": "CIMENT CPA KR", "qte": 20.0, "prix": 18.35, "ttc": 367.0, "categorie": "Ciment"}, {"id": 5087, "date": "01/09/2024", "designation": "SIKA LAIT OR 1 L", "qte": 1.0, "prix": 18.0, "ttc": 18.0, "categorie": "Sika"}, {"id": 5088, "date": "01/09/2024", "designation": "CIMENT HRS (KR)", "qte": 40.0, "prix": 19.85, "ttc": 794.0, "categorie": "Ciment"}, {"id": 5089, "date": "02/09/2024", "designation": "FER DE 8", "qte": 50.0, "prix": 15.0, "ttc": 750.0, "categorie": "Fer"}, {"id": 5090, "date": "02/09/2024", "designation": "CIMENT CPA KR", "qte": 20.0, "prix": 18.5, "ttc": 369.995, "categorie": "Ciment"}, {"id": 5091, "date": "02/09/2024", "designation": "FIL D'ATTACHE", "qte": 10.0, "prix": 5.0, "ttc": 50.0, "categorie": "Fer"}, {"id": 5092, "date": "02/09/2024", "designation": "BRIQUE DE 12 BCM", "qte": 60.0, "prix": 0.8, "ttc": 48.0, "categorie": "Briques"}, {"id": 5093, "date": "03/09/2024", "designation": "CIMENT CPA KR", "qte": 20.0, "prix": 18.35, "ttc": 367.0, "categorie": "Ciment"}, {"id": 5094, "date": "03/09/2024", "designation": "CIMENT HRS (KR)", "qte": 20.0, "prix": 19.85, "ttc": 396.999, "categorie": "Ciment"}, {"id": 5095, "date": "14/09/2024", "designation": "FER DE 12", "qte": 100.0, "prix": 26.0, "ttc": 2600.0, "categorie": "Fer"}, {"id": 5096, "date": "14/09/2024", "designation": "FER DE 10", "qte": 100.0, "prix": 19.0, "ttc": 1900.0, "categorie": "Fer"}, {"id": 5097, "date": "14/09/2024", "designation": "FIL D'ATTACHE", "qte": 10.0, "prix": 5.0, "ttc": 50.0, "categorie": "Fer"}, {"id": 5098, "date": "16/09/2024", "designation": "CLOUX 7", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5099, "date": "16/09/2024", "designation": "CLOUX 10", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5100, "date": "18/09/2024", "designation": "FRAIS DE TRANSPORT", "qte": 1.0, "prix": 10.0, "ttc": 10.0, "categorie": "Transport"}, {"id": 5101, "date": "18/09/2024", "designation": "CIMENT CPA KR", "qte": 10.0, "prix": 17.85, "ttc": 178.5, "categorie": "Ciment"}, {"id": 5102, "date": "18/09/2024", "designation": "BRIQUE DE 12 BCM", "qte": 161.0, "prix": 0.82, "ttc": 132.006, "categorie": "Briques"}, {"id": 5103, "date": "21/09/2024", "designation": "CIMENT HRS (KR)", "qte": 100.0, "prix": 20.0, "ttc": 2000.033, "categorie": "Ciment"}, {"id": 5104, "date": "22/09/2024", "designation": "SIKA LAIT 5 l OR", "qte": 2.0, "prix": 85.0, "ttc": 170.001, "categorie": "Sika"}, {"id": 5105, "date": "24/09/2024", "designation": "FER DE 12", "qte": 50.0, "prix": 26.0, "ttc": 1300.0, "categorie": "Fer"}, {"id": 5106, "date": "24/09/2024", "designation": "FER DE 10", "qte": 100.0, "prix": 19.0, "ttc": 1900.0, "categorie": "Fer"}, {"id": 5107, "date": "24/09/2024", "designation": "FIL D'ATTACHE", "qte": 20.0, "prix": 5.0, "ttc": 100.0, "categorie": "Fer"}, {"id": 5108, "date": "24/09/2024", "designation": "CIMENT CPA KR", "qte": 20.0, "prix": 18.5, "ttc": 369.995, "categorie": "Ciment"}, {"id": 5109, "date": "24/09/2024", "designation": "CIMENT HRS (KR)", "qte": 20.0, "prix": 20.0, "ttc": 399.999, "categorie": "Ciment"}, {"id": 5110, "date": "25/09/2024", "designation": "SIKA LAIT 5 l OR", "qte": 1.0, "prix": 85.001, "ttc": 85.001, "categorie": "Sika"}, {"id": 5111, "date": "25/09/2024", "designation": "CLOUX 10", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5112, "date": "25/09/2024", "designation": "CIMENT CPA KR", "qte": 20.0, "prix": 18.35, "ttc": 367.0, "categorie": "Ciment"}, {"id": 5113, "date": "25/09/2024", "designation": "CIMENT HRS (KR)", "qte": 10.0, "prix": 19.85, "ttc": 198.5, "categorie": "Ciment"}, {"id": 5114, "date": "26/09/2024", "designation": "FRAIS DE TRANSPORT", "qte": 1.0, "prix": 10.0, "ttc": 10.0, "categorie": "Transport"}, {"id": 5115, "date": "26/09/2024", "designation": "TRES A SOUDER 15/15 4 MM", "qte": 10.0, "prix": 45.999, "ttc": 459.994, "categorie": "Soudure"}, {"id": 5116, "date": "30/09/2024", "designation": "FER DE 10", "qte": 50.0, "prix": 19.0, "ttc": 950.0, "categorie": "Fer"}, {"id": 5117, "date": "06/10/2024", "designation": "SEMI GRAVIER BLEU", "qte": 1.0, "prix": 1300.0, "ttc": 1300.0, "categorie": "Gravier"}, {"id": 5118, "date": "06/10/2024", "designation": "SEMI DWIRETTE Jaune", "qte": 1.0, "prix": 890.0, "ttc": 890.0, "categorie": "Dwirette"}, {"id": 5119, "date": "29/10/2024", "designation": "CLOUX 7", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5120, "date": "29/10/2024", "designation": "CLOUX 10", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5121, "date": "29/10/2024", "designation": "CIMENT CPA KR", "qte": 2.0, "prix": 17.85, "ttc": 35.7, "categorie": "Ciment"}, {"id": 5122, "date": "02/11/2024", "designation": "FER DE 8", "qte": 30.0, "prix": 14.5, "ttc": 435.0, "categorie": "Fer"}, {"id": 5123, "date": "02/11/2024", "designation": "FIL D'ATTACHE", "qte": 10.0, "prix": 5.0, "ttc": 50.0, "categorie": "Fer"}, {"id": 5124, "date": "02/11/2024", "designation": "FRAIS DE TRANSPORT", "qte": 1.0, "prix": 10.0, "ttc": 10.0, "categorie": "Transport"}, {"id": 5125, "date": "12/11/2024", "designation": "FER DE 12", "qte": 50.0, "prix": 26.0, "ttc": 1300.0, "categorie": "Fer"}, {"id": 5126, "date": "12/11/2024", "designation": "FER DE 10", "qte": 50.0, "prix": 19.0, "ttc": 950.0, "categorie": "Fer"}, {"id": 5127, "date": "13/11/2024", "designation": "FER DE 10", "qte": 60.0, "prix": 19.0, "ttc": 1140.0, "categorie": "Fer"}, {"id": 5128, "date": "14/11/2024", "designation": "FIL D'ATTACHE", "qte": 10.0, "prix": 5.0, "ttc": 50.0, "categorie": "Fer"}, {"id": 5129, "date": "14/11/2024", "designation": "CIMENT CPA G", "qte": 2.0, "prix": 18.0, "ttc": 36.0, "categorie": "Ciment"}, {"id": 5130, "date": "18/11/2024", "designation": "SIKA ANCHORFIX-1Q 150ML", "qte": 1.0, "prix": 27.04, "ttc": 27.04, "categorie": "Sika"}, {"id": 5131, "date": "19/11/2024", "designation": "FRAIS DE TRANSPORT", "qte": 1.0, "prix": 10.0, "ttc": 10.0, "categorie": "Transport"}, {"id": 5132, "date": "19/11/2024", "designation": "BRIQUE DE 6", "qte": 10.0, "prix": 0.38, "ttc": 3.796, "categorie": "Briques"}, {"id": 5133, "date": "19/11/2024", "designation": "BRIQUE HOURDI 16 (PAL/104 P)", "qte": 35.0, "prix": 1.399, "ttc": 48.98, "categorie": "Briques"}, {"id": 5134, "date": "19/11/2024", "designation": "TRES A SOUDER 15/15 4 MM", "qte": 5.0, "prix": 45.999, "ttc": 229.997, "categorie": "Soudure"}, {"id": 5135, "date": "19/11/2024", "designation": "CLOUX 7", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5136, "date": "19/11/2024", "designation": "CLOUX 10", "qte": 5.0, "prix": 6.0, "ttc": 30.0, "categorie": "Clous"}, {"id": 5137, "date": "27/11/2024", "designation": "BRIQUE DE 12  Bani Hassen ", "qte": 2960.0, "prix": 0.79, "ttc": 2338.874, "categorie": "Briques"}, {"id": 5138, "date": "27/11/2024", "designation": "brique de 8 vente direct", "qte": 4480.0, "prix": 0.79, "ttc": 3539.2, "categorie": "Briques"}, {"id": 5139, "date": "02/12/2024", "designation": "Berlet Gravie Bleu", "qte": 1.0, "prix": 430.0, "ttc": 430.0, "categorie": "Gravier"}, {"id": 5140, "date": "02/12/2024", "designation": "BRIQUE DE 6", "qte": 675.0, "prix": 0.38, "ttc": 256.237, "categorie": "Briques"}, {"id": 5141, "date": "02/12/2024", "designation": "BRIQUE DE 12  Bani Hassen ", "qte": 6040.0, "prix": 0.77, "ttc": 4650.8, "categorie": "Briques"}, {"id": 5142, "date": "22/12/2024", "designation": "CIMENT CPA G", "qte": 20.0, "prix": 18.5, "ttc": 370.0, "categorie": "Ciment"}, {"id": 5143, "date": "28/12/2024", "designation": "CIMENT CPA G", "qte": 20.0, "prix": 18.5, "ttc": 370.0, "categorie": "Ciment"}, {"id": 5144, "date": "05/01/2025", "designation": "CIMENT CPA KR", "qte": 20.0, "prix": 18.35, "ttc": 367.0, "categorie": "Ciment"}, {"id": 5145, "date": "11/01/2025", "designation": "CIMENT CPA KR", "qte": 20.0, "prix": 18.35, "ttc": 367.0, "categorie": "Ciment"}, {"id": 5146, "date": "11/01/2025", "designation": "BRIQUE DE 8", "qte": 448.0, "prix": 0.8, "ttc": 358.257, "categorie": "Briques"}, {"id": 5147, "date": "18/01/2025", "designation": "PLATRE", "qte": 6.0, "prix": 7.3, "ttc": 43.797, "categorie": "Plâtre"}, {"id": 5148, "date": "18/01/2025", "designation": "CIMENT CPA KR", "qte": 60.0, "prix": 18.35, "ttc": 1101.0, "categorie": "Ciment"}, {"id": 5149, "date": "18/01/2025", "designation": "BRIQUE DE 6", "qte": 350.0, "prix": 0.38, "ttc": 132.864, "categorie": "Briques"}, {"id": 5150, "date": "06/02/2025", "designation": "FER DE 8", "qte": 24.0, "prix": 14.5, "ttc": 348.0, "categorie": "Fer"}, {"id": 5151, "date": "06/02/2025", "designation": "CIMENT CPA G", "qte": 20.0, "prix": 18.5, "ttc": 370.0, "categorie": "Ciment"}, {"id": 5152, "date": "12/02/2025", "designation": "CIMENT CPA G", "qte": 20.0, "prix": 18.5, "ttc": 370.0, "categorie": "Ciment"}, {"id": 5153, "date": "20/02/2025", "designation": "CIMENT CPA G", "qte": 20.0, "prix": 18.5, "ttc": 370.0, "categorie": "Ciment"}, {"id": 5154, "date": "25/02/2025", "designation": "Berlet Gravie Bleu", "qte": 1.0, "prix": 430.0, "ttc": 430.0, "categorie": "Gravier"}, {"id": 5155, "date": "01/03/2025", "designation": "CIMENT CPA G", "qte": 20.0, "prix": 18.5, "ttc": 370.0, "categorie": "Ciment"}, {"id": 5156, "date": "01/03/2025", "designation": "semi dwirette blanc", "qte": 1.0, "prix": 900.001, "ttc": 900.001, "categorie": "Dwirette"}, {"id": 5157, "date": "08/03/2025", "designation": "CIMENT CPA G", "qte": 20.0, "prix": 18.5, "ttc": 370.0, "categorie": "Ciment"}, {"id": 5158, "date": "08/03/2025", "designation": "BRIQUE DE 8", "qte": 224.0, "prix": 0.8, "ttc": 179.128, "categorie": "Briques"}, {"id": 5159, "date": "23/04/2025", "designation": "CIMENT CPA G", "qte": 20.0, "prix": 18.5, "ttc": 370.0, "categorie": "Ciment"}, {"id": 5160, "date": "29/04/2025", "designation": "CIMENT CPA G", "qte": 20.0, "prix": 18.5, "ttc": 370.0, "categorie": "Ciment"}, {"id": 5161, "date": "04/05/2025", "designation": "CIMENT CPA G", "qte": 20.0, "prix": 18.5, "ttc": 370.0, "categorie": "Ciment"}, {"id": 5162, "date": "10/05/2025", "designation": "CIMENT CPA KR", "qte": 20.0, "prix": 17.3, "ttc": 346.0, "categorie": "Ciment"}, {"id": 5163, "date": "14/05/2025", "designation": "CIMENT CPA G", "qte": 20.0, "prix": 18.5, "ttc": 370.0, "categorie": "Ciment"}, {"id": 5164, "date": "18/05/2025", "designation": "CIMENT CPA G", "qte": 40.0, "prix": 18.5, "ttc": 740.0, "categorie": "Ciment"}, {"id": 5165, "date": "28/05/2025", "designation": "CIMENT CPA G", "qte": 40.0, "prix": 18.5, "ttc": 740.0, "categorie": "Ciment"}, {"id": 5166, "date": "01/06/2025", "designation": "CIMENT CPA G", "qte": 20.0, "prix": 18.5, "ttc": 370.0, "categorie": "Ciment"}, {"id": 5167, "date": "01/06/2025", "designation": "CIMENT CPA G", "qte": 20.0, "prix": 18.5, "ttc": 370.0, "categorie": "Ciment"}, {"id": 5168, "date": "02/06/2025", "designation": "semi dwirette blanc", "qte": 1.0, "prix": 950.0, "ttc": 950.0, "categorie": "Dwirette"}, {"id": 5169, "date": "24/06/2025", "designation": "CIMENT CPA G", "qte": 40.0, "prix": 18.95, "ttc": 758.0, "categorie": "Ciment"}, {"id": 5170, "date": "30/06/2025", "designation": "sikadur 30- colle 1.200KG EPOXY", "qte": 1.0, "prix": 85.001, "ttc": 85.001, "categorie": "Sika"}, {"id": 5171, "date": "08/07/2025", "designation": "CIMENT CPA G", "qte": 20.0, "prix": 18.975, "ttc": 379.501, "categorie": "Ciment"}, {"id": 5172, "date": "08/07/2025", "designation": "GRILLAGE 30CM", "qte": 1.0, "prix": 23.0, "ttc": 23.0, "categorie": "Divers"}, {"id": 5173, "date": "14/07/2025", "designation": "CIMENT CPA G", "qte": 40.0, "prix": 19.4, "ttc": 776.0, "categorie": "Ciment"}];
 
 const INIT_EXP = [
@@ -131,6 +132,7 @@ const INIT_EXP = [
 {id:114,date:"2026-03-04",montant:777.9,categorie:"Sanitaire",etape:"Sanitaire",contre:"Bricola",detail:"Mitigeurs"},
 ];
 
+
 const INIT_PROJ = [
 {id:1,label:"Carrelage Sani D\u00e9cor 34M2",reste:3000,avance:0,devis:3000},
 {id:2,label:"Carrelage \u00e9tage Cobam",reste:11000,avance:0,devis:11000},
@@ -148,6 +150,35 @@ const INIT_PROJ = [
 {id:14,label:"Cuisine",reste:20000,avance:0,devis:0},
 {id:15,label:"Meubles",reste:30000,avance:0,devis:0},
 ];
+
+
+const DEFAULT_PROJECTS = [
+  {
+    id: "tazdaine",
+    name: "Villa Tazdaine",
+    location: "Djerba",
+    icon: "🏡",
+    color: "#2563eb",
+    currency: "TND",
+    expenses: INIT_EXP,
+    projections: INIT_PROJ,
+    chahid: CHAHID_DATA,
+  },
+  {
+    id: "ben-arous",
+    name: "Appart Ben Arous",
+    location: "Ben Arous",
+    icon: "🏢",
+    color: "#10b981",
+    currency: "TND",
+    expenses: [],
+    projections: [],
+    chahid: [],
+  },
+];
+
+const PROJECT_ICONS = ["🏡","🏢","🏠","🏗️","🏘️","🌴","🏰","🏛️","🌇","🏖️","🏕️","🏭"];
+const PROJECT_COLORS = ["#2563eb","#10b981","#8b5cf6","#f59e0b","#ef4444","#ec4899","#06b6d4","#f97316"];
 
 // API backup server URL (configurable)
 const BACKUP_API = "http://localhost:3001";
@@ -192,70 +223,224 @@ function Donut({pct, size=90, stroke=8, color="#2563eb", label}) {
   );
 }
 
+
+// ─── PERIMETRE SELECTOR ─────────────────────────────────────
+function PerimetreSelector({ projects, activeId, onSelect, onAdd, onEdit, onDelete }) {
+  const [open, setOpen] = useState(false);
+  const [showAdd, setShowAdd] = useState(false);
+  const [editProject, setEditProject] = useState(null);
+  const active = projects.find(p => p.id === activeId);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const totalAll = projects.reduce((s, p) => s + p.expenses.reduce((a, e) => a + (e.montant || 0), 0), 0);
+
+  return (
+    <div ref={ref} style={{position:"relative"}}>
+      <button onClick={() => setOpen(!open)}
+        style={{display:"flex",alignItems:"center",gap:8,padding:"6px 14px",background:open?"#eff6ff":"#f8fafc",border:"1px solid #dbeafe",borderRadius:10,cursor:"pointer",transition:"all .2s"}}>
+        <span style={{fontSize:18}}>{active?.icon || "📁"}</span>
+        <div style={{textAlign:"left"}}>
+          <div style={{fontSize:12,fontWeight:800,color:"#0f172a",lineHeight:1.2}}>{active?.name || "Tous les projets"}</div>
+          <div style={{fontSize:9,color:"#64748b",letterSpacing:1,textTransform:"uppercase"}}>{active?.location || `${projects.length} projets`}</div>
+        </div>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{marginLeft:4,transform:open?"rotate(180deg)":"",transition:"transform .2s"}}>
+          <path d="M3 4.5L6 7.5L9 4.5" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round"/>
+        </svg>
+      </button>
+
+      {open && (
+        <div style={{position:"absolute",top:"calc(100% + 6px)",left:0,minWidth:320,maxWidth:380,background:"#ffffff",border:"1px solid #e2e8f0",borderRadius:14,boxShadow:"0 20px 60px rgba(0,0,0,.15)",zIndex:200,animation:"fu .2s ease",overflow:"hidden"}}>
+          <div style={{padding:"14px 16px 10px",borderBottom:"1px solid #e2e8f0"}}>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+              <span style={{fontSize:10,fontWeight:700,color:"#64748b",textTransform:"uppercase",letterSpacing:1.2}}>Périmètre</span>
+              <span style={{fontSize:10,color:"#94a3b8"}}>{projects.length} projets</span>
+            </div>
+          </div>
+
+          <div onClick={() => { onSelect(null); setOpen(false); }}
+            style={{display:"flex",alignItems:"center",gap:10,padding:"10px 16px",cursor:"pointer",transition:"background .15s",background:!activeId?"#eff6ff":"transparent",borderLeft:!activeId?"3px solid #2563eb":"3px solid transparent"}}
+            onMouseEnter={e => { if(activeId) e.currentTarget.style.background="#f8fafc"; }}
+            onMouseLeave={e => { if(activeId) e.currentTarget.style.background="transparent"; }}>
+            <div style={{width:32,height:32,borderRadius:8,background:"#f1f5f9",display:"flex",alignItems:"center",justifyContent:"center",fontSize:16}}>🏠</div>
+            <div style={{flex:1}}>
+              <div style={{fontSize:12,fontWeight:700,color:"#0f172a"}}>Tous les projets</div>
+              <div style={{fontSize:10,color:"#64748b"}}>{fmt(totalAll)} TND total</div>
+            </div>
+            {!activeId && <div style={{width:8,height:8,borderRadius:4,background:"#2563eb"}}/>}
+          </div>
+
+          <div style={{height:1,background:"#e2e8f0",margin:"0 16px"}}/>
+
+          {projects.map(proj => {
+            const projTotal = proj.expenses.reduce((s, e) => s + (e.montant || 0), 0);
+            const isActive = proj.id === activeId;
+            return (
+              <div key={proj.id}
+                style={{display:"flex",alignItems:"center",gap:10,padding:"10px 16px",cursor:"pointer",transition:"background .15s",background:isActive?"#eff6ff":"transparent",borderLeft:isActive?`3px solid ${proj.color}`:"3px solid transparent"}}
+                onMouseEnter={e => { if(!isActive) e.currentTarget.style.background="#f8fafc"; }}
+                onMouseLeave={e => { if(!isActive) e.currentTarget.style.background=isActive?"#eff6ff":"transparent"; }}>
+                <div onClick={() => { onSelect(proj.id); setOpen(false); }} style={{display:"flex",alignItems:"center",gap:10,flex:1}}>
+                  <div style={{width:32,height:32,borderRadius:8,background:`${proj.color}12`,border:`1px solid ${proj.color}33`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:16}}>{proj.icon}</div>
+                  <div style={{flex:1,minWidth:0}}>
+                    <div style={{fontSize:12,fontWeight:700,color:"#0f172a",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{proj.name}</div>
+                    <div style={{fontSize:10,color:"#64748b"}}>{proj.location} · {fmt(projTotal)} {proj.currency}</div>
+                  </div>
+                </div>
+                <div style={{display:"flex",gap:4,alignItems:"center"}}>
+                  {isActive && <div style={{width:8,height:8,borderRadius:4,background:proj.color}}/>}
+                  <button onClick={(e) => { e.stopPropagation(); setEditProject(proj); setShowAdd(false); }}
+                    style={{background:"none",border:"none",color:"#94a3b8",cursor:"pointer",fontSize:12,padding:4,borderRadius:4}}
+                    onMouseEnter={e => e.currentTarget.style.color="#475569"}
+                    onMouseLeave={e => e.currentTarget.style.color="#94a3b8"}>✎</button>
+                </div>
+              </div>
+            );
+          })}
+
+          <div style={{padding:"8px 16px 12px",borderTop:"1px solid #e2e8f0"}}>
+            <button onClick={() => { setShowAdd(true); setEditProject(null); }}
+              style={{width:"100%",padding:"8px",borderRadius:8,border:"1px dashed #bfdbfe",background:"transparent",color:"#64748b",fontSize:11,fontWeight:600,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:6,transition:"all .15s"}}
+              onMouseEnter={e => { e.currentTarget.style.borderColor="#2563eb"; e.currentTarget.style.color="#2563eb"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor="#bfdbfe"; e.currentTarget.style.color="#64748b"; }}>
+              <span style={{fontSize:14}}>+</span> Nouveau projet
+            </button>
+          </div>
+        </div>
+      )}
+
+      {(showAdd || editProject) && (
+        <Modal title={editProject ? "Modifier le projet" : "Nouveau projet"} onClose={() => { setShowAdd(false); setEditProject(null); }}>
+          <ProjectForm item={editProject}
+            onSave={(p) => { if (editProject) onEdit(p); else onAdd(p); setShowAdd(false); setEditProject(null); }}
+            onDelete={editProject ? () => { onDelete(editProject.id); setEditProject(null); } : null}/>
+        </Modal>
+      )}
+    </div>
+  );
+}
+
+function ProjectForm({ item, onSave, onDelete }) {
+  const [f, setF] = useState(item ? { name:item.name, location:item.location, icon:item.icon, color:item.color, currency:item.currency||"TND" } : { name:"", location:"", icon:"🏠", color:"#2563eb", currency:"TND" });
+  const up = (k,v) => setF(p => ({...p,[k]:v}));
+  return (
+    <div>
+      <Field label="Nom du projet"><input value={f.name} onChange={e => up("name",e.target.value)} style={inS} placeholder="Villa Tazdaine"/></Field>
+      <Field label="Localisation"><input value={f.location} onChange={e => up("location",e.target.value)} style={inS} placeholder="Djerba"/></Field>
+      <Field label="Devise">
+        <select value={f.currency} onChange={e => up("currency",e.target.value)} style={selS}>
+          <option value="TND">TND</option><option value="EUR">EUR</option><option value="USD">USD</option>
+        </select>
+      </Field>
+      <Field label="Icône">
+        <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
+          {PROJECT_ICONS.map(ic => (
+            <button key={ic} onClick={() => up("icon",ic)} style={{width:36,height:36,borderRadius:8,border:f.icon===ic?"2px solid #2563eb":"1px solid #e2e8f0",background:f.icon===ic?"#eff6ff":"#ffffff",fontSize:18,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>{ic}</button>
+          ))}
+        </div>
+      </Field>
+      <Field label="Couleur">
+        <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
+          {PROJECT_COLORS.map(c => (
+            <button key={c} onClick={() => up("color",c)} style={{width:28,height:28,borderRadius:7,border:f.color===c?"2px solid #0f172a":"2px solid transparent",background:c,cursor:"pointer"}}/>
+          ))}
+        </div>
+      </Field>
+      <div style={{display:"flex",gap:8,marginTop:12}}>
+        <Btn onClick={() => onSave(item ? {...item,...f} : {...f, id: `proj-${Date.now()}`, expenses:[], projections:[], chahid:[]})} style={{flex:1}}>{item ? "Modifier" : "Créer le projet"}</Btn>
+        {onDelete && <Btn variant="secondary" onClick={onDelete} style={{color:"#ef4444",borderColor:"#fecaca"}}>Supprimer</Btn>}
+      </div>
+    </div>
+  );
+}
+
 export default function VillaScope() {
+  const [projects, setProjects] = useState(DEFAULT_PROJECTS);
+  const [activeProjectId, setActiveProjectId] = useState("tazdaine");
   const [view, setView] = useState("dashboard");
-  const [expenses, setExpenses] = useState(INIT_EXP);
-  const [projections, setProjections] = useState(INIT_PROJ);
-  const [chahid, setChahid] = useState(CHAHID_DATA);
   const [modal, setModal] = useState(null);
   const [editItem, setEditItem] = useState(null);
   const [filters, setFilters] = useState({cat:"",contre:"",search:""});
   const [suppFilter, setSuppFilter] = useState({cat:"",search:""});
   const [backupModal, setBackupModal] = useState(false);
   const [importPreview, setImportPreview] = useState(null);
-  const [importStatus, setImportStatus] = useState(null); // "success" | "error" | null
-  const [exportStatus, setExportStatus] = useState(null); // "success" | null
-  const [serverStatus, setServerStatus] = useState(null); // "saving" | "saved" | "loading" | "loaded" | "error" | null
-  const [serverLastSave, setServerLastSave] = useState(null); // ISO date string
-  const [serverSnapshots, setServerSnapshots] = useState([]); // [{key, date}]
+  const [importStatus, setImportStatus] = useState(null);
+  const [exportStatus, setExportStatus] = useState(null);
+  const [serverStatus, setServerStatus] = useState(null);
+  const [serverLastSave, setServerLastSave] = useState(null);
+  const [serverSnapshots, setServerSnapshots] = useState([]);
   const fileInputRef = useRef(null);
   const nid = useRef(10000);
 
   const API = BACKUP_API;
+
+  // Active project
+  const activeProject = projects.find(p => p.id === activeProjectId);
+  const isReadOnly = !activeProject;
+  const accentColor = activeProject?.color || "#2563eb";
+  const currency = activeProject?.currency || "TND";
+
+  // Derived data from active project (or all)
+  const expenses = useMemo(() => activeProject ? activeProject.expenses : projects.flatMap(p => p.expenses), [projects, activeProjectId]);
+  const projections = useMemo(() => activeProject ? activeProject.projections : projects.flatMap(p => p.projections), [projects, activeProjectId]);
+  const chahid = useMemo(() => activeProject ? activeProject.chahid : projects.flatMap(p => p.chahid), [projects, activeProjectId]);
+
+  const setExpenses = (updater) => {
+    if (!activeProject) return;
+    setProjects(prev => prev.map(p => p.id === activeProjectId ? {...p, expenses: typeof updater === "function" ? updater(p.expenses) : updater} : p));
+  };
+  const setProjections = (updater) => {
+    if (!activeProject) return;
+    setProjects(prev => prev.map(p => p.id === activeProjectId ? {...p, projections: typeof updater === "function" ? updater(p.projections) : updater} : p));
+  };
+  const setChahid = (updater) => {
+    if (!activeProject) return;
+    setProjects(prev => prev.map(p => p.id === activeProjectId ? {...p, chahid: typeof updater === "function" ? updater(p.chahid) : updater} : p));
+  };
 
   const loadSnapshotsList = async () => {
     try {
       const res = await fetch(`${API}/api/backups`);
       const json = await res.json();
       if (json.ok) {
-        const snaps = (json.backups || []).map(b => ({
-          key: b.filename,
-          date: b.created,
-          size: b.size,
-        }));
+        const snaps = (json.backups || []).map(b => ({ key: b.filename, date: b.created, size: b.size }));
         setServerSnapshots(snaps);
-        // Le "dernier save" = date du fichier live
         if (json.live) setServerLastSave(json.live.lastModified);
       }
     } catch (err) { console.warn("Backup server non disponible:", err.message); }
   };
 
   useEffect(() => {
-    // Au démarrage: essayer de charger le fichier live depuis le serveur
     (async () => {
       try {
         const res = await fetch(`${API}/api/load`);
         const json = await res.json();
         if (json.ok && json.data) {
           const d = json.data;
-          if (d.depenses?.length) setExpenses(d.depenses);
-          if (d.projections?.length) setProjections(d.projections);
-          if (d.fournisseur_chahid?.length) setChahid(d.fournisseur_chahid);
+          // Support multi-project format
+          if (d.projects) {
+            setProjects(d.projects);
+            if (d.activeProjectId) setActiveProjectId(d.activeProjectId);
+          } else {
+            // Legacy single-project format → load into Tazdaine
+            setProjects(prev => prev.map(p => p.id === "tazdaine" ? {
+              ...p,
+              expenses: d.depenses?.length ? d.depenses : p.expenses,
+              projections: d.projections?.length ? d.projections : p.projections,
+              chahid: d.fournisseur_chahid?.length ? d.fournisseur_chahid : p.chahid,
+            } : p));
+          }
           if (json.lastModified) setServerLastSave(json.lastModified);
         }
       } catch(err) { console.warn("Pas de fichier serveur, données initiales utilisées"); }
       await loadSnapshotsList();
     })();
   }, []);
-
-  // Auto-save désactivé — les sauvegardes se font manuellement via "Sauvegarder serveur"
-  // Pour réactiver l'auto-save sur le serveur, décommenter ci-dessous:
-  // useEffect(() => {
-  //   const t = setTimeout(async () => {
-  //     try { await fetch(`${API}/api/backup`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({depenses:expenses,projections,fournisseur_chahid:chahid}) }); } catch(err) {}
-  //   }, 5000);
-  //   return () => clearTimeout(t);
-  // }, [expenses, projections, chahid]);
 
   const totalSpent = useMemo(() => expenses.reduce((s,e) => s + (e.montant||0), 0), [expenses]);
   const totalProj = useMemo(() => projections.reduce((s,p) => s + (p.reste||0), 0), [projections]);
@@ -300,18 +485,12 @@ export default function VillaScope() {
     return Object.entries(m).sort((a,b) => b[1]-a[1]);
   }, [chahid]);
 
-  // ─── EXPORT / IMPORT ────────────────────────────────────────────
+  // ─── EXPORT / IMPORT (multi-project aware) ──────────────────
   const handleExport = () => {
     const backup = {
-      _meta: {
-        app: "VillaScope",
-        version: "4.0",
-        exportDate: new Date().toISOString(),
-        description: "Sauvegarde complète — Projet Villa Tazdaine"
-      },
-      depenses: expenses,
-      projections: projections,
-      fournisseur_chahid: chahid,
+      _meta: { app: "VillaScope", version: "5.0-multiproject", exportDate: new Date().toISOString(), description: "Sauvegarde complète — Multi-projet" },
+      projects: projects,
+      activeProjectId: activeProjectId,
     };
     const json = JSON.stringify(backup, null, 2);
     const blob = new Blob([json], { type: "application/json" });
@@ -319,14 +498,9 @@ export default function VillaScope() {
     const a = document.createElement("a");
     const d = new Date();
     const ts = `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,"0")}${String(d.getDate()).padStart(2,"0")}_${String(d.getHours()).padStart(2,"0")}${String(d.getMinutes()).padStart(2,"0")}`;
-    a.href = url;
-    a.download = `VillaScope_backup_${ts}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    setExportStatus("success");
-    setTimeout(() => setExportStatus(null), 3000);
+    a.href = url; a.download = `VillaScope_backup_${ts}.json`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+    setExportStatus("success"); setTimeout(() => setExportStatus(null), 3000);
   };
 
   const handleImportFile = (e) => {
@@ -337,117 +511,100 @@ export default function VillaScope() {
     reader.onload = (ev) => {
       try {
         const data = JSON.parse(ev.target.result);
-        // Validate structure
-        if (!data.depenses && !data.projections && !data.fournisseur_chahid) {
-          // Try legacy format (direct {e, p, c} from window.storage)
-          if (data.e && Array.isArray(data.e)) {
-            setImportPreview({
-              _meta: { app: "VillaScope", version: "legacy", exportDate: "inconnu" },
-              depenses: data.e,
-              projections: data.p || [],
-              fournisseur_chahid: data.c || [],
-              _fileName: file.name,
-              _fileSize: file.size,
-            });
-            return;
-          }
-          setImportStatus("error");
-          setImportPreview(null);
+        // Multi-project format
+        if (data.projects) {
+          setImportPreview({ ...data, _fileName: file.name, _fileSize: file.size, _isMultiProject: true });
           return;
         }
-        setImportPreview({ ...data, _fileName: file.name, _fileSize: file.size });
-      } catch (err) {
-        setImportStatus("error");
-        setImportPreview(null);
-      }
+        // Legacy single-project format
+        if (data.depenses || (data.e && Array.isArray(data.e))) {
+          const dep = data.depenses || data.e || [];
+          const proj = data.projections || data.p || [];
+          const forn = data.fournisseur_chahid || data.c || [];
+          setImportPreview({
+            _meta: data._meta || { app: "VillaScope", version: "legacy" },
+            depenses: dep, projections: proj, fournisseur_chahid: forn,
+            _fileName: file.name, _fileSize: file.size, _isMultiProject: false,
+          });
+          return;
+        }
+        setImportStatus("error"); setImportPreview(null);
+      } catch (err) { setImportStatus("error"); setImportPreview(null); }
     };
     reader.readAsText(file);
-    // Reset input so same file can be re-selected
     e.target.value = "";
   };
 
   const handleImportConfirm = () => {
     if (!importPreview) return;
-    if (importPreview.depenses) setExpenses(importPreview.depenses);
-    if (importPreview.projections) setProjections(importPreview.projections);
-    if (importPreview.fournisseur_chahid) setChahid(importPreview.fournisseur_chahid);
-    setImportStatus("success");
-    setImportPreview(null);
+    if (importPreview._isMultiProject && importPreview.projects) {
+      setProjects(importPreview.projects);
+      if (importPreview.activeProjectId) setActiveProjectId(importPreview.activeProjectId);
+    } else {
+      // Legacy: import into active project or Tazdaine
+      const targetId = activeProjectId || "tazdaine";
+      setProjects(prev => prev.map(p => p.id === targetId ? {
+        ...p,
+        expenses: importPreview.depenses || p.expenses,
+        projections: importPreview.projections || p.projections,
+        chahid: importPreview.fournisseur_chahid || p.chahid,
+      } : p));
+    }
+    setImportStatus("success"); setImportPreview(null);
     setTimeout(() => { setImportStatus(null); }, 3000);
   };
 
-  // ─── SAUVEGARDER SERVEUR = POST /api/save
-  //     1) backup horodaté de l'ancien fichier live
-  //     2) écrase le fichier live avec les données actuelles
   const handleServerSave = async () => {
     setServerStatus("saving");
     try {
       const res = await fetch(`${API}/api/save`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          depenses: expenses,
-          projections: projections,
-          fournisseur_chahid: chahid,
-        }),
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ projects, activeProjectId }),
       });
       const json = await res.json();
-      if (json.ok) {
-        setServerLastSave(json.savedAt);
-        await loadSnapshotsList();
-        setServerStatus("saved");
-      } else {
-        setServerStatus("error");
-      }
+      if (json.ok) { setServerLastSave(json.savedAt); await loadSnapshotsList(); setServerStatus("saved"); }
+      else { setServerStatus("error"); }
       setTimeout(() => setServerStatus(null), 3000);
-    } catch (err) {
-      setServerStatus("error");
-      setTimeout(() => setServerStatus(null), 3000);
-    }
+    } catch (err) { setServerStatus("error"); setTimeout(() => setServerStatus(null), 3000); }
   };
 
-  // ─── RECHARGER SERVEUR = GET /api/load (fichier live)
-  //     ou POST /api/restore/:filename (restaurer un backup spécifique)
   const handleServerReload = async (specificFilename) => {
     setServerStatus("loading");
     try {
       let json;
       if (specificFilename) {
-        // Restaurer un backup spécifique → il remplace le fichier live côté serveur
         const res = await fetch(`${API}/api/restore/${specificFilename}`, { method: "POST" });
         json = await res.json();
       } else {
-        // Recharger le fichier live
         const res = await fetch(`${API}/api/load`);
         json = await res.json();
       }
       if (json.ok && json.data) {
         const d = json.data;
-        if (d.depenses) setExpenses(d.depenses);
-        if (d.projections) setProjections(d.projections);
-        if (d.fournisseur_chahid) setChahid(d.fournisseur_chahid);
+        if (d.projects) {
+          setProjects(d.projects);
+          if (d.activeProjectId) setActiveProjectId(d.activeProjectId);
+        } else {
+          // Legacy
+          setProjects(prev => prev.map(p => p.id === "tazdaine" ? {
+            ...p,
+            expenses: d.depenses || p.expenses,
+            projections: d.projections || p.projections,
+            chahid: d.fournisseur_chahid || p.chahid,
+          } : p));
+        }
         if (d._meta?.savedAt) setServerLastSave(d._meta.savedAt);
         await loadSnapshotsList();
         setServerStatus("loaded");
-      } else {
-        setServerStatus("error");
-      }
+      } else { setServerStatus("error"); }
       setTimeout(() => setServerStatus(null), 3000);
-    } catch (err) {
-      setServerStatus("error");
-      setTimeout(() => setServerStatus(null), 3000);
-    }
+    } catch (err) { setServerStatus("error"); setTimeout(() => setServerStatus(null), 3000); }
   };
 
-  // ─── DELETE A SNAPSHOT = DELETE /api/backup/:filename
   const handleDeleteSnapshot = async (filename) => {
-    try {
-      await fetch(`${API}/api/backup/${filename}`, { method: "DELETE" });
-      await loadSnapshotsList();
-    } catch (err) {}
+    try { await fetch(`${API}/api/backup/${filename}`, { method: "DELETE" }); await loadSnapshotsList(); } catch (err) {}
   };
 
-  // ─── CSV EXPORT ─────────────────────────────────────────────────
   const handleExportCSV = () => {
     const rows = [["id","date","montant","categorie","etape","intervenant","detail"]];
     expenses.forEach(e => rows.push([e.id, e.date||"", e.montant||0, e.categorie||"", e.etape||"", e.contre||"", (e.detail||"").replace(/"/g,'""')]));
@@ -457,27 +614,46 @@ export default function VillaScope() {
     const a = document.createElement("a");
     const d = new Date();
     const ts = `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,"0")}${String(d.getDate()).padStart(2,"0")}`;
-    a.href = url;
-    a.download = `VillaScope_depenses_${ts}.csv`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    a.href = url; a.download = `VillaScope_depenses_${ts}.csv`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
   };
 
-  const VIEWS = [{k:"dashboard",l:"Dashboard",i:"\ud83d\udcca"},{k:"depenses",l:"D\u00e9penses",i:"\ud83d\udcb0"},{k:"fournisseurs",l:"Fournisseurs",i:"\ud83c\udfe0"},{k:"intervenants",l:"Intervenants",i:"\ud83d\udc77"},{k:"projections",l:"Projections",i:"\ud83d\udccb"}];
+  const VIEWS = [{k:"dashboard",l:"Dashboard",i:"📊"},{k:"depenses",l:"Dépenses",i:"💰"},{k:"fournisseurs",l:"Fournisseurs",i:"🏠"},{k:"intervenants",l:"Intervenants",i:"👷"},{k:"projections",l:"Projections",i:"📋"}];
 
   return (
     <div className="vs-root">
-      
 
-      <header className="vs-header">
+      {/* ─── PERIMETRE BAR ─── */}
+      <div style={{background:"#ffffff",borderBottom:"1px solid #e2e8f0",padding:"8px 16px",position:"sticky",top:0,zIndex:200}}>
+        <div style={{maxWidth:1200,margin:"0 auto",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+          <div style={{display:"flex",alignItems:"center",gap:12}}>
+            <span style={{fontSize:9,color:"#94a3b8",fontWeight:700,textTransform:"uppercase",letterSpacing:1.5}}>Périmètre</span>
+            <PerimetreSelector
+              projects={projects} activeId={activeProjectId}
+              onSelect={(id) => { setActiveProjectId(id); setFilters({cat:"",contre:"",search:""}); setSuppFilter({cat:"",search:""}); }}
+              onAdd={(p) => setProjects(prev => [...prev, p])}
+              onEdit={(p) => setProjects(prev => prev.map(x => x.id === p.id ? {...x, name:p.name, location:p.location, icon:p.icon, color:p.color, currency:p.currency} : x))}
+              onDelete={(id) => { setProjects(prev => prev.filter(x => x.id !== id)); if(activeProjectId===id) setActiveProjectId(projects[0]?.id || null); }}
+            />
+          </div>
+          <div style={{display:"flex",gap:16,alignItems:"center"}}>
+            {[{l:"Dépensé",v:fmt(totalSpent),c:accentColor},{l:"Reste",v:fmt(totalProj),c:"#ef4444"}].map((s,i) => (
+              <div key={i} style={{textAlign:"right"}}>
+                <div style={{fontSize:9,color:"#94a3b8",textTransform:"uppercase",fontWeight:700,letterSpacing:.5}}>{s.l}</div>
+                <div style={{fontSize:14,fontWeight:800,color:s.c}}>{s.v} <span style={{fontSize:9,color:"#94a3b8"}}>{currency}</span></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <header className="vs-header" style={{top:52}}>
         <div className="vs-header-inner">
           <div className="vs-logo-wrap">
-            <div className="vs-logo-icon">V</div>
+            <div className="vs-logo-icon" style={{background:`linear-gradient(135deg,${accentColor},${accentColor}dd)`}}>{activeProject?.icon || "V"}</div>
             <div>
-              <h1 className="vs-logo-title">VillaScope</h1>
-              <p className="vs-logo-sub">Tazdaine • Djerba</p>
+              <h1 className="vs-logo-title">My-Villa</h1>
+              <p className="vs-logo-sub">{activeProject ? `${activeProject.name} · ${activeProject.location}` : "Vue consolidée"}</p>
             </div>
           </div>
           <nav className="vs-nav">
@@ -490,14 +666,54 @@ export default function VillaScope() {
 
       <main className="vs-main">
 
+      {isReadOnly && (
+        <div style={{background:"#eff6ff",borderRadius:12,padding:"10px 16px",marginBottom:14,display:"flex",alignItems:"center",gap:10,border:"1px solid #bfdbfe"}}>
+          <span style={{fontSize:16}}>🔍</span>
+          <div>
+            <span style={{fontSize:12,color:"#1e40af",fontWeight:700}}>Vue consolidée</span>
+            <span style={{fontSize:11,color:"#64748b",marginLeft:8}}>Sélectionnez un projet pour modifier les données</span>
+          </div>
+        </div>
+      )}
+
       {/* DASHBOARD */}
       {view === "dashboard" && (
         <div style={{animation:"fu .4s ease"}}>
+          {/* Project cards when viewing all */}
+          {!activeProject && projects.length > 1 && (
+            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:12,marginBottom:20}}>
+              {projects.map(proj => {
+                const t = proj.expenses.reduce((s,e) => s+(e.montant||0),0);
+                const r = proj.projections.reduce((s,p) => s+(p.reste||0),0);
+                return (
+                  <div key={proj.id} onClick={() => setActiveProjectId(proj.id)} style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)",cursor:"pointer",transition:"all .2s",position:"relative",overflow:"hidden",border:`1px solid ${proj.color}22`}}
+                    onMouseEnter={e => e.currentTarget.style.boxShadow=`0 4px 20px ${proj.color}22`}
+                    onMouseLeave={e => e.currentTarget.style.boxShadow="0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)"}>
+                    <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:`linear-gradient(90deg,${proj.color},transparent)`}}/>
+                    <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
+                      <div style={{width:38,height:38,borderRadius:10,background:`${proj.color}12`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:20}}>{proj.icon}</div>
+                      <div>
+                        <div style={{fontSize:14,fontWeight:800,color:"#0f172a"}}>{proj.name}</div>
+                        <div style={{fontSize:10,color:"#64748b"}}>{proj.location}</div>
+                      </div>
+                    </div>
+                    <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+                      <div><span style={{fontSize:9,color:"#64748b",textTransform:"uppercase",fontWeight:700}}>Dépensé</span><div style={{fontSize:16,fontWeight:800,color:proj.color}}>{fmt(t)}</div></div>
+                      <div><span style={{fontSize:9,color:"#64748b",textTransform:"uppercase",fontWeight:700}}>Reste</span><div style={{fontSize:16,fontWeight:800,color:"#ef4444"}}>{fmt(r)}</div></div>
+                    </div>
+                    <div style={{marginTop:10,height:4,borderRadius:2,background:"#e0effe"}}>
+                      <div style={{height:"100%",borderRadius:2,background:proj.color,width:`${Math.min((t/(t+r||1))*100,100)}%`,transition:"width .6s"}}/>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(155px,1fr))",gap:10,marginBottom:20}}>
-            {[{l:"Total dépensé",v:fmt(totalSpent),c:"#2563eb"},{l:"Reste a payer",v:fmt(totalProj),c:"#ef4444"},{l:"Budget estime",v:fmt(totalSpent+totalProj),c:"#3b82f6"},{l:"El Chahid detail",v:fmt(chahidTotal),c:"#10b981"}].map((c,i) => (
+            {[{l:"Total dépensé",v:fmt(totalSpent),c:accentColor},{l:"Reste a payer",v:fmt(totalProj),c:"#ef4444"},{l:"Budget estime",v:fmt(totalSpent+totalProj),c:"#3b82f6"},{l:"El Chahid detail",v:fmt(chahidTotal),c:"#10b981"}].map((c,i) => (
               <div key={i} style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)"}}>
                 <p style={{margin:"0 0 3px",fontSize:10,color:"#64748b",textTransform:"uppercase",fontWeight:700}}>{c.l}</p>
-                <p style={{margin:0,fontSize:18,fontWeight:800,color:"#0f172a"}}>{c.v} <span style={{fontSize:10,color:"#64748b"}}>{TND}</span></p>
+                <p style={{margin:0,fontSize:18,fontWeight:800,color:"#0f172a"}}>{c.v} <span style={{fontSize:10,color:"#64748b"}}>{currency}</span></p>
               </div>
             ))}
           </div>
@@ -534,7 +750,7 @@ export default function VillaScope() {
                       <text x={size/2} y={size/2 + 12} textAnchor="middle" dominantBaseline="central"
                         fill="#64748b" fontSize={10} fontWeight="600"
                         style={{transform:"rotate(90deg)",transformOrigin:"center"}}>
-                        {TND} total
+                        {currency} total
                       </text>
                     </svg>
                   );
@@ -549,7 +765,7 @@ export default function VillaScope() {
                       {CAT_ICONS[cat]||""} {cat}
                       <span style={{color:"#64748b",marginLeft:4,fontSize:10}}>({Math.round(val/totalSpent*100)}%)</span>
                     </span>
-                    <span style={{color:"#2563eb",fontWeight:700}}>{fmt(val)}</span>
+                    <span style={{color:accentColor,fontWeight:700}}>{fmt(val)}</span>
                   </div>
                   <div style={{height:4,background:"#e0effe",borderRadius:2}}>
                     <div style={{width:`${(val/totalSpent)*100}%`,height:"100%",borderRadius:2,background:CAT_COLORS[cat]||"#6b7280"}}/>
@@ -563,7 +779,7 @@ export default function VillaScope() {
                 <div key={yr} style={{marginBottom:7}}>
                   <div style={{display:"flex",justifyContent:"space-between",fontSize:11,marginBottom:2}}>
                     <span style={{color:"#334155",fontWeight:700}}>{yr}</span>
-                    <span style={{color:"#2563eb",fontWeight:700}}>{fmt(val)} {TND}</span>
+                    <span style={{color:accentColor,fontWeight:700}}>{fmt(val)} {currency}</span>
                   </div>
                   <div style={{height:5,background:"#e0effe",borderRadius:2}}>
                     <div style={{width:`${(val/Math.max(...byYear.map(y=>y[1])))*100}%`,height:"100%",borderRadius:2,background:"linear-gradient(90deg,#3b82f6,#2563eb)"}}/>
@@ -585,7 +801,7 @@ export default function VillaScope() {
               {byContre.slice(0,10).map(([n,v]) => (
                 <div key={n} style={{background:"#f8fafc",borderRadius:10,padding:10,border:"1px solid #e2e8f0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                   <span style={{fontSize:11,color:"#334155",fontWeight:600}}>{n}</span>
-                  <span style={{fontSize:12,color:"#2563eb",fontWeight:800}}>{fmt(v)}</span>
+                  <span style={{fontSize:12,color:accentColor,fontWeight:800}}>{fmt(v)}</span>
                 </div>
               ))}
             </div>
@@ -598,7 +814,7 @@ export default function VillaScope() {
         <div style={{animation:"fu .4s ease"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12,flexWrap:"wrap",gap:8}}>
             <h2 style={{margin:0,fontSize:17,fontWeight:800,color:"#0f172a",}}>Suivi detaille</h2>
-            <Btn onClick={() => {setEditItem(null);setModal("expense")}}>+ Depense</Btn>
+            {!isReadOnly && <Btn onClick={() => {setEditItem(null);setModal("expense")}}>+ Depense</Btn>}
           </div>
           <div style={{display:"flex",gap:6,marginBottom:10,flexWrap:"wrap"}}>
             <input placeholder="Rechercher..." value={filters.search} onChange={e => setFilters(f => ({...f,search:e.target.value}))} style={{...inS,width:170,fontSize:12}}/>
@@ -612,7 +828,7 @@ export default function VillaScope() {
             </select>
             {(filters.cat||filters.contre||filters.search) && <Btn variant="secondary" small onClick={() => setFilters({cat:"",contre:"",search:""})}>Reset</Btn>}
           </div>
-          <p style={{margin:"0 0 6px",fontSize:11,color:"#64748b"}}>{filtered.length} ops - <strong style={{color:"#2563eb"}}>{fmt(filtered.reduce((s,e) => s+(e.montant||0),0))} {TND}</strong></p>
+          <p style={{margin:"0 0 6px",fontSize:11,color:"#64748b"}}>{filtered.length} ops - <strong style={{color:accentColor}}>{fmt(filtered.reduce((s,e) => s+(e.montant||0),0))} {currency}</strong></p>
           <div style={{overflowX:"auto",borderRadius:10,border:"1px solid #e2e8f0"}}>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
               <thead><tr style={{background:"#f8fafc"}}>
@@ -622,7 +838,7 @@ export default function VillaScope() {
               <tbody>{filtered.slice(0,100).map(e => (
                 <tr key={e.id} style={{borderBottom:"1px solid #e2e8f0",cursor:"pointer"}} onClick={() => {setEditItem(e);setModal("expense")}}>
                   <td style={{padding:"6px",color:"#64748b",whiteSpace:"nowrap"}}>{e.date||"\u2014"}</td>
-                  <td style={{padding:"6px",color:"#2563eb",fontWeight:700}}>{fmtD(e.montant)}</td>
+                  <td style={{padding:"6px",color:accentColor,fontWeight:700}}>{fmtD(e.montant)}</td>
                   <td style={{padding:"6px"}}><span style={{background:(CAT_COLORS[e.categorie]||"#6b7280")+"15",color:CAT_COLORS[e.categorie]||"#94a3b8",padding:"2px 5px",borderRadius:5,fontSize:10,fontWeight:600}}>{e.categorie}</span></td>
                   <td style={{padding:"6px",color:"#334155",fontSize:10}}>{e.etape||"\u2014"}</td>
                   <td style={{padding:"6px",color:"#334155",fontSize:10}}>{e.contre||"\u2014"}</td>
@@ -640,12 +856,12 @@ export default function VillaScope() {
         <div style={{animation:"fu .4s ease"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14,flexWrap:"wrap",gap:8}}>
             <h2 style={{margin:0,fontSize:17,fontWeight:800,color:"#0f172a",}}>El Chahid - Detail Materiaux</h2>
-            <Btn onClick={() => {setEditItem(null);setModal("suppItem")}}>+ Article</Btn>
+            {!isReadOnly && <Btn onClick={() => {setEditItem(null);setModal("suppItem")}}>+ Article</Btn>}
           </div>
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:10,marginBottom:14}}>
             <div style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)"}}>
               <p style={{margin:"0 0 3px",fontSize:10,color:"#64748b",textTransform:"uppercase",fontWeight:700}}>Total achats</p>
-              <p style={{margin:0,fontSize:20,fontWeight:800,color:"#2563eb"}}>{fmt(chahidTotal)} <span style={{fontSize:11,color:"#64748b"}}>{TND}</span></p>
+              <p style={{margin:0,fontSize:20,fontWeight:800,color:accentColor}}>{fmt(chahidTotal)} <span style={{fontSize:11,color:"#64748b"}}>{currency}</span></p>
             </div>
             <div style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)"}}>
               <p style={{margin:"0 0 3px",fontSize:10,color:"#64748b",textTransform:"uppercase",fontWeight:700}}>Lignes</p>
@@ -664,7 +880,7 @@ export default function VillaScope() {
                   <span style={{fontSize:11,color:"#334155",fontWeight:600}}>
                     <span style={{display:"inline-block",width:8,height:8,borderRadius:2,background:SC[cat]||"#6b7280",marginRight:6}}></span>{cat}
                   </span>
-                  <span style={{fontSize:12,color:"#2563eb",fontWeight:800}}>{fmt(val)}</span>
+                  <span style={{fontSize:12,color:accentColor,fontWeight:800}}>{fmt(val)}</span>
                 </div>
               ))}
             </div>
@@ -673,7 +889,7 @@ export default function VillaScope() {
             <input placeholder="Rechercher article..." value={suppFilter.search} onChange={e => setSuppFilter(f => ({...f,search:e.target.value}))} style={{...inS,width:200,fontSize:12}}/>
             {(suppFilter.cat||suppFilter.search) && <Btn variant="secondary" small onClick={() => setSuppFilter({cat:"",search:""})}>Reset</Btn>}
           </div>
-          <p style={{margin:"0 0 6px",fontSize:11,color:"#64748b"}}>{suppFiltered.length} lignes - <strong style={{color:"#2563eb"}}>{fmt(suppFiltered.reduce((s,e) => s+(e.ttc||0),0))} {TND}</strong></p>
+          <p style={{margin:"0 0 6px",fontSize:11,color:"#64748b"}}>{suppFiltered.length} lignes - <strong style={{color:accentColor}}>{fmt(suppFiltered.reduce((s,e) => s+(e.ttc||0),0))} {currency}</strong></p>
           <div style={{overflowX:"auto",borderRadius:10,border:"1px solid #e2e8f0"}}>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
               <thead><tr style={{background:"#f8fafc"}}>
@@ -687,7 +903,7 @@ export default function VillaScope() {
                   <td style={{padding:"6px"}}><span style={{background:(SC[e.categorie]||"#6b7280")+"15",color:SC[e.categorie]||"#94a3b8",padding:"2px 6px",borderRadius:5,fontSize:10,fontWeight:600}}>{e.categorie}</span></td>
                   <td style={{padding:"6px",color:"#334155",textAlign:"right"}}>{e.qte}</td>
                   <td style={{padding:"6px",color:"#334155",textAlign:"right"}}>{fmtD(e.prix)}</td>
-                  <td style={{padding:"6px",color:"#2563eb",fontWeight:700,textAlign:"right"}}>{fmtD(e.ttc)}</td>
+                  <td style={{padding:"6px",color:accentColor,fontWeight:700,textAlign:"right"}}>{fmtD(e.ttc)}</td>
                   <td style={{padding:"6px"}}><button onClick={ev => {ev.stopPropagation();setChahid(p => p.filter(x => x.id!==e.id))}} style={{background:"#fef2f2",border:"none",color:"#ef4444",cursor:"pointer",fontSize:11,borderRadius:5,padding:"2px 6px",fontWeight:600}}>X</button></td>
                 </tr>
               ))}</tbody>
@@ -709,7 +925,7 @@ export default function VillaScope() {
                     <p style={{margin:0,fontWeight:800,fontSize:14,color:"#0f172a"}}>{name}</p>
                     <p style={{margin:"2px 0 0",fontSize:10,color:"#64748b"}}>{items.length} ops</p>
                   </div>
-                  <p style={{margin:0,fontSize:18,fontWeight:800,color:"#2563eb"}}>{fmt(total)} <span style={{fontSize:11,color:"#64748b"}}>{TND}</span></p>
+                  <p style={{margin:0,fontSize:18,fontWeight:800,color:accentColor}}>{fmt(total)} <span style={{fontSize:11,color:"#64748b"}}>{currency}</span></p>
                 </div>
               </div>
             );
@@ -722,11 +938,11 @@ export default function VillaScope() {
         <div style={{animation:"fu .4s ease"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14,flexWrap:"wrap",gap:8}}>
             <h2 style={{margin:0,fontSize:17,fontWeight:800,color:"#0f172a",}}>Projections</h2>
-            <Btn onClick={() => {setEditItem(null);setModal("projection")}}>+ Projection</Btn>
+            {!isReadOnly && <Btn onClick={() => {setEditItem(null);setModal("projection")}}>+ Projection</Btn>}
           </div>
           <div style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)",marginBottom:14,display:"flex",gap:20,flexWrap:"wrap"}}>
-            <div><p style={{margin:0,fontSize:10,color:"#64748b",textTransform:"uppercase"}}>Reste a payer</p><p style={{margin:"3px 0 0",fontSize:20,fontWeight:800,color:"#ef4444"}}>{fmt(totalProj)} {TND}</p></div>
-            <div><p style={{margin:0,fontSize:10,color:"#64748b",textTransform:"uppercase"}}>Devis</p><p style={{margin:"3px 0 0",fontSize:20,fontWeight:800,color:"#3b82f6"}}>{fmt(projections.reduce((s,p) => s+(p.devis||0),0))} {TND}</p></div>
+            <div><p style={{margin:0,fontSize:10,color:"#64748b",textTransform:"uppercase"}}>Reste a payer</p><p style={{margin:"3px 0 0",fontSize:20,fontWeight:800,color:"#ef4444"}}>{fmt(totalProj)} {currency}</p></div>
+            <div><p style={{margin:0,fontSize:10,color:"#64748b",textTransform:"uppercase"}}>Devis</p><p style={{margin:"3px 0 0",fontSize:20,fontWeight:800,color:"#3b82f6"}}>{fmt(projections.reduce((s,p) => s+(p.devis||0),0))} {currency}</p></div>
           </div>
           {projections.map(p => (
             <div key={p.id} style={{background:"#ffffff",borderRadius:12,padding:14,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)",marginBottom:8,display:"grid",gridTemplateColumns:"1fr auto auto",alignItems:"center",gap:12,cursor:"pointer"}} onClick={() => {setEditItem(p);setModal("projection")}}>
@@ -735,7 +951,7 @@ export default function VillaScope() {
                 {p.devis > 0 && <div style={{marginTop:4,height:4,background:"#e0effe",borderRadius:2,width:150}}><div style={{width:`${(p.avance||0)/p.devis*100}%`,height:"100%",borderRadius:2,background:"#10b981"}}/></div>}
                 <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>Av: {fmt(p.avance||0)} | Dev: {fmt(p.devis||0)}</p>
               </div>
-              <p style={{margin:0,fontSize:16,fontWeight:800,color:"#ef4444"}}>{fmt(p.reste)} <span style={{fontSize:10,color:"#64748b"}}>{TND}</span></p>
+              <p style={{margin:0,fontSize:16,fontWeight:800,color:"#ef4444"}}>{fmt(p.reste)} <span style={{fontSize:10,color:"#64748b"}}>{currency}</span></p>
               <button onClick={ev => {ev.stopPropagation();setProjections(pr => pr.filter(x => x.id!==p.id))}} style={{background:"#fef2f2",border:"none",color:"#ef4444",cursor:"pointer",fontSize:12,borderRadius:6,padding:"4px 8px",fontWeight:600}}>X</button>
             </div>
           ))}
@@ -783,7 +999,7 @@ export default function VillaScope() {
               <div style={{display:"flex",alignItems:"center",gap:10}}>
                 <div style={{width:34,height:34,borderRadius:9,background:"linear-gradient(135deg,#2563eb,#1d4ed8)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:15,fontWeight:900,color:"#0f172a"}}>V</div>
                 <span style={{fontSize:16,fontWeight:800,color:"#0f172a"}}>VillaScope</span>
-                <span style={{fontSize:10,padding:"2px 7px",borderRadius:5,background:"rgba(37,99,235,.1)",color:"#2563eb",fontWeight:700}}>💾</span>
+                <span style={{fontSize:10,padding:"2px 7px",borderRadius:5,background:"rgba(37,99,235,.1)",color:accentColor,fontWeight:700}}>💾</span>
               </div>
               <button onClick={() => setBackupModal(false)} style={{background:"#f1f5f9",border:"none",color:"#64748b",fontSize:15,cursor:"pointer",width:28,height:28,borderRadius:7,display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
             </div>
@@ -887,7 +1103,7 @@ export default function VillaScope() {
               </div>
               <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:6,marginBottom:8}}>
                 {[
-                  {l:"Dépenses",v:expenses.length,c:"#2563eb"},
+                  {l:"Dépenses",v:expenses.length,c:accentColor},
                   {l:"Projections",v:projections.length,c:"#3b82f6"},
                   {l:"Fournisseur",v:chahid.length,c:"#10b981"},
                 ].map((s,i) => (
@@ -958,7 +1174,7 @@ export default function VillaScope() {
                   )}
                   <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:6}}>
                     {[
-                      {l:"Dép.",v:importPreview.depenses?.length||0,c:"#2563eb",cur:expenses.length},
+                      {l:"Dép.",v:importPreview.depenses?.length||0,c:accentColor,cur:expenses.length},
                       {l:"Proj.",v:importPreview.projections?.length||0,c:"#3b82f6",cur:projections.length},
                       {l:"Fourn.",v:importPreview.fournisseur_chahid?.length||0,c:"#10b981",cur:chahid.length},
                     ].map((s,i) => (
@@ -970,7 +1186,7 @@ export default function VillaScope() {
                   </div>
                 </div>
                 <div style={{padding:"8px 12px",borderRadius:8,background:"rgba(217,119,6,.06)",border:"1px solid rgba(217,119,6,.2)",marginBottom:10}}>
-                  <p style={{margin:0,fontSize:11,color:"#2563eb",fontWeight:700}}>⚠️ Les données actuelles seront écrasées</p>
+                  <p style={{margin:0,fontSize:11,color:accentColor,fontWeight:700}}>⚠️ Les données actuelles seront écrasées</p>
                 </div>
                 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
                   <button onClick={() => { setImportPreview(null); setImportStatus(null); }} style={{padding:"11px",borderRadius:9,border:"1px solid #e2e8f0",cursor:"pointer",fontSize:12,fontWeight:700,background:"#ffffff",color:"#475569"}}>Annuler</button>
@@ -1000,6 +1216,7 @@ export default function VillaScope() {
     </div>
   );
 }
+
 
 function ExpForm({item, onSave}) {
   const [f, setF] = useState(item || {date:"",montant:"",categorie:"Gros \u0153uvre",etape:"",contre:"",detail:""});
