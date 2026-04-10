@@ -1,3 +1,4 @@
+import "./css/villascope.css";
 import { useState, useEffect, useMemo, useRef } from "react";
 
 const TND = "TND";
@@ -5,7 +6,7 @@ const fmt = (n) => new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 }).
 const fmtD = (n) => new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 2 }).format(n);
 
 const CATEGORIES = ["Achat du terrain","Conception et \u00e9tudes","Gros \u0153uvre","\u00c9lectricit\u00e9","Plomberie","Second \u0153uvre","Menuiserie","Finition","Placo","Sanitaire","Divers","Autres"];
-const CAT_COLORS = {"Achat du terrain":"#8b5cf6","Conception et \u00e9tudes":"#3b82f6","Gros \u0153uvre":"#f59e0b","\u00c9lectricit\u00e9":"#eab308","Plomberie":"#06b6d4","Second \u0153uvre":"#10b981","Menuiserie":"#a3694a","Finition":"#ec4899","Placo":"#f97316","Sanitaire":"#14b8a6","Divers":"#6b7280","Autres":"#9ca3af"};
+const CAT_COLORS = {"Achat du terrain":"#8b5cf6","Conception et \u00e9tudes":"#3b82f6","Gros \u0153uvre":"#0891b2","\u00c9lectricit\u00e9":"#eab308","Plomberie":"#06b6d4","Second \u0153uvre":"#10b981","Menuiserie":"#a3694a","Finition":"#ec4899","Placo":"#f97316","Sanitaire":"#14b8a6","Divers":"#6b7280","Autres":"#9ca3af"};
 const CAT_ICONS = {"Achat du terrain":"\ud83c\udfdd\ufe0f","Conception et \u00e9tudes":"\ud83d\udcd0","Gros \u0153uvre":"\ud83c\udfd7\ufe0f","\u00c9lectricit\u00e9":"\u26a1","Plomberie":"\ud83d\udd27","Second \u0153uvre":"\ud83e\ade0","Menuiserie":"\ud83e\udeb5","Finition":"\u2728","Placo":"\ud83e\uddf1","Sanitaire":"\ud83d\udebf","Divers":"\ud83d\udce6","Autres":"\ud83d\udd39"};
 const ETAPES = ["Terrain","Plan","Controle","Muraille","Garage","Fas9iya","Chappe","Dalle","Dalle rdc","Dalle etage","Terrasse","Piscine","Brique ext\u00e9rieur","Brique int\u00e9rieur","Enduit ext\u00e9rieur","Enduit int\u00e9rieur","Revetement","Aluminum","Electricit\u00e9","Plomberie","Menuiserie","Finition","Carrelage","Marbre","9omma","Sanitaire","Mat\u00e9riaux","STEG","Sonede","Extra","Autres"];
 const CONTRES = ["Saif","El Chahid","KL BETON","Idriss Trax","Tarek Jrade","Ben ya9oub","Ihab","Telwine","BelHaj mhmed","Lotfi placo","SANI DECOR","COBAM","Mohamed ben gerdani","9aysse sfaxi","Bricola","Satourie Amina","Satouri Meryem","Nouriddine Jlidi","Yajini","Ben hamouda","Pisciniste","Menuiserie","Sonede","STEG","Administration","Impot","Notaire","Avocat","Frais Agence Immo","Kalid rais","Divers","Autres"];
@@ -150,22 +151,22 @@ const INIT_PROJ = [
 
 // API backup server URL (configurable)
 const BACKUP_API = "http://localhost:3001";
-const inS = {width:"100%",padding:"8px 10px",background:"#1e293b",border:"1px solid #334155",borderRadius:7,color:"#f1f5f9",fontSize:13,outline:"none",boxSizing:"border-box"};
+const inS = {width:"100%",padding:"10px 14px",background:"#ffffff",border:"1px solid #dbeafe",borderRadius:10,color:"#1e3a5f",fontSize:13,outline:"none",boxSizing:"border-box",fontFamily:"'Plus Jakarta Sans',sans-serif"};
 const selS = {...inS, appearance:"auto"};
 
 function Btn({children, variant="primary", small, ...p}) {
-  const bg = variant==="primary" ? "linear-gradient(135deg,#f59e0b,#d97706)" : "#1e293b";
-  const col = variant==="primary" ? "#0f172a" : "#e2e8f0";
-  return <button {...p} style={{padding:small?"4px 8px":"8px 16px",borderRadius:7,border:variant==="secondary"?"1px solid #334155":"none",fontSize:small?11:12,fontWeight:700,cursor:"pointer",background:bg,color:col,...(p.style||{})}}>{children}</button>;
+  const bg = variant==="primary" ? "linear-gradient(135deg,#2563eb,#1d4ed8)" : "#ffffff";
+  const col = variant==="primary" ? "#ffffff" : "#2563eb";
+  return <button {...p} style={{padding:small?"5px 10px":"9px 18px",borderRadius:10,border:variant==="secondary"?"1px solid #bfdbfe":"none",fontSize:small?11:12,fontWeight:700,cursor:"pointer",background:bg,color:col,fontFamily:"'Plus Jakarta Sans',sans-serif",letterSpacing:.2,boxShadow:variant==="primary"?"0 2px 8px rgba(37,99,235,.25)":"none",...(p.style||{})}}>{children}</button>;
 }
 
 function Modal({title, onClose, children, wide}) {
   return (
-    <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,.7)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:1000,padding:12}} onClick={onClose}>
-      <div onClick={e => e.stopPropagation()} style={{background:"#0f172a",borderRadius:14,padding:24,width:"100%",maxWidth:wide?600:420,border:"1px solid #1e293b",maxHeight:"88vh",overflowY:"auto"}}>
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
-          <h3 style={{margin:0,color:"#f1f5f9",fontSize:16,fontWeight:800}}>{title}</h3>
-          <button onClick={onClose} style={{background:"none",border:"none",color:"#64748b",fontSize:20,cursor:"pointer"}}>&#10005;</button>
+    <div className="vs-modal-overlay" onClick={onClose}>
+      <div onClick={e => e.stopPropagation()} className={`vs-modal ${wide?"wide":""}`}>
+        <div className="vs-modal-header">
+          <h3 className="vs-modal-title">{title}</h3>
+          <button onClick={onClose} className="vs-modal-close">&#10005;</button>
         </div>
         {children}
       </div>
@@ -174,19 +175,19 @@ function Modal({title, onClose, children, wide}) {
 }
 
 function Field({label, children}) {
-  return <div style={{marginBottom:10}}><label style={{display:"block",color:"#94a3b8",fontSize:10,marginBottom:3,fontWeight:700,textTransform:"uppercase",letterSpacing:.8}}>{label}</label>{children}</div>;
+  return <div className="vs-field"><label className="vs-field-label">{label}</label>{children}</div>;
 }
 
-function Donut({pct, size=90, stroke=8, color="#f59e0b", label}) {
+function Donut({pct, size=90, stroke=8, color="#2563eb", label}) {
   const r = (size-stroke)/2, c = 2*Math.PI*r, o = c - (Math.min(pct,100)/100)*c;
   return (
     <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
       <svg width={size} height={size} style={{transform:"rotate(-90deg)"}}>
-        <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="#1e293b" strokeWidth={stroke}/>
+        <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="#e0effe" strokeWidth={stroke}/>
         <circle cx={size/2} cy={size/2} r={r} fill="none" stroke={color} strokeWidth={stroke} strokeDasharray={c} strokeDashoffset={o} strokeLinecap="round" style={{transition:"stroke-dashoffset .8s"}}/>
-        <text x={size/2} y={size/2} textAnchor="middle" dominantBaseline="central" fill="#e2e8f0" fontSize={size*.19} fontWeight="800" style={{transform:"rotate(90deg)",transformOrigin:"center"}}>{Math.round(pct)}%</text>
+        <text x={size/2} y={size/2} textAnchor="middle" dominantBaseline="central" fill="#0f172a" fontSize={size*.19} fontWeight="800" style={{transform:"rotate(90deg)",transformOrigin:"center"}}>{Math.round(pct)}%</text>
       </svg>
-      {label && <span style={{fontSize:10,color:"#94a3b8",marginTop:2}}>{label}</span>}
+      {label && <span style={{fontSize:10,color:"#64748b",marginTop:2}}>{label}</span>}
     </div>
   );
 }
@@ -467,42 +468,42 @@ export default function VillaScope() {
   const VIEWS = [{k:"dashboard",l:"Dashboard",i:"\ud83d\udcca"},{k:"depenses",l:"D\u00e9penses",i:"\ud83d\udcb0"},{k:"fournisseurs",l:"Fournisseurs",i:"\ud83c\udfe0"},{k:"intervenants",l:"Intervenants",i:"\ud83d\udc77"},{k:"projections",l:"Projections",i:"\ud83d\udccb"}];
 
   return (
-    <div style={{minHeight:"100vh",background:"#020617",color:"#e2e8f0",fontFamily:"'DM Sans','Segoe UI',system-ui,sans-serif"}}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700;9..40,800&family=Instrument+Serif&display=swap');*{box-sizing:border-box}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#334155;border-radius:3px}@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}`}</style>
+    <div className="vs-root">
+      
 
-      <header style={{background:"linear-gradient(180deg,#0f172a,#020617)",borderBottom:"1px solid #1e293b",padding:"12px 16px",position:"sticky",top:0,zIndex:100}}>
-        <div style={{maxWidth:1200,margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:8}}>
-          <div style={{display:"flex",alignItems:"center",gap:10}}>
-            <div style={{width:36,height:36,borderRadius:9,background:"linear-gradient(135deg,#f59e0b,#d97706)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:17,fontWeight:900,color:"#0f172a"}}>V</div>
+      <header className="vs-header">
+        <div className="vs-header-inner">
+          <div className="vs-logo-wrap">
+            <div className="vs-logo-icon">V</div>
             <div>
-              <h1 style={{margin:0,fontSize:19,fontWeight:900,fontFamily:"'Instrument Serif',serif",color:"#f8fafc"}}>VillaScope</h1>
-              <p style={{margin:0,fontSize:9,color:"#64748b",letterSpacing:2,textTransform:"uppercase"}}>Tazdaine - Djerba</p>
+              <h1 className="vs-logo-title">VillaScope</h1>
+              <p className="vs-logo-sub">Tazdaine • Djerba</p>
             </div>
           </div>
-          <nav style={{display:"flex",gap:2,background:"#0f172a",borderRadius:9,padding:3,border:"1px solid #1e293b",flexWrap:"wrap",alignItems:"center"}}>
-            {VIEWS.map(t => <button key={t.k} onClick={() => setView(t.k)} style={{padding:"6px 10px",borderRadius:7,border:"none",cursor:"pointer",fontSize:11,fontWeight:700,background:view===t.k?"linear-gradient(135deg,#f59e0b,#d97706)":"transparent",color:view===t.k?"#0f172a":"#94a3b8"}}>{t.i} {t.l}</button>)}
-            <button onClick={() => { setBackupModal(true); setImportPreview(null); setImportStatus(null); setExportStatus(null); setServerStatus(null); loadSnapshotsList(); }} style={{padding:"6px 10px",borderRadius:7,border:"none",cursor:"pointer",fontSize:14,background:"transparent",color:"#64748b",marginLeft:2,transition:"color .2s"}} title="Sauvegarde & Restauration">&#9881;</button>
+          <nav className="vs-nav">
+            {VIEWS.map(t => <button key={t.k} onClick={() => setView(t.k)} style={{padding:"6px 10px",borderRadius:7,border:"none",cursor:"pointer",fontSize:11,fontWeight:700,background:view===t.k?"#ffffff":"transparent",color:view===t.k?"#1e40af":"rgba(255,255,255,.8)",fontFamily:"'Plus Jakarta Sans',sans-serif"}}>{t.i} {t.l}</button>)}
+            <button onClick={() => { setBackupModal(true); setImportPreview(null); setImportStatus(null); setExportStatus(null); setServerStatus(null); loadSnapshotsList(); }} style={{padding:"6px 10px",borderRadius:7,border:"none",cursor:"pointer",fontSize:14,background:"transparent",color:"rgba(255,255,255,.6)",marginLeft:2,transition:"color .2s"}} title="Sauvegarde & Restauration">&#9881;</button>
           </nav>
           <input ref={fileInputRef} type="file" accept=".json" style={{display:"none"}} onChange={handleImportFile} />
         </div>
       </header>
 
-      <main style={{maxWidth:1200,margin:"0 auto",padding:"18px 14px"}}>
+      <main className="vs-main">
 
       {/* DASHBOARD */}
       {view === "dashboard" && (
         <div style={{animation:"fu .4s ease"}}>
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(155px,1fr))",gap:10,marginBottom:20}}>
-            {[{l:"Total depense",v:fmt(totalSpent),c:"#f59e0b"},{l:"Reste a payer",v:fmt(totalProj),c:"#ef4444"},{l:"Budget estime",v:fmt(totalSpent+totalProj),c:"#3b82f6"},{l:"El Chahid detail",v:fmt(chahidTotal),c:"#10b981"}].map((c,i) => (
-              <div key={i} style={{background:"#0f172a",borderRadius:12,padding:14,border:"1px solid #1e293b"}}>
+            {[{l:"Total dépensé",v:fmt(totalSpent),c:"#2563eb"},{l:"Reste a payer",v:fmt(totalProj),c:"#ef4444"},{l:"Budget estime",v:fmt(totalSpent+totalProj),c:"#3b82f6"},{l:"El Chahid detail",v:fmt(chahidTotal),c:"#10b981"}].map((c,i) => (
+              <div key={i} style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)"}}>
                 <p style={{margin:"0 0 3px",fontSize:10,color:"#64748b",textTransform:"uppercase",fontWeight:700}}>{c.l}</p>
-                <p style={{margin:0,fontSize:18,fontWeight:800,color:"#f8fafc"}}>{c.v} <span style={{fontSize:10,color:"#94a3b8"}}>{TND}</span></p>
+                <p style={{margin:0,fontSize:18,fontWeight:800,color:"#0f172a"}}>{c.v} <span style={{fontSize:10,color:"#64748b"}}>{TND}</span></p>
               </div>
             ))}
           </div>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginBottom:20}}>
-            <div style={{background:"#0f172a",borderRadius:12,padding:16,border:"1px solid #1e293b"}}>
-              <p style={{margin:"0 0 10px",fontSize:11,color:"#94a3b8",fontWeight:700,textTransform:"uppercase"}}>Par categorie</p>
+            <div style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)"}}>
+              <p style={{margin:"0 0 10px",fontSize:11,color:"#64748b",fontWeight:700,textTransform:"uppercase"}}>Par categorie</p>
               {/* DONUT MULTI-SEGMENT */}
               <div style={{display:"flex",justifyContent:"center",marginBottom:16}}>
                 {(() => {
@@ -517,7 +518,7 @@ export default function VillaScope() {
                   });
                   return (
                     <svg width={size} height={size} style={{transform:"rotate(-90deg)"}}>
-                      <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="#1e293b" strokeWidth={stroke}/>
+                      <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="#e0effe" strokeWidth={stroke}/>
                       {segs.map((s, i) => (
                         <circle key={i} cx={size/2} cy={size/2} r={r} fill="none"
                           stroke={s.color} strokeWidth={stroke}
@@ -543,33 +544,33 @@ export default function VillaScope() {
               {byCat.map(([cat,val]) => (
                 <div key={cat} style={{marginBottom:6}}>
                   <div style={{display:"flex",justifyContent:"space-between",fontSize:11,marginBottom:2}}>
-                    <span style={{color:"#cbd5e1"}}>
+                    <span style={{color:"#334155"}}>
                       <span style={{display:"inline-block",width:8,height:8,borderRadius:2,background:CAT_COLORS[cat]||"#6b7280",marginRight:5,verticalAlign:"middle"}}></span>
                       {CAT_ICONS[cat]||""} {cat}
                       <span style={{color:"#64748b",marginLeft:4,fontSize:10}}>({Math.round(val/totalSpent*100)}%)</span>
                     </span>
-                    <span style={{color:"#f59e0b",fontWeight:700}}>{fmt(val)}</span>
+                    <span style={{color:"#2563eb",fontWeight:700}}>{fmt(val)}</span>
                   </div>
-                  <div style={{height:4,background:"#1e293b",borderRadius:2}}>
+                  <div style={{height:4,background:"#e0effe",borderRadius:2}}>
                     <div style={{width:`${(val/totalSpent)*100}%`,height:"100%",borderRadius:2,background:CAT_COLORS[cat]||"#6b7280"}}/>
                   </div>
                 </div>
               ))}
             </div>
-            <div style={{background:"#0f172a",borderRadius:12,padding:16,border:"1px solid #1e293b"}}>
-              <p style={{margin:"0 0 10px",fontSize:11,color:"#94a3b8",fontWeight:700,textTransform:"uppercase"}}>Par annee</p>
+            <div style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)"}}>
+              <p style={{margin:"0 0 10px",fontSize:11,color:"#64748b",fontWeight:700,textTransform:"uppercase"}}>Par annee</p>
               {byYear.map(([yr,val]) => (
                 <div key={yr} style={{marginBottom:7}}>
                   <div style={{display:"flex",justifyContent:"space-between",fontSize:11,marginBottom:2}}>
-                    <span style={{color:"#cbd5e1",fontWeight:700}}>{yr}</span>
-                    <span style={{color:"#f59e0b",fontWeight:700}}>{fmt(val)} {TND}</span>
+                    <span style={{color:"#334155",fontWeight:700}}>{yr}</span>
+                    <span style={{color:"#2563eb",fontWeight:700}}>{fmt(val)} {TND}</span>
                   </div>
-                  <div style={{height:5,background:"#1e293b",borderRadius:2}}>
-                    <div style={{width:`${(val/Math.max(...byYear.map(y=>y[1])))*100}%`,height:"100%",borderRadius:2,background:"linear-gradient(90deg,#f59e0b,#d97706)"}}/>
+                  <div style={{height:5,background:"#e0effe",borderRadius:2}}>
+                    <div style={{width:`${(val/Math.max(...byYear.map(y=>y[1])))*100}%`,height:"100%",borderRadius:2,background:"linear-gradient(90deg,#3b82f6,#2563eb)"}}/>
                   </div>
                 </div>
               ))}
-              <div style={{marginTop:12,paddingTop:10,borderTop:"1px solid #1e293b",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+              <div style={{marginTop:12,paddingTop:10,borderTop:"1px solid #e2e8f0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                 <Donut pct={totalSpent/(totalSpent+totalProj)*100} size={70} stroke={7} label="Paye/Total"/>
                 <div style={{textAlign:"right"}}>
                   <p style={{margin:0,fontSize:10,color:"#64748b"}}>Avancement</p>
@@ -578,13 +579,13 @@ export default function VillaScope() {
               </div>
             </div>
           </div>
-          <div style={{background:"#0f172a",borderRadius:12,padding:16,border:"1px solid #1e293b"}}>
-            <p style={{margin:"0 0 10px",fontSize:11,color:"#94a3b8",fontWeight:700,textTransform:"uppercase"}}>Top intervenants</p>
+          <div style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)"}}>
+            <p style={{margin:"0 0 10px",fontSize:11,color:"#64748b",fontWeight:700,textTransform:"uppercase"}}>Top intervenants</p>
             <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(170px,1fr))",gap:8}}>
               {byContre.slice(0,10).map(([n,v]) => (
-                <div key={n} style={{background:"#1e293b",borderRadius:8,padding:9,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-                  <span style={{fontSize:11,color:"#cbd5e1",fontWeight:600}}>{n}</span>
-                  <span style={{fontSize:12,color:"#f59e0b",fontWeight:800}}>{fmt(v)}</span>
+                <div key={n} style={{background:"#f8fafc",borderRadius:10,padding:10,border:"1px solid #e2e8f0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                  <span style={{fontSize:11,color:"#334155",fontWeight:600}}>{n}</span>
+                  <span style={{fontSize:12,color:"#2563eb",fontWeight:800}}>{fmt(v)}</span>
                 </div>
               ))}
             </div>
@@ -596,7 +597,7 @@ export default function VillaScope() {
       {view === "depenses" && (
         <div style={{animation:"fu .4s ease"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12,flexWrap:"wrap",gap:8}}>
-            <h2 style={{margin:0,fontSize:17,fontWeight:800,color:"#f8fafc",fontFamily:"'Instrument Serif',serif"}}>Suivi detaille</h2>
+            <h2 style={{margin:0,fontSize:17,fontWeight:800,color:"#0f172a",}}>Suivi detaille</h2>
             <Btn onClick={() => {setEditItem(null);setModal("expense")}}>+ Depense</Btn>
           </div>
           <div style={{display:"flex",gap:6,marginBottom:10,flexWrap:"wrap"}}>
@@ -611,22 +612,22 @@ export default function VillaScope() {
             </select>
             {(filters.cat||filters.contre||filters.search) && <Btn variant="secondary" small onClick={() => setFilters({cat:"",contre:"",search:""})}>Reset</Btn>}
           </div>
-          <p style={{margin:"0 0 6px",fontSize:11,color:"#94a3b8"}}>{filtered.length} ops - <strong style={{color:"#f59e0b"}}>{fmt(filtered.reduce((s,e) => s+(e.montant||0),0))} {TND}</strong></p>
-          <div style={{overflowX:"auto",borderRadius:10,border:"1px solid #1e293b"}}>
+          <p style={{margin:"0 0 6px",fontSize:11,color:"#64748b"}}>{filtered.length} ops - <strong style={{color:"#2563eb"}}>{fmt(filtered.reduce((s,e) => s+(e.montant||0),0))} {TND}</strong></p>
+          <div style={{overflowX:"auto",borderRadius:10,border:"1px solid #e2e8f0"}}>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
-              <thead><tr style={{background:"#0f172a"}}>
-                {["Date","Montant","Categorie","Etape","Intervenant","Detail"].map(h => <th key={h} style={{padding:"8px 5px",textAlign:"left",color:"#94a3b8",fontWeight:700,borderBottom:"1px solid #1e293b",fontSize:9,textTransform:"uppercase"}}>{h}</th>)}
-                <th style={{padding:"8px",borderBottom:"1px solid #1e293b",width:35}}></th>
+              <thead><tr style={{background:"#f8fafc"}}>
+                {["Date","Montant","Categorie","Etape","Intervenant","Detail"].map(h => <th key={h} style={{padding:"8px 5px",textAlign:"left",color:"#64748b",fontWeight:700,borderBottom:"1px solid #e2e8f0",fontSize:9,textTransform:"uppercase"}}>{h}</th>)}
+                <th style={{padding:"8px",borderBottom:"1px solid #e2e8f0",width:35}}></th>
               </tr></thead>
               <tbody>{filtered.slice(0,100).map(e => (
-                <tr key={e.id} style={{borderBottom:"1px solid #1e293b",cursor:"pointer"}} onClick={() => {setEditItem(e);setModal("expense")}}>
-                  <td style={{padding:"6px",color:"#94a3b8",whiteSpace:"nowrap"}}>{e.date||"\u2014"}</td>
-                  <td style={{padding:"6px",color:"#f59e0b",fontWeight:700}}>{fmtD(e.montant)}</td>
-                  <td style={{padding:"6px"}}><span style={{background:(CAT_COLORS[e.categorie]||"#6b7280")+"22",color:CAT_COLORS[e.categorie]||"#94a3b8",padding:"2px 5px",borderRadius:5,fontSize:10,fontWeight:600}}>{e.categorie}</span></td>
-                  <td style={{padding:"6px",color:"#cbd5e1",fontSize:10}}>{e.etape||"\u2014"}</td>
-                  <td style={{padding:"6px",color:"#cbd5e1",fontSize:10}}>{e.contre||"\u2014"}</td>
-                  <td style={{padding:"6px",color:"#94a3b8",fontSize:10,maxWidth:140,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{e.detail||"\u2014"}</td>
-                  <td style={{padding:"6px"}}><button onClick={ev => {ev.stopPropagation();setExpenses(p => p.filter(x => x.id!==e.id))}} style={{background:"none",border:"none",color:"#475569",cursor:"pointer",fontSize:12}}>X</button></td>
+                <tr key={e.id} style={{borderBottom:"1px solid #e2e8f0",cursor:"pointer"}} onClick={() => {setEditItem(e);setModal("expense")}}>
+                  <td style={{padding:"6px",color:"#64748b",whiteSpace:"nowrap"}}>{e.date||"\u2014"}</td>
+                  <td style={{padding:"6px",color:"#2563eb",fontWeight:700}}>{fmtD(e.montant)}</td>
+                  <td style={{padding:"6px"}}><span style={{background:(CAT_COLORS[e.categorie]||"#6b7280")+"15",color:CAT_COLORS[e.categorie]||"#94a3b8",padding:"2px 5px",borderRadius:5,fontSize:10,fontWeight:600}}>{e.categorie}</span></td>
+                  <td style={{padding:"6px",color:"#334155",fontSize:10}}>{e.etape||"\u2014"}</td>
+                  <td style={{padding:"6px",color:"#334155",fontSize:10}}>{e.contre||"\u2014"}</td>
+                  <td style={{padding:"6px",color:"#64748b",fontSize:10,maxWidth:140,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{e.detail||"\u2014"}</td>
+                  <td style={{padding:"6px"}}><button onClick={ev => {ev.stopPropagation();setExpenses(p => p.filter(x => x.id!==e.id))}} style={{background:"#fef2f2",border:"none",color:"#ef4444",cursor:"pointer",fontSize:11,borderRadius:5,padding:"2px 6px",fontWeight:600}}>X</button></td>
                 </tr>
               ))}</tbody>
             </table>
@@ -638,32 +639,32 @@ export default function VillaScope() {
       {view === "fournisseurs" && (
         <div style={{animation:"fu .4s ease"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14,flexWrap:"wrap",gap:8}}>
-            <h2 style={{margin:0,fontSize:17,fontWeight:800,color:"#f8fafc",fontFamily:"'Instrument Serif',serif"}}>El Chahid - Detail Materiaux</h2>
+            <h2 style={{margin:0,fontSize:17,fontWeight:800,color:"#0f172a",}}>El Chahid - Detail Materiaux</h2>
             <Btn onClick={() => {setEditItem(null);setModal("suppItem")}}>+ Article</Btn>
           </div>
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:10,marginBottom:14}}>
-            <div style={{background:"#0f172a",borderRadius:12,padding:14,border:"1px solid #1e293b"}}>
+            <div style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)"}}>
               <p style={{margin:"0 0 3px",fontSize:10,color:"#64748b",textTransform:"uppercase",fontWeight:700}}>Total achats</p>
-              <p style={{margin:0,fontSize:20,fontWeight:800,color:"#f59e0b"}}>{fmt(chahidTotal)} <span style={{fontSize:11,color:"#94a3b8"}}>{TND}</span></p>
+              <p style={{margin:0,fontSize:20,fontWeight:800,color:"#2563eb"}}>{fmt(chahidTotal)} <span style={{fontSize:11,color:"#64748b"}}>{TND}</span></p>
             </div>
-            <div style={{background:"#0f172a",borderRadius:12,padding:14,border:"1px solid #1e293b"}}>
+            <div style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)"}}>
               <p style={{margin:"0 0 3px",fontSize:10,color:"#64748b",textTransform:"uppercase",fontWeight:700}}>Lignes</p>
               <p style={{margin:0,fontSize:20,fontWeight:800,color:"#3b82f6"}}>{chahid.length}</p>
             </div>
-            <div style={{background:"#0f172a",borderRadius:12,padding:14,border:"1px solid #1e293b"}}>
+            <div style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)"}}>
               <p style={{margin:"0 0 3px",fontSize:10,color:"#64748b",textTransform:"uppercase",fontWeight:700}}>Types</p>
               <p style={{margin:0,fontSize:20,fontWeight:800,color:"#10b981"}}>{suppByCat.length}</p>
             </div>
           </div>
-          <div style={{background:"#0f172a",borderRadius:12,padding:16,border:"1px solid #1e293b",marginBottom:14}}>
-            <p style={{margin:"0 0 10px",fontSize:11,color:"#94a3b8",fontWeight:700,textTransform:"uppercase"}}>Par type de materiau</p>
+          <div style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)",marginBottom:14}}>
+            <p style={{margin:"0 0 10px",fontSize:11,color:"#64748b",fontWeight:700,textTransform:"uppercase"}}>Par type de materiau</p>
             <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(180px,1fr))",gap:8}}>
               {suppByCat.map(([cat,val]) => (
-                <div key={cat} onClick={() => setSuppFilter(f => ({...f,cat:f.cat===cat?"":cat}))} style={{background:suppFilter.cat===cat?"#334155":"#1e293b",borderRadius:8,padding:10,display:"flex",justifyContent:"space-between",alignItems:"center",cursor:"pointer",border:suppFilter.cat===cat?"1px solid "+(SC[cat]||"#6b7280"):"1px solid transparent"}}>
-                  <span style={{fontSize:11,color:"#cbd5e1",fontWeight:600}}>
+                <div key={cat} onClick={() => setSuppFilter(f => ({...f,cat:f.cat===cat?"":cat}))} style={{background:suppFilter.cat===cat?"#eff6ff":"#f8fafc",borderRadius:8,padding:10,display:"flex",justifyContent:"space-between",alignItems:"center",cursor:"pointer",border:suppFilter.cat===cat?"1px solid "+(SC[cat]||"#6b7280"):"1px solid transparent"}}>
+                  <span style={{fontSize:11,color:"#334155",fontWeight:600}}>
                     <span style={{display:"inline-block",width:8,height:8,borderRadius:2,background:SC[cat]||"#6b7280",marginRight:6}}></span>{cat}
                   </span>
-                  <span style={{fontSize:12,color:"#f59e0b",fontWeight:800}}>{fmt(val)}</span>
+                  <span style={{fontSize:12,color:"#2563eb",fontWeight:800}}>{fmt(val)}</span>
                 </div>
               ))}
             </div>
@@ -672,22 +673,22 @@ export default function VillaScope() {
             <input placeholder="Rechercher article..." value={suppFilter.search} onChange={e => setSuppFilter(f => ({...f,search:e.target.value}))} style={{...inS,width:200,fontSize:12}}/>
             {(suppFilter.cat||suppFilter.search) && <Btn variant="secondary" small onClick={() => setSuppFilter({cat:"",search:""})}>Reset</Btn>}
           </div>
-          <p style={{margin:"0 0 6px",fontSize:11,color:"#94a3b8"}}>{suppFiltered.length} lignes - <strong style={{color:"#f59e0b"}}>{fmt(suppFiltered.reduce((s,e) => s+(e.ttc||0),0))} {TND}</strong></p>
-          <div style={{overflowX:"auto",borderRadius:10,border:"1px solid #1e293b"}}>
+          <p style={{margin:"0 0 6px",fontSize:11,color:"#64748b"}}>{suppFiltered.length} lignes - <strong style={{color:"#2563eb"}}>{fmt(suppFiltered.reduce((s,e) => s+(e.ttc||0),0))} {TND}</strong></p>
+          <div style={{overflowX:"auto",borderRadius:10,border:"1px solid #e2e8f0"}}>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
-              <thead><tr style={{background:"#0f172a"}}>
-                {["Date","Designation","Type","Qte","P.U.","TTC"].map(h => <th key={h} style={{padding:"8px 5px",textAlign:"left",color:"#94a3b8",fontWeight:700,borderBottom:"1px solid #1e293b",fontSize:9,textTransform:"uppercase"}}>{h}</th>)}
-                <th style={{padding:"8px",borderBottom:"1px solid #1e293b",width:35}}></th>
+              <thead><tr style={{background:"#f8fafc"}}>
+                {["Date","Designation","Type","Qte","P.U.","TTC"].map(h => <th key={h} style={{padding:"8px 5px",textAlign:"left",color:"#64748b",fontWeight:700,borderBottom:"1px solid #e2e8f0",fontSize:9,textTransform:"uppercase"}}>{h}</th>)}
+                <th style={{padding:"8px",borderBottom:"1px solid #e2e8f0",width:35}}></th>
               </tr></thead>
               <tbody>{suppFiltered.slice(0,150).map(e => (
-                <tr key={e.id} style={{borderBottom:"1px solid #1e293b",cursor:"pointer"}} onClick={() => {setEditItem(e);setModal("suppItem")}}>
-                  <td style={{padding:"6px",color:"#94a3b8",whiteSpace:"nowrap"}}>{e.date}</td>
-                  <td style={{padding:"6px",color:"#f1f5f9",fontWeight:600}}>{e.designation}</td>
-                  <td style={{padding:"6px"}}><span style={{background:(SC[e.categorie]||"#6b7280")+"22",color:SC[e.categorie]||"#94a3b8",padding:"2px 6px",borderRadius:5,fontSize:10,fontWeight:600}}>{e.categorie}</span></td>
-                  <td style={{padding:"6px",color:"#cbd5e1",textAlign:"right"}}>{e.qte}</td>
-                  <td style={{padding:"6px",color:"#cbd5e1",textAlign:"right"}}>{fmtD(e.prix)}</td>
-                  <td style={{padding:"6px",color:"#f59e0b",fontWeight:700,textAlign:"right"}}>{fmtD(e.ttc)}</td>
-                  <td style={{padding:"6px"}}><button onClick={ev => {ev.stopPropagation();setChahid(p => p.filter(x => x.id!==e.id))}} style={{background:"none",border:"none",color:"#475569",cursor:"pointer",fontSize:12}}>X</button></td>
+                <tr key={e.id} style={{borderBottom:"1px solid #e2e8f0",cursor:"pointer"}} onClick={() => {setEditItem(e);setModal("suppItem")}}>
+                  <td style={{padding:"6px",color:"#64748b",whiteSpace:"nowrap"}}>{e.date}</td>
+                  <td style={{padding:"6px",color:"#0f172a",fontWeight:600}}>{e.designation}</td>
+                  <td style={{padding:"6px"}}><span style={{background:(SC[e.categorie]||"#6b7280")+"15",color:SC[e.categorie]||"#94a3b8",padding:"2px 6px",borderRadius:5,fontSize:10,fontWeight:600}}>{e.categorie}</span></td>
+                  <td style={{padding:"6px",color:"#334155",textAlign:"right"}}>{e.qte}</td>
+                  <td style={{padding:"6px",color:"#334155",textAlign:"right"}}>{fmtD(e.prix)}</td>
+                  <td style={{padding:"6px",color:"#2563eb",fontWeight:700,textAlign:"right"}}>{fmtD(e.ttc)}</td>
+                  <td style={{padding:"6px"}}><button onClick={ev => {ev.stopPropagation();setChahid(p => p.filter(x => x.id!==e.id))}} style={{background:"#fef2f2",border:"none",color:"#ef4444",cursor:"pointer",fontSize:11,borderRadius:5,padding:"2px 6px",fontWeight:600}}>X</button></td>
                 </tr>
               ))}</tbody>
             </table>
@@ -698,17 +699,17 @@ export default function VillaScope() {
       {/* INTERVENANTS */}
       {view === "intervenants" && (
         <div style={{animation:"fu .4s ease"}}>
-          <h2 style={{margin:"0 0 14px",fontSize:17,fontWeight:800,color:"#f8fafc",fontFamily:"'Instrument Serif',serif"}}>Par intervenant</h2>
+          <h2 style={{margin:"0 0 14px",fontSize:17,fontWeight:800,color:"#0f172a",}}>Par intervenant</h2>
           {byContre.map(([name,total]) => {
             const items = expenses.filter(e => e.contre===name);
             return (
-              <div key={name} style={{background:"#0f172a",borderRadius:12,padding:14,border:"1px solid #1e293b",marginBottom:10}}>
+              <div key={name} style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)",marginBottom:10}}>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                   <div>
-                    <p style={{margin:0,fontWeight:800,fontSize:14,color:"#f8fafc"}}>{name}</p>
+                    <p style={{margin:0,fontWeight:800,fontSize:14,color:"#0f172a"}}>{name}</p>
                     <p style={{margin:"2px 0 0",fontSize:10,color:"#64748b"}}>{items.length} ops</p>
                   </div>
-                  <p style={{margin:0,fontSize:18,fontWeight:800,color:"#f59e0b"}}>{fmt(total)} <span style={{fontSize:11,color:"#94a3b8"}}>{TND}</span></p>
+                  <p style={{margin:0,fontSize:18,fontWeight:800,color:"#2563eb"}}>{fmt(total)} <span style={{fontSize:11,color:"#64748b"}}>{TND}</span></p>
                 </div>
               </div>
             );
@@ -720,22 +721,22 @@ export default function VillaScope() {
       {view === "projections" && (
         <div style={{animation:"fu .4s ease"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14,flexWrap:"wrap",gap:8}}>
-            <h2 style={{margin:0,fontSize:17,fontWeight:800,color:"#f8fafc",fontFamily:"'Instrument Serif',serif"}}>Projections</h2>
+            <h2 style={{margin:0,fontSize:17,fontWeight:800,color:"#0f172a",}}>Projections</h2>
             <Btn onClick={() => {setEditItem(null);setModal("projection")}}>+ Projection</Btn>
           </div>
-          <div style={{background:"#0f172a",borderRadius:12,padding:16,border:"1px solid #1e293b",marginBottom:14,display:"flex",gap:20,flexWrap:"wrap"}}>
+          <div style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)",marginBottom:14,display:"flex",gap:20,flexWrap:"wrap"}}>
             <div><p style={{margin:0,fontSize:10,color:"#64748b",textTransform:"uppercase"}}>Reste a payer</p><p style={{margin:"3px 0 0",fontSize:20,fontWeight:800,color:"#ef4444"}}>{fmt(totalProj)} {TND}</p></div>
             <div><p style={{margin:0,fontSize:10,color:"#64748b",textTransform:"uppercase"}}>Devis</p><p style={{margin:"3px 0 0",fontSize:20,fontWeight:800,color:"#3b82f6"}}>{fmt(projections.reduce((s,p) => s+(p.devis||0),0))} {TND}</p></div>
           </div>
           {projections.map(p => (
-            <div key={p.id} style={{background:"#0f172a",borderRadius:10,padding:14,border:"1px solid #1e293b",marginBottom:8,display:"grid",gridTemplateColumns:"1fr auto auto",alignItems:"center",gap:12,cursor:"pointer"}} onClick={() => {setEditItem(p);setModal("projection")}}>
+            <div key={p.id} style={{background:"#ffffff",borderRadius:12,padding:14,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)",marginBottom:8,display:"grid",gridTemplateColumns:"1fr auto auto",alignItems:"center",gap:12,cursor:"pointer"}} onClick={() => {setEditItem(p);setModal("projection")}}>
               <div>
-                <p style={{margin:0,fontWeight:700,fontSize:12,color:"#f1f5f9"}}>{p.label}</p>
-                {p.devis > 0 && <div style={{marginTop:4,height:4,background:"#1e293b",borderRadius:2,width:150}}><div style={{width:`${(p.avance||0)/p.devis*100}%`,height:"100%",borderRadius:2,background:"#10b981"}}/></div>}
+                <p style={{margin:0,fontWeight:700,fontSize:12,color:"#0f172a"}}>{p.label}</p>
+                {p.devis > 0 && <div style={{marginTop:4,height:4,background:"#e0effe",borderRadius:2,width:150}}><div style={{width:`${(p.avance||0)/p.devis*100}%`,height:"100%",borderRadius:2,background:"#10b981"}}/></div>}
                 <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>Av: {fmt(p.avance||0)} | Dev: {fmt(p.devis||0)}</p>
               </div>
-              <p style={{margin:0,fontSize:16,fontWeight:800,color:"#ef4444"}}>{fmt(p.reste)} <span style={{fontSize:10,color:"#94a3b8"}}>{TND}</span></p>
-              <button onClick={ev => {ev.stopPropagation();setProjections(pr => pr.filter(x => x.id!==p.id))}} style={{background:"none",border:"none",color:"#475569",cursor:"pointer",fontSize:13}}>X</button>
+              <p style={{margin:0,fontSize:16,fontWeight:800,color:"#ef4444"}}>{fmt(p.reste)} <span style={{fontSize:10,color:"#64748b"}}>{TND}</span></p>
+              <button onClick={ev => {ev.stopPropagation();setProjections(pr => pr.filter(x => x.id!==p.id))}} style={{background:"#fef2f2",border:"none",color:"#ef4444",cursor:"pointer",fontSize:12,borderRadius:6,padding:"4px 8px",fontWeight:600}}>X</button>
             </div>
           ))}
         </div>
@@ -774,17 +775,17 @@ export default function VillaScope() {
 
       {/* BACKUP / RESTORE MODAL — MyBankin style */}
       {backupModal && (
-        <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,.75)",backdropFilter:"blur(6px)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:1000,padding:12,animation:"fu .3s ease"}} onClick={() => { setBackupModal(false); setImportPreview(null); setImportStatus(null); setExportStatus(null); setServerStatus(null); }}>
-          <div onClick={e => e.stopPropagation()} style={{background:"#0f172a",borderRadius:16,padding:0,width:"100%",maxWidth:420,border:"1px solid #1e293b",maxHeight:"90vh",overflowY:"auto",boxShadow:"0 25px 60px rgba(0,0,0,.5)"}}>
+        <div style={{position:"fixed",inset:0,background:"rgba(15,23,42,.45)",backdropFilter:"blur(6px)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:1000,padding:12,animation:"fu .3s ease"}} onClick={() => { setBackupModal(false); setImportPreview(null); setImportStatus(null); setExportStatus(null); setServerStatus(null); }}>
+          <div onClick={e => e.stopPropagation()} style={{background:"#f8fafc",borderRadius:16,padding:0,width:"100%",maxWidth:420,border:"1px solid #e2e8f0",maxHeight:"90vh",overflowY:"auto",boxShadow:"0 25px 60px rgba(0,0,0,.5)"}}>
 
             {/* ── MENU HEADER ── */}
-            <div style={{padding:"18px 20px 14px",borderBottom:"1px solid #1e293b",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+            <div style={{padding:"18px 20px 14px",borderBottom:"1px solid #e2e8f0",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
               <div style={{display:"flex",alignItems:"center",gap:10}}>
-                <div style={{width:34,height:34,borderRadius:9,background:"linear-gradient(135deg,#f59e0b,#d97706)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:15,fontWeight:900,color:"#0f172a"}}>V</div>
-                <span style={{fontSize:16,fontWeight:800,color:"#f8fafc"}}>VillaScope</span>
-                <span style={{fontSize:10,padding:"2px 7px",borderRadius:5,background:"rgba(245,158,11,.15)",color:"#f59e0b",fontWeight:700}}>💾</span>
+                <div style={{width:34,height:34,borderRadius:9,background:"linear-gradient(135deg,#2563eb,#1d4ed8)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:15,fontWeight:900,color:"#0f172a"}}>V</div>
+                <span style={{fontSize:16,fontWeight:800,color:"#0f172a"}}>VillaScope</span>
+                <span style={{fontSize:10,padding:"2px 7px",borderRadius:5,background:"rgba(37,99,235,.1)",color:"#2563eb",fontWeight:700}}>💾</span>
               </div>
-              <button onClick={() => setBackupModal(false)} style={{background:"#1e293b",border:"none",color:"#94a3b8",fontSize:15,cursor:"pointer",width:28,height:28,borderRadius:7,display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
+              <button onClick={() => setBackupModal(false)} style={{background:"#f1f5f9",border:"none",color:"#64748b",fontSize:15,cursor:"pointer",width:28,height:28,borderRadius:7,display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
             </div>
 
             {/* ── MENU ITEMS ── */}
@@ -792,30 +793,30 @@ export default function VillaScope() {
 
               {/* 1. Import JSON */}
               <label style={{display:"flex",alignItems:"center",gap:14,padding:"14px 14px",borderRadius:10,cursor:"pointer",transition:"background .15s",background:"transparent"}}
-                onMouseEnter={e => e.currentTarget.style.background="#111827"} onMouseLeave={e => e.currentTarget.style.background="transparent"}
+                onMouseEnter={e => e.currentTarget.style.background="#f8fafc"} onMouseLeave={e => e.currentTarget.style.background="transparent"}
                 onClick={() => fileInputRef.current?.click()}>
-                <div style={{width:38,height:38,borderRadius:9,background:"rgba(168,85,247,.12)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+                <div style={{width:38,height:38,borderRadius:9,background:"rgba(124,58,237,.08)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                 </div>
                 <div style={{flex:1}}>
-                  <p style={{margin:0,fontSize:14,fontWeight:700,color:"#f1f5f9"}}>Import JSON</p>
+                  <p style={{margin:0,fontSize:14,fontWeight:700,color:"#0f172a"}}>Import JSON</p>
                   <p style={{margin:"2px 0 0",fontSize:11,color:"#64748b"}}>CSV/JSON fichier de sauvegarde</p>
                 </div>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#475569" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>
               </label>
 
               {/* divider */}
-              <div style={{height:1,background:"#1e293b",margin:"2px 14px"}}/>
+              <div style={{height:1,background:"#e2e8f0",margin:"2px 14px"}}/>
 
               {/* 2. Recharger serveur */}
               <div style={{display:"flex",alignItems:"center",gap:14,padding:"14px 14px",borderRadius:10,cursor:"pointer",transition:"background .15s"}}
-                onMouseEnter={e => e.currentTarget.style.background="#111827"} onMouseLeave={e => e.currentTarget.style.background="transparent"}
+                onMouseEnter={e => e.currentTarget.style.background="#f8fafc"} onMouseLeave={e => e.currentTarget.style.background="transparent"}
                 onClick={() => handleServerReload()}>
-                <div style={{width:38,height:38,borderRadius:9,background:"rgba(6,182,212,.12)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+                <div style={{width:38,height:38,borderRadius:9,background:"rgba(6,182,212,.08)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
                 </div>
                 <div style={{flex:1}}>
-                  <p style={{margin:0,fontSize:14,fontWeight:700,color:"#f1f5f9"}}>Recharger serveur</p>
+                  <p style={{margin:0,fontSize:14,fontWeight:700,color:"#0f172a"}}>Recharger serveur</p>
                   <p style={{margin:"2px 0 0",fontSize:11,color:"#64748b"}}>{serverLastSave ? `Re-télécharger villascope_complet_data.json` : "Aucun fichier sur le serveur"}</p>
                 </div>
                 {serverStatus === "loading" && <div style={{width:16,height:16,border:"2px solid #06b6d4",borderTopColor:"transparent",borderRadius:"50%",animation:"spin .6s linear infinite"}}/>}
@@ -824,17 +825,17 @@ export default function VillaScope() {
               </div>
 
               {/* divider */}
-              <div style={{height:1,background:"#1e293b",margin:"2px 14px"}}/>
+              <div style={{height:1,background:"#e2e8f0",margin:"2px 14px"}}/>
 
               {/* 3. Sauvegarder serveur */}
               <div style={{display:"flex",alignItems:"center",gap:14,padding:"14px 14px",borderRadius:10,cursor:"pointer",transition:"background .15s"}}
-                onMouseEnter={e => e.currentTarget.style.background="#111827"} onMouseLeave={e => e.currentTarget.style.background="transparent"}
+                onMouseEnter={e => e.currentTarget.style.background="#f8fafc"} onMouseLeave={e => e.currentTarget.style.background="transparent"}
                 onClick={handleServerSave}>
-                <div style={{width:38,height:38,borderRadius:9,background:"rgba(16,185,129,.12)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+                <div style={{width:38,height:38,borderRadius:9,background:"rgba(5,150,105,.08)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
                 </div>
                 <div style={{flex:1}}>
-                  <p style={{margin:0,fontSize:14,fontWeight:700,color:"#f1f5f9"}}>Sauvegarder serveur</p>
+                  <p style={{margin:0,fontSize:14,fontWeight:700,color:"#0f172a"}}>Sauvegarder serveur</p>
                   <p style={{margin:"2px 0 0",fontSize:11,color:"#64748b"}}>Enregistrer sur le serveur ({serverSnapshots.length} backup{serverSnapshots.length !== 1 ? "s" : ""})</p>
                 </div>
                 {serverStatus === "saving" && <div style={{width:16,height:16,border:"2px solid #10b981",borderTopColor:"transparent",borderRadius:"50%",animation:"spin .6s linear infinite"}}/>}
@@ -843,34 +844,34 @@ export default function VillaScope() {
               </div>
 
               {/* divider */}
-              <div style={{height:1,background:"#1e293b",margin:"2px 14px"}}/>
+              <div style={{height:1,background:"#e2e8f0",margin:"2px 14px"}}/>
 
               {/* 4. Export JSON complet */}
               <div style={{display:"flex",alignItems:"center",gap:14,padding:"14px 14px",borderRadius:10,cursor:"pointer",transition:"background .15s"}}
-                onMouseEnter={e => e.currentTarget.style.background="#111827"} onMouseLeave={e => e.currentTarget.style.background="transparent"}
+                onMouseEnter={e => e.currentTarget.style.background="#f8fafc"} onMouseLeave={e => e.currentTarget.style.background="transparent"}
                 onClick={handleExport}>
-                <div style={{width:38,height:38,borderRadius:9,background:"rgba(59,130,246,.12)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+                <div style={{width:38,height:38,borderRadius:9,background:"rgba(37,99,235,.08)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 </div>
                 <div style={{flex:1}}>
-                  <p style={{margin:0,fontSize:14,fontWeight:700,color:"#f1f5f9"}}>Export JSON complet</p>
+                  <p style={{margin:0,fontSize:14,fontWeight:700,color:"#0f172a"}}>Export JSON complet</p>
                   <p style={{margin:"2px 0 0",fontSize:11,color:"#64748b"}}>{expenses.length + projections.length + chahid.length} éléments + projections + fournisseur</p>
                 </div>
                 {exportStatus === "success" ? <span style={{fontSize:14}}>✅</span> : <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#475569" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>}
               </div>
 
               {/* divider */}
-              <div style={{height:1,background:"#1e293b",margin:"2px 14px"}}/>
+              <div style={{height:1,background:"#e2e8f0",margin:"2px 14px"}}/>
 
               {/* 5. Export CSV */}
               <div style={{display:"flex",alignItems:"center",gap:14,padding:"14px 14px",borderRadius:10,cursor:"pointer",transition:"background .15s"}}
-                onMouseEnter={e => e.currentTarget.style.background="#111827"} onMouseLeave={e => e.currentTarget.style.background="transparent"}
+                onMouseEnter={e => e.currentTarget.style.background="#f8fafc"} onMouseLeave={e => e.currentTarget.style.background="transparent"}
                 onClick={handleExportCSV}>
-                <div style={{width:38,height:38,borderRadius:9,background:"rgba(245,158,11,.12)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                <div style={{width:38,height:38,borderRadius:9,background:"rgba(217,119,6,.08)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                 </div>
                 <div style={{flex:1}}>
-                  <p style={{margin:0,fontSize:14,fontWeight:700,color:"#f1f5f9"}}>Export CSV</p>
+                  <p style={{margin:0,fontSize:14,fontWeight:700,color:"#0f172a"}}>Export CSV</p>
                   <p style={{margin:"2px 0 0",fontSize:11,color:"#64748b"}}>{expenses.length} dépenses (tableur)</p>
                 </div>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#475569" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>
@@ -879,18 +880,18 @@ export default function VillaScope() {
             </div>
 
             {/* ── DATA SUMMARY BAR ── */}
-            <div style={{padding:"10px 20px 8px",borderTop:"1px solid #1e293b"}}>
+            <div style={{padding:"10px 20px 8px",borderTop:"1px solid #e2e8f0"}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
                 <span style={{fontSize:10,color:"#64748b",fontWeight:700,textTransform:"uppercase",letterSpacing:.5}}>Données en mémoire</span>
                 {serverLastSave && <span style={{fontSize:9,color:"#475569"}}>Dernier snap: {new Date(serverLastSave).toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})}</span>}
               </div>
               <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:6,marginBottom:8}}>
                 {[
-                  {l:"Dépenses",v:expenses.length,c:"#f59e0b"},
+                  {l:"Dépenses",v:expenses.length,c:"#2563eb"},
                   {l:"Projections",v:projections.length,c:"#3b82f6"},
                   {l:"Fournisseur",v:chahid.length,c:"#10b981"},
                 ].map((s,i) => (
-                  <div key={i} style={{background:"#0a0f1a",borderRadius:7,padding:"6px 8px",textAlign:"center"}}>
+                  <div key={i} style={{background:"#f8fafc",borderRadius:7,padding:"6px 8px",textAlign:"center"}}>
                     <span style={{fontSize:15,fontWeight:800,color:s.c}}>{s.v}</span>
                     <span style={{fontSize:9,color:"#475569",marginLeft:4}}>{s.l}</span>
                   </div>
@@ -904,13 +905,13 @@ export default function VillaScope() {
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
                   <span style={{fontSize:10,color:"#64748b",fontWeight:700,textTransform:"uppercase",letterSpacing:.5}}>Backups sur le serveur ({serverSnapshots.length})</span>
                 </div>
-                <div style={{maxHeight:160,overflowY:"auto",borderRadius:8,border:"1px solid #1e293b",background:"#0a0f1a"}}>
+                <div style={{maxHeight:160,overflowY:"auto",borderRadius:8,border:"1px solid #e2e8f0",background:"#f8fafc"}}>
                   {serverSnapshots.map((snap, i) => {
                     const d = new Date(snap.date);
                     const isLatest = i === 0;
                     const sizeKo = snap.size ? (snap.size / 1024).toFixed(0) : "?";
                     return (
-                      <div key={snap.key} style={{display:"flex",alignItems:"center",gap:8,padding:"8px 12px",borderBottom:i < serverSnapshots.length - 1 ? "1px solid #1e293b" : "none"}}>
+                      <div key={snap.key} style={{display:"flex",alignItems:"center",gap:8,padding:"8px 12px",borderBottom:i < serverSnapshots.length - 1 ? "1px solid #f1f5f9" : "none"}}>
                         <div style={{width:6,height:6,borderRadius:3,background:isLatest ? "#10b981" : "#334155",flexShrink:0}}/>
                         <div style={{flex:1,minWidth:0}}>
                           <p style={{margin:0,fontSize:11,fontWeight:isLatest?700:500,color:isLatest?"#f1f5f9":"#94a3b8",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>
@@ -934,7 +935,7 @@ export default function VillaScope() {
 
             {/* ── STATUS TOASTS ── */}
             {serverStatus === "error" && (
-              <div style={{margin:"0 20px 14px",padding:"10px 14px",borderRadius:8,background:"rgba(239,68,68,.1)",border:"1px solid rgba(239,68,68,.3)",display:"flex",alignItems:"center",gap:8}}>
+              <div style={{margin:"0 20px 14px",padding:"10px 14px",borderRadius:8,background:"rgba(239,68,68,.06)",border:"1px solid rgba(239,68,68,.3)",display:"flex",alignItems:"center",gap:8}}>
                 <span>❌</span>
                 <span style={{fontSize:12,color:"#ef4444",fontWeight:600}}>Erreur — Opération échouée</span>
               </div>
@@ -943,11 +944,11 @@ export default function VillaScope() {
             {/* ── IMPORT PREVIEW (shown when file selected) ── */}
             {importPreview && (
               <div style={{padding:"0 20px 18px",animation:"fu .3s ease"}}>
-                <div style={{background:"#111827",borderRadius:10,padding:14,border:"1px solid #1e293b",marginBottom:10}}>
+                <div style={{background:"#111827",borderRadius:10,padding:14,border:"1px solid #e2e8f0",marginBottom:10}}>
                   <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
                     <span style={{fontSize:15}}>📄</span>
                     <div style={{flex:1}}>
-                      <p style={{margin:0,fontSize:12,fontWeight:700,color:"#f1f5f9"}}>{importPreview._fileName}</p>
+                      <p style={{margin:0,fontSize:12,fontWeight:700,color:"#0f172a"}}>{importPreview._fileName}</p>
                       <p style={{margin:0,fontSize:10,color:"#64748b"}}>{(importPreview._fileSize / 1024).toFixed(1)} Ko • v{importPreview._meta?.version || "?"}</p>
                     </div>
                     <span style={{padding:"3px 8px",borderRadius:6,fontSize:10,fontWeight:700,background:"rgba(16,185,129,.15)",color:"#10b981",border:"1px solid rgba(16,185,129,.3)"}}>Validé ✓</span>
@@ -957,23 +958,23 @@ export default function VillaScope() {
                   )}
                   <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:6}}>
                     {[
-                      {l:"Dép.",v:importPreview.depenses?.length||0,c:"#f59e0b",cur:expenses.length},
+                      {l:"Dép.",v:importPreview.depenses?.length||0,c:"#2563eb",cur:expenses.length},
                       {l:"Proj.",v:importPreview.projections?.length||0,c:"#3b82f6",cur:projections.length},
                       {l:"Fourn.",v:importPreview.fournisseur_chahid?.length||0,c:"#10b981",cur:chahid.length},
                     ].map((s,i) => (
-                      <div key={i} style={{background:"#0a0f1a",borderRadius:6,padding:"6px",textAlign:"center"}}>
+                      <div key={i} style={{background:"#f8fafc",borderRadius:6,padding:"6px",textAlign:"center"}}>
                         <p style={{margin:0,fontSize:15,fontWeight:800,color:s.c}}>{s.v}</p>
-                        <p style={{margin:0,fontSize:9,color:s.v !== s.cur ? "#f59e0b" : "#334155"}}>{s.v !== s.cur ? `${s.cur} → ${s.v}` : "="}</p>
+                        <p style={{margin:0,fontSize:9,color:s.v !== s.cur ? "#d97706" : "#cbd5e1"}}>{s.v !== s.cur ? `${s.cur} → ${s.v}` : "="}</p>
                       </div>
                     ))}
                   </div>
                 </div>
-                <div style={{padding:"8px 12px",borderRadius:8,background:"rgba(245,158,11,.08)",border:"1px solid rgba(245,158,11,.25)",marginBottom:10}}>
-                  <p style={{margin:0,fontSize:11,color:"#f59e0b",fontWeight:700}}>⚠️ Les données actuelles seront écrasées</p>
+                <div style={{padding:"8px 12px",borderRadius:8,background:"rgba(217,119,6,.06)",border:"1px solid rgba(217,119,6,.2)",marginBottom:10}}>
+                  <p style={{margin:0,fontSize:11,color:"#2563eb",fontWeight:700}}>⚠️ Les données actuelles seront écrasées</p>
                 </div>
                 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
-                  <button onClick={() => { setImportPreview(null); setImportStatus(null); }} style={{padding:"11px",borderRadius:9,border:"1px solid #334155",cursor:"pointer",fontSize:12,fontWeight:700,background:"#1e293b",color:"#e2e8f0"}}>Annuler</button>
-                  <button onClick={handleImportConfirm} style={{padding:"11px",borderRadius:9,border:"none",cursor:"pointer",fontSize:12,fontWeight:700,background:"linear-gradient(135deg,#f59e0b,#d97706)",color:"#0f172a",display:"flex",alignItems:"center",justifyContent:"center",gap:5}}>
+                  <button onClick={() => { setImportPreview(null); setImportStatus(null); }} style={{padding:"11px",borderRadius:9,border:"1px solid #e2e8f0",cursor:"pointer",fontSize:12,fontWeight:700,background:"#ffffff",color:"#475569"}}>Annuler</button>
+                  <button onClick={handleImportConfirm} style={{padding:"11px",borderRadius:9,border:"none",cursor:"pointer",fontSize:12,fontWeight:700,background:"linear-gradient(135deg,#2563eb,#1d4ed8)",color:"#ffffff",display:"flex",alignItems:"center",justifyContent:"center",gap:5}}>
                     ✓ Confirmer
                   </button>
                 </div>
@@ -982,13 +983,13 @@ export default function VillaScope() {
 
             {/* Import file error */}
             {importStatus === "error" && !importPreview && (
-              <div style={{margin:"0 20px 14px",padding:"10px 14px",borderRadius:8,background:"rgba(239,68,68,.1)",border:"1px solid rgba(239,68,68,.3)"}}>
+              <div style={{margin:"0 20px 14px",padding:"10px 14px",borderRadius:8,background:"rgba(239,68,68,.06)",border:"1px solid rgba(239,68,68,.3)"}}>
                 <p style={{margin:0,fontSize:12,color:"#ef4444",fontWeight:600}}>❌ Fichier JSON invalide</p>
-                <p style={{margin:"3px 0 0",fontSize:10,color:"#94a3b8"}}>Vérifiez qu'il s'agit d'un export VillaScope.</p>
+                <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>Vérifiez qu'il s'agit d'un export VillaScope.</p>
               </div>
             )}
             {importStatus === "success" && !importPreview && (
-              <div style={{margin:"0 20px 14px",padding:"10px 14px",borderRadius:8,background:"rgba(16,185,129,.12)",border:"1px solid rgba(16,185,129,.3)"}}>
+              <div style={{margin:"0 20px 14px",padding:"10px 14px",borderRadius:8,background:"rgba(5,150,105,.08)",border:"1px solid rgba(16,185,129,.3)"}}>
                 <p style={{margin:0,fontSize:12,color:"#10b981",fontWeight:600}}>✅ Données restaurées avec succès</p>
               </div>
             )}
