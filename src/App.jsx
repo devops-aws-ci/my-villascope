@@ -1,7 +1,20 @@
 import "./css/villascope.css";
 import { useState, useEffect, useMemo, useRef } from "react";
+import * as XLSX from "xlsx";
 
 const TND = "TND";
+
+function exportToExcel(data, columns, filename) {
+  const ws = XLSX.utils.json_to_sheet(data.map(row => {
+    const obj = {};
+    columns.forEach(col => { obj[col.header] = row[col.key]; });
+    return obj;
+  }));
+  ws['!cols'] = columns.map(col => ({wch: Math.max(col.header.length, 14)}));
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Export");
+  XLSX.writeFile(wb, filename);
+}
 const fmt = (n) => new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 }).format(Math.round(n));
 const fmtD = (n) => new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 2 }).format(n);
 
@@ -814,7 +827,13 @@ export default function VillaScope() {
         <div style={{animation:"fu .4s ease"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12,flexWrap:"wrap",gap:8}}>
             <h2 style={{margin:0,fontSize:17,fontWeight:800,color:"#0f172a",}}>Suivi detaille</h2>
-            {!isReadOnly && <Btn onClick={() => {setEditItem(null);setModal("expense")}}>+ Depense</Btn>}
+            <div style={{display:"flex",gap:6}}>
+              <Btn variant="secondary" onClick={() => exportToExcel(filtered, [
+                {header:"Date",key:"date"},{header:"Montant (TND)",key:"montant"},{header:"Catégorie",key:"categorie"},
+                {header:"Étape",key:"etape"},{header:"Intervenant",key:"contre"},{header:"Détail",key:"detail"}
+              ], "depenses_export.xlsx")}>📥 Excel</Btn>
+              {!isReadOnly && <Btn onClick={() => {setEditItem(null);setModal("expense")}}>+ Depense</Btn>}
+            </div>
           </div>
           <div style={{display:"flex",gap:6,marginBottom:10,flexWrap:"wrap"}}>
             <input placeholder="Rechercher..." value={filters.search} onChange={e => setFilters(f => ({...f,search:e.target.value}))} style={{...inS,width:170,fontSize:12}}/>
@@ -856,7 +875,13 @@ export default function VillaScope() {
         <div style={{animation:"fu .4s ease"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14,flexWrap:"wrap",gap:8}}>
             <h2 style={{margin:0,fontSize:17,fontWeight:800,color:"#0f172a",}}>El Chahid - Detail Materiaux</h2>
-            {!isReadOnly && <Btn onClick={() => {setEditItem(null);setModal("suppItem")}}>+ Article</Btn>}
+            <div style={{display:"flex",gap:6}}>
+              <Btn variant="secondary" onClick={() => exportToExcel(suppFiltered, [
+                {header:"Date",key:"date"},{header:"Désignation",key:"designation"},{header:"Type",key:"categorie"},
+                {header:"Quantité",key:"qte"},{header:"Prix Unitaire",key:"prix"},{header:"TTC",key:"ttc"}
+              ], "fournisseur_chahid_export.xlsx")}>📥 Excel</Btn>
+              {!isReadOnly && <Btn onClick={() => {setEditItem(null);setModal("suppItem")}}>+ Article</Btn>}
+            </div>
           </div>
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:10,marginBottom:14}}>
             <div style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)"}}>
@@ -915,7 +940,15 @@ export default function VillaScope() {
       {/* INTERVENANTS */}
       {view === "intervenants" && (
         <div style={{animation:"fu .4s ease"}}>
-          <h2 style={{margin:"0 0 14px",fontSize:17,fontWeight:800,color:"#0f172a",}}>Par intervenant</h2>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14,flexWrap:"wrap",gap:8}}>
+            <h2 style={{margin:"0",fontSize:17,fontWeight:800,color:"#0f172a",}}>Par intervenant</h2>
+            <Btn variant="secondary" onClick={() => exportToExcel(byContre.map(([name,total]) => {
+              const items = expenses.filter(e => e.contre===name);
+              return {name, ops: items.length, total: Math.round(total)};
+            }), [
+              {header:"Intervenant",key:"name"},{header:"Nb Opérations",key:"ops"},{header:"Total (TND)",key:"total"}
+            ], "intervenants_export.xlsx")}>📥 Excel</Btn>
+          </div>
           {byContre.map(([name,total]) => {
             const items = expenses.filter(e => e.contre===name);
             return (
@@ -938,7 +971,13 @@ export default function VillaScope() {
         <div style={{animation:"fu .4s ease"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14,flexWrap:"wrap",gap:8}}>
             <h2 style={{margin:0,fontSize:17,fontWeight:800,color:"#0f172a",}}>Projections</h2>
-            {!isReadOnly && <Btn onClick={() => {setEditItem(null);setModal("projection")}}>+ Projection</Btn>}
+            <div style={{display:"flex",gap:6}}>
+              <Btn variant="secondary" onClick={() => exportToExcel(projections, [
+                {header:"Libellé",key:"label"},{header:"Devis (TND)",key:"devis"},
+                {header:"Avance (TND)",key:"avance"},{header:"Reste (TND)",key:"reste"}
+              ], "projections_export.xlsx")}>📥 Excel</Btn>
+              {!isReadOnly && <Btn onClick={() => {setEditItem(null);setModal("projection")}}>+ Projection</Btn>}
+            </div>
           </div>
           <div style={{background:"#ffffff",borderRadius:16,padding:18,boxShadow:"0 1px 4px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.04)",marginBottom:14,display:"flex",gap:20,flexWrap:"wrap"}}>
             <div><p style={{margin:0,fontSize:10,color:"#64748b",textTransform:"uppercase"}}>Reste a payer</p><p style={{margin:"3px 0 0",fontSize:20,fontWeight:800,color:"#ef4444"}}>{fmt(totalProj)} {currency}</p></div>

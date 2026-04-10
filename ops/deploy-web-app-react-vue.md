@@ -13,8 +13,8 @@ sudo su -
 cd /mnt/c/myworkspace/personel-repos/My-VillaScope
 source ~/myenv_py3/bin/activate
 
-pip install git-filter-repo
 npm install
+npm install xlsx
 npm run dev
 
 # get last version of code from git repos
