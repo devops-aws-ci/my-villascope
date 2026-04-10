@@ -12,6 +12,9 @@ git clone https://<token>@github.com/devops-aws-ci/my-villascope.git
 sudo su -
 
 cd /mnt/c/myworkspace/personel-repos/My-VillaScope
+source ~/myenv_py3/bin/activate
+
+pip install git-filter-repo
 npm install
 npm run dev
 
