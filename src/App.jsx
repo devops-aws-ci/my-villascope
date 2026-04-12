@@ -550,6 +550,12 @@ export default function VillaScope() {
     const {col,dir} = suppSort;
     l.sort((a,b) => {
       let va = a[col]||"", vb = b[col]||"";
+      if (col === "date") {
+        // Parse DD/MM/YYYY to comparable YYYYMMDD
+        const pa = String(va).split("/"); const pb = String(vb).split("/");
+        va = pa.length===3 ? pa[2]+pa[1]+pa[0] : va;
+        vb = pb.length===3 ? pb[2]+pb[1]+pb[0] : vb;
+      }
       if (["qte","prix","ttc"].includes(col)) { va = Number(va)||0; vb = Number(vb)||0; }
       if (typeof va === "number") return dir === "asc" ? va - vb : vb - va;
       return dir === "asc" ? String(va).localeCompare(String(vb)) : String(vb).localeCompare(String(va));
@@ -987,7 +993,7 @@ export default function VillaScope() {
                 {[{l:"Date",k:"date"},{l:"Designation",k:"designation"},{l:"Type",k:"categorie"},{l:"Qte",k:"qte"},{l:"P.U.",k:"prix"},{l:"TTC",k:"ttc"}].map(h => <th key={h.k} onClick={() => setSuppSort(s => ({col:h.k, dir:s.col===h.k && s.dir==="asc"?"desc":"asc"}))} style={{padding:"8px 5px",textAlign:"left",color:suppSort.col===h.k?"#2563eb":"#64748b",fontWeight:700,borderBottom:"1px solid #e2e8f0",fontSize:9,textTransform:"uppercase",cursor:"pointer",userSelect:"none",whiteSpace:"nowrap"}}>{h.l} {suppSort.col===h.k?(suppSort.dir==="asc"?"▲":"▼"):""}</th>)}
                 <th style={{padding:"8px",borderBottom:"1px solid #e2e8f0",width:35}}></th>
               </tr></thead>
-              <tbody>{suppFiltered.slice(0,150).map(e => (
+              <tbody>{suppFiltered.slice(0,300).map(e => (
                 <tr key={e.id} style={{borderBottom:"1px solid #e2e8f0",cursor:"pointer"}} onClick={() => {setEditItem(e);setModal("suppItem")}}>
                   <td style={{padding:"6px",color:"#64748b",whiteSpace:"nowrap"}}>{e.date}</td>
                   <td style={{padding:"6px",color:"#0f172a",fontWeight:600}}>{e.designation}</td>
@@ -1101,8 +1107,14 @@ export default function VillaScope() {
           accentColor={accentColor}
           onClose={() => {setModal(null);setImportStep(0);}}
           onImport={(items) => {
+            if (!items || items.length === 0) return;
+            const targetId = activeProjectId || "tazdaine";
             const newItems = items.map((it) => ({...it, id: nid.current++}));
-            setChahid(p => [...p, ...newItems]);
+            setProjects(prev => prev.map(p =>
+              p.id === targetId
+                ? {...p, chahid: [...p.chahid, ...newItems]}
+                : p
+            ));
             setImportStep(3);
           }}
         />

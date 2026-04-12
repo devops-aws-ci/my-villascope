@@ -41,7 +41,7 @@ curl http://ec2-18-200-174-106.eu-west-1.compute.amazonaws.com/
 cd /mnt/c/myworkspace/personel-repos/my-villascope/backoffice
 source ~/myenv_py3/bin/activate
 npm install express cors
-node save-server.cjs &
+node backup-server &
 
 
 
