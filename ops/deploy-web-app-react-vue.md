@@ -8,6 +8,11 @@ git clone https://`<token>`@github.com/devops-aws-ci/my-villascope.git
 ## Update and re-Build new version of prod app react
 
 ```bash
+
+
+
+
+
 sudo su -
 
 cd /mnt/c/myworkspace/personel-repos/My-VillaScope
@@ -41,7 +46,16 @@ curl http://ec2-18-200-174-106.eu-west-1.compute.amazonaws.com/
 cd /mnt/c/myworkspace/personel-repos/my-villascope/backoffice
 source ~/myenv_py3/bin/activate
 npm install express cors
+npm install cors
 node backup-server &
+
+ps aux | grep backup-server
+pkill -f save-server.cjs
+kill process_id
+
+curl -X POST http://localhost:3001/api/save \
+  -H "Content-Type: application/json" \
+  -d '{"test": true}'
 
 
 
