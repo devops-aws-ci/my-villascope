@@ -1,0 +1,20 @@
+[Unit]
+Description=My-Bankin Server web APIs
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/projects/My-villascope
+ExecStart=/usr/bin/node /root/projects/My-villascope/backoffice/backup-server.js
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=myvillascope-server
+
+# Sécurité minimale
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

@@ -64,3 +64,13 @@ curl -X POST http://localhost:3001/api/save \
 
 
 ```
+
+
+
+cd /root/projects/my-villascope
+git stash
+git pull origin
+
+cd /root/projects/my-villascope
+sudo cp ops/conf/myvillascope.nginx.conf /etc/nginx/sites-available/myvillascope
+ 
