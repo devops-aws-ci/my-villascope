@@ -2,7 +2,7 @@
   "_meta": {
     "app": "VillaScope",
     "version": "5.0-multiproject",
-    "savedAt": "2026-04-12T22:19:31.825Z",
+    "savedAt": "2026-04-12T21:00:48.467Z",
     "description": "Sauvegarde complète — Multi-projet"
   },
   "projects": [
@@ -1042,6 +1042,13 @@
         }
       ],
       "projections": [
+        {
+          "id": 1,
+          "label": "Carrelage Sani Décor 34M2",
+          "reste": 3000,
+          "avance": 0,
+          "devis": 3000
+        },
         {
           "id": 2,
           "label": "Carrelage étage Cobam",

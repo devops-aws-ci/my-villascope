@@ -72,5 +72,12 @@ git stash
 git pull origin
 
 cd /root/projects/my-villascope
-sudo cp ops/conf/myvillascope.nginx.conf /etc/nginx/sites-available/myvillascope
+sudo cp /root/projects/my-villascope/ops/config/myvillascope.nginx.conf /etc/nginx/sites-available/myvillascope
  
+sudo ln -s /etc/nginx/sites-available/myvillascope /etc/nginx/sites-enabled/myvillascope
+
+# Valider la config
+sudo nginx -t
+
+# Recharger nginx
+sudo systemctl reload nginx
