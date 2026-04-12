@@ -1,0 +1,2711 @@
+{
+  "_meta": {
+    "app": "VillaScope",
+    "version": "4.0",
+    "savedAt": "2026-04-10T14:32:01.777Z",
+    "description": "Sauvegarde complète — Projet Villa Tazdaine"
+  },
+  "depenses": [
+    {
+      "id": 1,
+      "date": "2020-08-01",
+      "montant": 87003.12,
+      "categorie": "Achat du terrain",
+      "etape": "Terrain",
+      "contre": "Kalid rais",
+      "detail": "Acquisition terrain 1256m2"
+    },
+    {
+      "id": 2,
+      "date": "2020-08-25",
+      "montant": 2380,
+      "categorie": "Achat du terrain",
+      "etape": "Terrain",
+      "contre": "Impot",
+      "detail": "Frais enregistrement"
+    },
+    {
+      "id": 3,
+      "date": "2022-10-06",
+      "montant": 1750,
+      "categorie": "Achat du terrain",
+      "etape": "Terrain",
+      "contre": "Impot",
+      "detail": "Impot prévalue"
+    },
+    {
+      "id": 4,
+      "date": "",
+      "montant": 500,
+      "categorie": "Achat du terrain",
+      "etape": "Terrain",
+      "contre": "Notaire",
+      "detail": "Frais Notaire"
+    },
+    {
+      "id": 5,
+      "date": "",
+      "montant": 1750,
+      "categorie": "Achat du terrain",
+      "etape": "Terrain",
+      "contre": "Frais Agence Immo",
+      "detail": "Agent immobilier"
+    },
+    {
+      "id": 6,
+      "date": "",
+      "montant": 150,
+      "categorie": "Achat du terrain",
+      "etape": "Terrain",
+      "contre": "Administration",
+      "detail": "Changement propriétaire"
+    },
+    {
+      "id": 7,
+      "date": "2022-12-12",
+      "montant": 500,
+      "categorie": "Achat du terrain",
+      "etape": "Terrain",
+      "contre": "Avocat",
+      "detail": "Plainte voisin"
+    },
+    {
+      "id": 8,
+      "date": "2022-10-27",
+      "montant": 180,
+      "categorie": "Achat du terrain",
+      "etape": "Terrain",
+      "contre": "Idriss Trax",
+      "detail": "Traxe"
+    },
+    {
+      "id": 9,
+      "date": "2025-02-07",
+      "montant": 1000,
+      "categorie": "Achat du terrain",
+      "etape": "Terrain",
+      "contre": "Avocat",
+      "detail": "Fin plainte"
+    },
+    {
+      "id": 10,
+      "date": "",
+      "montant": 600,
+      "categorie": "Conception et études",
+      "etape": "Plan",
+      "contre": "Administration",
+      "detail": "Autorisation"
+    },
+    {
+      "id": 11,
+      "date": "",
+      "montant": 1750,
+      "categorie": "Conception et études",
+      "etape": "Plan",
+      "contre": "Yajini",
+      "detail": "1er plan"
+    },
+    {
+      "id": 12,
+      "date": "",
+      "montant": 700,
+      "categorie": "Conception et études",
+      "etape": "Plan",
+      "contre": "Ben hamouda",
+      "detail": "Plan béton"
+    },
+    {
+      "id": 13,
+      "date": "2022-08-11",
+      "montant": 400,
+      "categorie": "Conception et études",
+      "etape": "Plan",
+      "contre": "Satourie Amina",
+      "detail": "Facade 3D"
+    },
+    {
+      "id": 14,
+      "date": "2024-02-07",
+      "montant": 2600,
+      "categorie": "Conception et études",
+      "etape": "Plan",
+      "contre": "Nouriddine Jlidi",
+      "detail": "2ème plan"
+    },
+    {
+      "id": 15,
+      "date": "2024-04-05",
+      "montant": 2785,
+      "categorie": "Conception et études",
+      "etape": "Plan",
+      "contre": "Satouri Meryem",
+      "detail": "3ème plan U"
+    },
+    {
+      "id": 16,
+      "date": "2024-04-06",
+      "montant": 1400,
+      "categorie": "Conception et études",
+      "etape": "Plan",
+      "contre": "Tarek Jrade",
+      "detail": "Béton U"
+    },
+    {
+      "id": 17,
+      "date": "2024-04-27",
+      "montant": 300,
+      "categorie": "Conception et études",
+      "etape": "Plan",
+      "contre": "Tarek Jrade",
+      "detail": "Devis final"
+    },
+    {
+      "id": 18,
+      "date": "2024-08-16",
+      "montant": 800,
+      "categorie": "Conception et études",
+      "etape": "Plan",
+      "contre": "Tarek Jrade",
+      "detail": "Plan piscine"
+    },
+    {
+      "id": 19,
+      "date": "2024-08-16",
+      "montant": 200,
+      "categorie": "Conception et études",
+      "etape": "Controle",
+      "contre": "Tarek Jrade",
+      "detail": "Visite"
+    },
+    {
+      "id": 20,
+      "date": "2025-02-07",
+      "montant": 1500,
+      "categorie": "Conception et études",
+      "etape": "Plan",
+      "contre": "Satourie Amina",
+      "detail": "Plan intérieur"
+    },
+    {
+      "id": 21,
+      "date": "2025-06-10",
+      "montant": 1570,
+      "categorie": "Conception et études",
+      "etape": "Plan",
+      "contre": "Satourie Amina",
+      "detail": "Payment"
+    },
+    {
+      "id": 22,
+      "date": "2025-03-08",
+      "montant": 180,
+      "categorie": "Conception et études",
+      "etape": "Controle",
+      "contre": "Tarek Jrade",
+      "detail": "2 visites"
+    },
+    {
+      "id": 23,
+      "date": "2025-03-08",
+      "montant": 400,
+      "categorie": "Conception et études",
+      "etape": "Plan",
+      "contre": "Tarek Jrade",
+      "detail": "Plan escalier"
+    },
+    {
+      "id": 24,
+      "date": "2022-11-17",
+      "montant": 8000,
+      "categorie": "Gros œuvre",
+      "etape": "Muraille",
+      "contre": "Saif",
+      "detail": "Muraille 143m"
+    },
+    {
+      "id": 25,
+      "date": "2022-11-20",
+      "montant": 11000,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": "Mat. muraille"
+    },
+    {
+      "id": 26,
+      "date": "2022-11-22",
+      "montant": 5700,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": "Ciments garage"
+    },
+    {
+      "id": 27,
+      "date": "2024-01-09",
+      "montant": 3200,
+      "categorie": "Gros œuvre",
+      "etape": "Garage",
+      "contre": "Saif",
+      "detail": "Garage MO"
+    },
+    {
+      "id": 28,
+      "date": "2024-02-06",
+      "montant": 1400,
+      "categorie": "Gros œuvre",
+      "etape": "Fas9iya",
+      "contre": "Idriss Trax",
+      "detail": "Trax trou"
+    },
+    {
+      "id": 29,
+      "date": "2024-05-01",
+      "montant": 1500,
+      "categorie": "Gros œuvre",
+      "etape": "Fas9iya",
+      "contre": "Idriss Trax",
+      "detail": "Brise"
+    },
+    {
+      "id": 30,
+      "date": "2024-05-17",
+      "montant": 2000,
+      "categorie": "Gros œuvre",
+      "etape": "Chappe",
+      "contre": "Saif",
+      "detail": "Début"
+    },
+    {
+      "id": 31,
+      "date": "2024-05-09",
+      "montant": 20000,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": "Béton chappe"
+    },
+    {
+      "id": 32,
+      "date": "2024-07-23",
+      "montant": 12000,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": "Virement béton"
+    },
+    {
+      "id": 33,
+      "date": "2024-07-23",
+      "montant": 7920,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": "Chèque 8000"
+    },
+    {
+      "id": 34,
+      "date": "2024-06-06",
+      "montant": 5000,
+      "categorie": "Gros œuvre",
+      "etape": "Chappe",
+      "contre": "Saif",
+      "detail": "Tranche"
+    },
+    {
+      "id": 35,
+      "date": "2024-07-17",
+      "montant": 4000,
+      "categorie": "Gros œuvre",
+      "etape": "Fas9iya",
+      "contre": "Saif",
+      "detail": "Réservoir T1"
+    },
+    {
+      "id": 36,
+      "date": "2024-07-23",
+      "montant": 8000,
+      "categorie": "Gros œuvre",
+      "etape": "Chappe",
+      "contre": "Saif",
+      "detail": "Fin chappe"
+    },
+    {
+      "id": 37,
+      "date": "2024-07-23",
+      "montant": 2000,
+      "categorie": "Gros œuvre",
+      "etape": "Fas9iya",
+      "contre": "Saif",
+      "detail": "Fin fas9iya"
+    },
+    {
+      "id": 38,
+      "date": "2024-09-26",
+      "montant": 350,
+      "categorie": "Gros œuvre",
+      "etape": "Piscine",
+      "contre": "Idriss Trax",
+      "detail": "Trax"
+    },
+    {
+      "id": 39,
+      "date": "2024-08-16",
+      "montant": 2000,
+      "categorie": "Gros œuvre",
+      "etape": "Dalle",
+      "contre": "Saif",
+      "detail": "T1 dalle"
+    },
+    {
+      "id": 40,
+      "date": "2024-08-21",
+      "montant": 1200,
+      "categorie": "Gros œuvre",
+      "etape": "Terrasse",
+      "contre": "Saif",
+      "detail": "48m2"
+    },
+    {
+      "id": 41,
+      "date": "2024-08-29",
+      "montant": 5000,
+      "categorie": "Gros œuvre",
+      "etape": "Dalle",
+      "contre": "Saif",
+      "detail": "T2 dalle"
+    },
+    {
+      "id": 42,
+      "date": "2024-09-02",
+      "montant": 5000,
+      "categorie": "Gros œuvre",
+      "etape": "Piscine",
+      "contre": "Saif",
+      "detail": "T1 piscine"
+    },
+    {
+      "id": 43,
+      "date": "2024-09-02",
+      "montant": 5000,
+      "categorie": "Gros œuvre",
+      "etape": "Piscine",
+      "contre": "Idriss Trax",
+      "detail": "Brise roche"
+    },
+    {
+      "id": 44,
+      "date": "2024-09-09",
+      "montant": 1000,
+      "categorie": "Gros œuvre",
+      "etape": "Piscine",
+      "contre": "Idriss Trax",
+      "detail": "Suite"
+    },
+    {
+      "id": 45,
+      "date": "2024-08-28",
+      "montant": 10000,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": "Matériaux"
+    },
+    {
+      "id": 46,
+      "date": "2024-09-02",
+      "montant": 13000,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": "Virement"
+    },
+    {
+      "id": 47,
+      "date": "2024-09-24",
+      "montant": 7000,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": "Virement"
+    },
+    {
+      "id": 48,
+      "date": "2024-09-26",
+      "montant": 4000,
+      "categorie": "Gros œuvre",
+      "etape": "Piscine",
+      "contre": "Saif",
+      "detail": "T2 piscine"
+    },
+    {
+      "id": 49,
+      "date": "2024-09-30",
+      "montant": 10000,
+      "categorie": "Gros œuvre",
+      "etape": "Dalle",
+      "contre": "Saif",
+      "detail": "T3 terminé"
+    },
+    {
+      "id": 50,
+      "date": "2024-09-30",
+      "montant": 2480,
+      "categorie": "Gros œuvre",
+      "etape": "Dalle rdc",
+      "contre": "KL BETON",
+      "detail": "52m3"
+    },
+    {
+      "id": 51,
+      "date": "2024-10-01",
+      "montant": 10000,
+      "categorie": "Gros œuvre",
+      "etape": "Dalle rdc",
+      "contre": "KL BETON",
+      "detail": "52m3 vir"
+    },
+    {
+      "id": 52,
+      "date": "2024-11-15",
+      "montant": 2000,
+      "categorie": "Gros œuvre",
+      "etape": "Extra",
+      "contre": "Saif",
+      "detail": "+9m2"
+    },
+    {
+      "id": 53,
+      "date": "2024-11-15",
+      "montant": 800,
+      "categorie": "Gros œuvre",
+      "etape": "Terrasse",
+      "contre": "Saif",
+      "detail": "80m2"
+    },
+    {
+      "id": 54,
+      "date": "2024-11-21",
+      "montant": 7400,
+      "categorie": "Gros œuvre",
+      "etape": "Dalle etage",
+      "contre": "KL BETON",
+      "detail": "31m3"
+    },
+    {
+      "id": 55,
+      "date": "2024-11-21",
+      "montant": 2600,
+      "categorie": "Gros œuvre",
+      "etape": "Dalle",
+      "contre": "Saif",
+      "detail": "Dalle2 T1"
+    },
+    {
+      "id": 56,
+      "date": "2024-11-25",
+      "montant": 5400,
+      "categorie": "Gros œuvre",
+      "etape": "Dalle",
+      "contre": "Saif",
+      "detail": "Dalle2 T2"
+    },
+    {
+      "id": 57,
+      "date": "2024-12-09",
+      "montant": 480,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "Divers",
+      "detail": "Telescopie"
+    },
+    {
+      "id": 58,
+      "date": "2024-10-24",
+      "montant": 6700,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": "Mat."
+    },
+    {
+      "id": 59,
+      "date": "2024-11-25",
+      "montant": 4000,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": "Mat."
+    },
+    {
+      "id": 60,
+      "date": "2024-12-21",
+      "montant": 11260,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": "Yajour Murs"
+    },
+    {
+      "id": 61,
+      "date": "2025-01-02",
+      "montant": 2000,
+      "categorie": "Gros œuvre",
+      "etape": "Brique extérieur",
+      "contre": "Saif",
+      "detail": "Murs RDC"
+    },
+    {
+      "id": 62,
+      "date": "2025-01-16",
+      "montant": 5500,
+      "categorie": "Gros œuvre",
+      "etape": "Brique extérieur",
+      "contre": "Saif",
+      "detail": "Murs RDC"
+    },
+    {
+      "id": 63,
+      "date": "2025-02-15",
+      "montant": 4000,
+      "categorie": "Gros œuvre",
+      "etape": "Brique intérieur",
+      "contre": "Saif",
+      "detail": "Murs étage"
+    },
+    {
+      "id": 64,
+      "date": "2025-02-26",
+      "montant": 3500,
+      "categorie": "Gros œuvre",
+      "etape": "Brique intérieur",
+      "contre": "Saif",
+      "detail": "Murs étage"
+    },
+    {
+      "id": 65,
+      "date": "2025-01-25",
+      "montant": 3100,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": ""
+    },
+    {
+      "id": 66,
+      "date": "2025-03-04",
+      "montant": 3250,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": ""
+    },
+    {
+      "id": 67,
+      "date": "2025-05-20",
+      "montant": 3115,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": "Ligga"
+    },
+    {
+      "id": 68,
+      "date": "2025-05-29",
+      "montant": 7500,
+      "categorie": "Gros œuvre",
+      "etape": "Enduit extérieur",
+      "contre": "Saif",
+      "detail": "LIGGA ext"
+    },
+    {
+      "id": 69,
+      "date": "2025-08-21",
+      "montant": 2500,
+      "categorie": "Gros œuvre",
+      "etape": "Enduit intérieur",
+      "contre": "Saif",
+      "detail": "LIGGA int"
+    },
+    {
+      "id": 70,
+      "date": "2025-10-07",
+      "montant": 4550,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": "Legga"
+    },
+    {
+      "id": 71,
+      "date": "2025-10-23",
+      "montant": 5000,
+      "categorie": "Gros œuvre",
+      "etape": "Enduit intérieur",
+      "contre": "Saif",
+      "detail": "Fin"
+    },
+    {
+      "id": 72,
+      "date": "2025-01-09",
+      "montant": 2000,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": ""
+    },
+    {
+      "id": 73,
+      "date": "2025-06-10",
+      "montant": 2200,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": ""
+    },
+    {
+      "id": 74,
+      "date": "2025-12-31",
+      "montant": 2000,
+      "categorie": "Gros œuvre",
+      "etape": "Extra",
+      "contre": "Saif",
+      "detail": "Escalier"
+    },
+    {
+      "id": 75,
+      "date": "2025-12-31",
+      "montant": 2200,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": ""
+    },
+    {
+      "id": 76,
+      "date": "2026-01-07",
+      "montant": 500,
+      "categorie": "Gros œuvre",
+      "etape": "9omma",
+      "contre": "Ihab",
+      "detail": "9omma"
+    },
+    {
+      "id": 77,
+      "date": "2026-01-07",
+      "montant": 3000,
+      "categorie": "Gros œuvre",
+      "etape": "Piscine",
+      "contre": "Saif",
+      "detail": "Étanchéité"
+    },
+    {
+      "id": 78,
+      "date": "2026-01-21",
+      "montant": 2500,
+      "categorie": "Gros œuvre",
+      "etape": "Revetement",
+      "contre": "Saif",
+      "detail": "Chappe"
+    },
+    {
+      "id": 79,
+      "date": "2026-01-21",
+      "montant": 1800,
+      "categorie": "Gros œuvre",
+      "etape": "Extra",
+      "contre": "Saif",
+      "detail": "Caissons"
+    },
+    {
+      "id": 80,
+      "date": "2026-01-22",
+      "montant": 800,
+      "categorie": "Gros œuvre",
+      "etape": "9omma",
+      "contre": "Ihab",
+      "detail": "T2+dalle"
+    },
+    {
+      "id": 81,
+      "date": "2026-01-31",
+      "montant": 4000,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": ""
+    },
+    {
+      "id": 82,
+      "date": "2026-01-31",
+      "montant": 2500,
+      "categorie": "Gros œuvre",
+      "etape": "Revetement",
+      "contre": "Saif",
+      "detail": "Chappe"
+    },
+    {
+      "id": 83,
+      "date": "2026-02-05",
+      "montant": 1000,
+      "categorie": "Gros œuvre",
+      "etape": "9omma",
+      "contre": "Ihab",
+      "detail": "Fin"
+    },
+    {
+      "id": 84,
+      "date": "2026-03-03",
+      "montant": 4100,
+      "categorie": "Gros œuvre",
+      "etape": "Matériaux",
+      "contre": "El Chahid",
+      "detail": "Colle+sable"
+    },
+    {
+      "id": 85,
+      "date": "2024-05-22",
+      "montant": 2850,
+      "categorie": "Divers",
+      "etape": "STEG",
+      "contre": "STEG",
+      "detail": "Branchement"
+    },
+    {
+      "id": 86,
+      "date": "2025-01-13",
+      "montant": 150,
+      "categorie": "Divers",
+      "etape": "Sonede",
+      "contre": "Sonede",
+      "detail": "Dossier"
+    },
+    {
+      "id": 87,
+      "date": "2025-03-11",
+      "montant": 5240,
+      "categorie": "Divers",
+      "etape": "Sonede",
+      "contre": "Sonede",
+      "detail": "EAU"
+    },
+    {
+      "id": 88,
+      "date": "2025-10-13",
+      "montant": 1260,
+      "categorie": "Divers",
+      "etape": "Sonede",
+      "contre": "Sonede",
+      "detail": "Crédit"
+    },
+    {
+      "id": 89,
+      "date": "2024-10-18",
+      "montant": 550,
+      "categorie": "Plomberie",
+      "etape": "Piscine",
+      "contre": "Pisciniste",
+      "detail": "Évacuation"
+    },
+    {
+      "id": 90,
+      "date": "2024-10-18",
+      "montant": 530,
+      "categorie": "Plomberie",
+      "etape": "Piscine",
+      "contre": "Telwine",
+      "detail": "PVC"
+    },
+    {
+      "id": 91,
+      "date": "2024-08-27",
+      "montant": 400,
+      "categorie": "Électricité",
+      "etape": "Electricité",
+      "contre": "Ihab",
+      "detail": "Avance"
+    },
+    {
+      "id": 92,
+      "date": "2025-03-08",
+      "montant": 2000,
+      "categorie": "Électricité",
+      "etape": "Electricité",
+      "contre": "BelHaj mhmed",
+      "detail": "Fourniture"
+    },
+    {
+      "id": 93,
+      "date": "2025-03-08",
+      "montant": 1000,
+      "categorie": "Électricité",
+      "etape": "Electricité",
+      "contre": "Telwine",
+      "detail": "Compte"
+    },
+    {
+      "id": 94,
+      "date": "2025-03-11",
+      "montant": 2000,
+      "categorie": "Électricité",
+      "etape": "Electricité",
+      "contre": "Ihab",
+      "detail": "Tubes"
+    },
+    {
+      "id": 95,
+      "date": "2025-08-19",
+      "montant": 4000,
+      "categorie": "Électricité",
+      "etape": "Electricité",
+      "contre": "Ihab",
+      "detail": "Virement"
+    },
+    {
+      "id": 96,
+      "date": "2025-09-11",
+      "montant": 3500,
+      "categorie": "Électricité",
+      "etape": "Electricité",
+      "contre": "Telwine",
+      "detail": "Matériel"
+    },
+    {
+      "id": 97,
+      "date": "2025-12-31",
+      "montant": 1700,
+      "categorie": "Électricité",
+      "etape": "Electricité",
+      "contre": "Telwine",
+      "detail": "Esp."
+    },
+    {
+      "id": 98,
+      "date": "2025-01-06",
+      "montant": 730,
+      "categorie": "Second œuvre",
+      "etape": "Aluminum",
+      "contre": "Ben ya9oub",
+      "detail": "CAISSONS RDC"
+    },
+    {
+      "id": 99,
+      "date": "2025-01-13",
+      "montant": 634,
+      "categorie": "Second œuvre",
+      "etape": "Aluminum",
+      "contre": "Ben ya9oub",
+      "detail": "CAISSONS ETAGE"
+    },
+    {
+      "id": 100,
+      "date": "2025-05-22",
+      "montant": 2490,
+      "categorie": "Second œuvre",
+      "etape": "Aluminum",
+      "contre": "Ben ya9oub",
+      "detail": "FENÊTRES"
+    },
+    {
+      "id": 101,
+      "date": "2025-09-29",
+      "montant": 2490,
+      "categorie": "Second œuvre",
+      "etape": "Aluminum",
+      "contre": "Ben ya9oub",
+      "detail": "Caisson 40cm"
+    },
+    {
+      "id": 102,
+      "date": "2025-10-16",
+      "montant": 15000,
+      "categorie": "Second œuvre",
+      "etape": "Aluminum",
+      "contre": "Ben ya9oub",
+      "detail": "Avance alu"
+    },
+    {
+      "id": 103,
+      "date": "2026-03-05",
+      "montant": 8000,
+      "categorie": "Second œuvre",
+      "etape": "Aluminum",
+      "contre": "Ben ya9oub",
+      "detail": "Rideaux"
+    },
+    {
+      "id": 104,
+      "date": "2025-03-11",
+      "montant": 1440,
+      "categorie": "Menuiserie",
+      "etape": "Menuiserie",
+      "contre": "Menuiserie",
+      "detail": "Cadres portes"
+    },
+    {
+      "id": 105,
+      "date": "2025-10-13",
+      "montant": 3000,
+      "categorie": "Placo",
+      "etape": "Finition",
+      "contre": "Lotfi placo",
+      "detail": "Avance"
+    },
+    {
+      "id": 106,
+      "date": "2025-10-24",
+      "montant": 5000,
+      "categorie": "Placo",
+      "etape": "Finition",
+      "contre": "Lotfi placo",
+      "detail": "Fin"
+    },
+    {
+      "id": 107,
+      "date": "2025-12-12",
+      "montant": 4000,
+      "categorie": "Placo",
+      "etape": "Finition",
+      "contre": "Lotfi placo",
+      "detail": "Virement"
+    },
+    {
+      "id": 108,
+      "date": "2025-11-11",
+      "montant": 5000,
+      "categorie": "Finition",
+      "etape": "Carrelage",
+      "contre": "SANI DECOR",
+      "detail": "Avance"
+    },
+    {
+      "id": 109,
+      "date": "2026-02-02",
+      "montant": 7880,
+      "categorie": "Finition",
+      "etape": "Carrelage",
+      "contre": "Mohamed ben gerdani",
+      "detail": "Esp."
+    },
+    {
+      "id": 110,
+      "date": "2026-02-15",
+      "montant": 7122.89,
+      "categorie": "Finition",
+      "etape": "Carrelage",
+      "contre": "SANI DECOR",
+      "detail": "Fin RDC"
+    },
+    {
+      "id": 111,
+      "date": "2026-02-24",
+      "montant": 4695,
+      "categorie": "Finition",
+      "etape": "Marbre",
+      "contre": "9aysse sfaxi",
+      "detail": "17m2"
+    },
+    {
+      "id": 112,
+      "date": "2026-03-04",
+      "montant": 5000,
+      "categorie": "Finition",
+      "etape": "Carrelage",
+      "contre": "COBAM",
+      "detail": "Étage"
+    },
+    {
+      "id": 113,
+      "date": "2026-03-04",
+      "montant": 3080,
+      "categorie": "Finition",
+      "etape": "Carrelage",
+      "contre": "SANI DECOR",
+      "detail": "Esp."
+    },
+    {
+      "id": 114,
+      "date": "2026-03-04",
+      "montant": 777.9,
+      "categorie": "Sanitaire",
+      "etape": "Sanitaire",
+      "contre": "Bricola",
+      "detail": "Mitigeurs"
+    }
+  ],
+  "projections": [
+    {
+      "id": 1,
+      "label": "Carrelage Sani Décor 34M2",
+      "reste": 3000,
+      "avance": 0,
+      "devis": 3000
+    },
+    {
+      "id": 2,
+      "label": "Carrelage étage Cobam",
+      "reste": 11000,
+      "avance": 0,
+      "devis": 11000
+    },
+    {
+      "id": 3,
+      "label": "Marbre escalier 19m2",
+      "reste": 5854,
+      "avance": 800,
+      "devis": 6654
+    },
+    {
+      "id": 4,
+      "label": "Saif fin revêtements",
+      "reste": 8000,
+      "avance": 0,
+      "devis": 8000
+    },
+    {
+      "id": 5,
+      "label": "Placo reste",
+      "reste": 3200,
+      "avance": 12000,
+      "devis": 15200
+    },
+    {
+      "id": 6,
+      "label": "Carrelage terrasse",
+      "reste": 10000,
+      "avance": 0,
+      "devis": 10000
+    },
+    {
+      "id": 7,
+      "label": "Murail entrée",
+      "reste": 5000,
+      "avance": 0,
+      "devis": 5000
+    },
+    {
+      "id": 8,
+      "label": "Alu rideaux extrudé",
+      "reste": 26500,
+      "avance": 15000,
+      "devis": 41500
+    },
+    {
+      "id": 9,
+      "label": "Alu Fenêtres+portes",
+      "reste": 42000,
+      "avance": 0,
+      "devis": 42000
+    },
+    {
+      "id": 10,
+      "label": "Saif piscine",
+      "reste": 6000,
+      "avance": 0,
+      "devis": 6000
+    },
+    {
+      "id": 11,
+      "label": "El Chahid reste",
+      "reste": 1000,
+      "avance": 0,
+      "devis": 1000
+    },
+    {
+      "id": 12,
+      "label": "Peinture",
+      "reste": 30000,
+      "avance": 0,
+      "devis": 0
+    },
+    {
+      "id": 13,
+      "label": "Jardin",
+      "reste": 10000,
+      "avance": 0,
+      "devis": 0
+    },
+    {
+      "id": 14,
+      "label": "Cuisine",
+      "reste": 20000,
+      "avance": 0,
+      "devis": 0
+    },
+    {
+      "id": 15,
+      "label": "Meubles",
+      "reste": 30000,
+      "avance": 0,
+      "devis": 0
+    }
+  ],
+  "fournisseur_chahid": [
+    {
+      "id": 5000,
+      "date": "06/11/2024",
+      "designation": "FER DE 6",
+      "qte": 100,
+      "prix": 3.2,
+      "ttc": 320,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5001,
+      "date": "06/02/2025",
+      "designation": "PLATRE",
+      "qte": 1,
+      "prix": 7.299,
+      "ttc": 7.299,
+      "categorie": "Plâtre"
+    },
+    {
+      "id": 5002,
+      "date": "12/05/2024",
+      "designation": "SEMI GRAVIER BLEU",
+      "qte": 1,
+      "prix": 1250,
+      "ttc": 1250,
+      "categorie": "Gravier"
+    },
+    {
+      "id": 5003,
+      "date": "14/05/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 80,
+      "prix": 18.5,
+      "ttc": 1479.979,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5004,
+      "date": "14/05/2024",
+      "designation": "CLOUX 7",
+      "qte": 2.96,
+      "prix": 6,
+      "ttc": 17.76,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5005,
+      "date": "14/05/2024",
+      "designation": "CLOUX 10",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5006,
+      "date": "15/05/2024",
+      "designation": "FER DE 12",
+      "qte": 50,
+      "prix": 26,
+      "ttc": 1300,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5007,
+      "date": "15/05/2024",
+      "designation": "FER DE 10",
+      "qte": 50,
+      "prix": 19,
+      "ttc": 950,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5008,
+      "date": "21/05/2024",
+      "designation": "FER DE 12",
+      "qte": 50,
+      "prix": 26,
+      "ttc": 1300,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5009,
+      "date": "21/05/2024",
+      "designation": "FER DE 10",
+      "qte": 30,
+      "prix": 19,
+      "ttc": 570,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5010,
+      "date": "21/05/2024",
+      "designation": "FIL D'ATTACHE",
+      "qte": 10,
+      "prix": 5,
+      "ttc": 50,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5011,
+      "date": "21/05/2024",
+      "designation": "CLOUX 10",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5012,
+      "date": "23/05/2024",
+      "designation": "FER DE 6",
+      "qte": 50,
+      "prix": 3.2,
+      "ttc": 160,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5013,
+      "date": "26/05/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 40,
+      "prix": 18.5,
+      "ttc": 739.99,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5014,
+      "date": "26/05/2024",
+      "designation": "SIKA LAIT 5 l OR",
+      "qte": 1,
+      "prix": 85.001,
+      "ttc": 85.001,
+      "categorie": "Sika"
+    },
+    {
+      "id": 5015,
+      "date": "30/05/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 40,
+      "prix": 18.5,
+      "ttc": 739.99,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5016,
+      "date": "01/06/2024",
+      "designation": "PLATRE",
+      "qte": 1,
+      "prix": 8,
+      "ttc": 8,
+      "categorie": "Plâtre"
+    },
+    {
+      "id": 5017,
+      "date": "05/06/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 20,
+      "prix": 18.6,
+      "ttc": 371.994,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5018,
+      "date": "05/06/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 40,
+      "prix": 18.6,
+      "ttc": 744,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5019,
+      "date": "06/06/2024",
+      "designation": "FER DE 12",
+      "qte": 100,
+      "prix": 26,
+      "ttc": 2600,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5020,
+      "date": "06/06/2024",
+      "designation": "FER DE 10",
+      "qte": 50,
+      "prix": 19,
+      "ttc": 950,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5021,
+      "date": "08/06/2024",
+      "designation": "FER DE 8",
+      "qte": 20,
+      "prix": 15,
+      "ttc": 300,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5022,
+      "date": "09/06/2024",
+      "designation": "CLOUX 7",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5023,
+      "date": "09/06/2024",
+      "designation": "CLOUX 10",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5024,
+      "date": "09/06/2024",
+      "designation": "SEMI DWIRETTE Jaune",
+      "qte": 1,
+      "prix": 890,
+      "ttc": 890,
+      "categorie": "Dwirette"
+    },
+    {
+      "id": 5025,
+      "date": "12/05/2024",
+      "designation": "Semi Gros Biton",
+      "qte": 1,
+      "prix": 900,
+      "ttc": 900,
+      "categorie": "Gravier"
+    },
+    {
+      "id": 5026,
+      "date": "12/05/2024",
+      "designation": "SEMI DWIRETTE Jaune",
+      "qte": 1,
+      "prix": 950,
+      "ttc": 950,
+      "categorie": "Dwirette"
+    },
+    {
+      "id": 5027,
+      "date": "10/06/2024",
+      "designation": "SEMI GRAVIER BLEU",
+      "qte": 1,
+      "prix": 1250,
+      "ttc": 1250,
+      "categorie": "Gravier"
+    },
+    {
+      "id": 5028,
+      "date": "11/06/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 6,
+      "prix": 18.5,
+      "ttc": 110.998,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5029,
+      "date": "22/06/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 40,
+      "prix": 18.5,
+      "ttc": 739.99,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5030,
+      "date": "25/06/2024",
+      "designation": "BRIQUE DE 12 BCM",
+      "qte": 322,
+      "prix": 0.82,
+      "ttc": 264.011,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5031,
+      "date": "25/06/2024",
+      "designation": "BRIQUE DE 12 BCM",
+      "qte": 322,
+      "prix": 0.82,
+      "ttc": 264.011,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5032,
+      "date": "29/06/2024",
+      "designation": "SIKA POUDRE OR 1 KG",
+      "qte": 15,
+      "prix": 9,
+      "ttc": 135,
+      "categorie": "Sika"
+    },
+    {
+      "id": 5033,
+      "date": "29/06/2024",
+      "designation": "SIKA LAIT 5 l OR",
+      "qte": 1,
+      "prix": 85.001,
+      "ttc": 85.001,
+      "categorie": "Sika"
+    },
+    {
+      "id": 5034,
+      "date": "30/06/2024",
+      "designation": "FER DE 12",
+      "qte": 50,
+      "prix": 26,
+      "ttc": 1300,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5035,
+      "date": "30/06/2024",
+      "designation": "FER DE 10",
+      "qte": 50,
+      "prix": 19,
+      "ttc": 950,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5036,
+      "date": "30/06/2024",
+      "designation": "FER DE 6",
+      "qte": 500,
+      "prix": 2.9,
+      "ttc": 1450,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5037,
+      "date": "30/06/2024",
+      "designation": "BRIQUE DE 12 cloture",
+      "qte": 356,
+      "prix": 0.82,
+      "ttc": 291.888,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5038,
+      "date": "30/06/2024",
+      "designation": "BRIQUE DE 12 cloture",
+      "qte": 300,
+      "prix": 0.82,
+      "ttc": 245.973,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5039,
+      "date": "30/06/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 369.995,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5040,
+      "date": "02/07/2024",
+      "designation": "BRIQUE DE 12 cloture",
+      "qte": 304,
+      "prix": 0.8,
+      "ttc": 243.2,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5041,
+      "date": "03/07/2024",
+      "designation": "BRIQUE DE 12 BCM",
+      "qte": 453,
+      "prix": 0.8,
+      "ttc": 362.4,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5042,
+      "date": "03/07/2024",
+      "designation": "BRIQUE DE 12 cloture",
+      "qte": 30,
+      "prix": 0.8,
+      "ttc": 24,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5043,
+      "date": "03/07/2024",
+      "designation": "FER DE 12",
+      "qte": 70,
+      "prix": 26,
+      "ttc": 1820,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5044,
+      "date": "03/07/2024",
+      "designation": "FER DE 10",
+      "qte": 70,
+      "prix": 19,
+      "ttc": 1330,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5045,
+      "date": "03/07/2024",
+      "designation": "FER DE 8",
+      "qte": 20,
+      "prix": 15,
+      "ttc": 300,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5046,
+      "date": "03/07/2024",
+      "designation": "CLOUX 10",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5047,
+      "date": "03/07/2024",
+      "designation": "FIL D'ATTACHE",
+      "qte": 10,
+      "prix": 5,
+      "ttc": 50,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5048,
+      "date": "04/07/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 20,
+      "prix": 18.6,
+      "ttc": 372,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5049,
+      "date": "13/07/2024",
+      "designation": "FER DE 8",
+      "qte": 200,
+      "prix": 14.5,
+      "ttc": 2900,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5050,
+      "date": "13/07/2024",
+      "designation": "PLASTIC 1.5 M",
+      "qte": 83,
+      "prix": 2.7,
+      "ttc": 224.1,
+      "categorie": "Divers"
+    },
+    {
+      "id": 5051,
+      "date": "17/07/2024",
+      "designation": "FIL D'ATTACHE",
+      "qte": 10,
+      "prix": 5,
+      "ttc": 50,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5052,
+      "date": "17/07/2024",
+      "designation": "PLASTIC 1.5 M",
+      "qte": 8,
+      "prix": 2.7,
+      "ttc": 21.6,
+      "categorie": "Divers"
+    },
+    {
+      "id": 5053,
+      "date": "18/07/2024",
+      "designation": "FER DE 8",
+      "qte": 50,
+      "prix": 15,
+      "ttc": 750,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5054,
+      "date": "18/07/2024",
+      "designation": "FER DE 6",
+      "qte": 100,
+      "prix": 2.9,
+      "ttc": 290,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5055,
+      "date": "18/07/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 120,
+      "prix": 18.35,
+      "ttc": 2202,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5056,
+      "date": "18/07/2024",
+      "designation": "SEMI DWIRETTE Jaune",
+      "qte": 1,
+      "prix": 890,
+      "ttc": 890,
+      "categorie": "Dwirette"
+    },
+    {
+      "id": 5057,
+      "date": "20/07/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 120,
+      "prix": 18.35,
+      "ttc": 2201.976,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5058,
+      "date": "20/07/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 60,
+      "prix": 18.35,
+      "ttc": 1101,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5059,
+      "date": "20/07/2024",
+      "designation": "SEMI GRAVIER BLEU",
+      "qte": 1,
+      "prix": 1320,
+      "ttc": 1320,
+      "categorie": "Gravier"
+    },
+    {
+      "id": 5060,
+      "date": "21/07/2024",
+      "designation": "FIL D'ATTACHE",
+      "qte": 10,
+      "prix": 5,
+      "ttc": 50,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5061,
+      "date": "27/07/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 20,
+      "prix": 18.25,
+      "ttc": 365,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5062,
+      "date": "28/07/2024",
+      "designation": "CLOUX 7",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5063,
+      "date": "30/07/2024",
+      "designation": "FER DE 12",
+      "qte": 50,
+      "prix": 26,
+      "ttc": 1300,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5064,
+      "date": "30/07/2024",
+      "designation": "FER DE 10",
+      "qte": 50,
+      "prix": 19,
+      "ttc": 950,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5065,
+      "date": "30/07/2024",
+      "designation": "FER DE 6",
+      "qte": 500,
+      "prix": 3.2,
+      "ttc": 1600,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5066,
+      "date": "30/07/2024",
+      "designation": "FER DE 14",
+      "qte": 4,
+      "prix": 42,
+      "ttc": 168,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5067,
+      "date": "30/07/2024",
+      "designation": "FER DE 16",
+      "qte": 3,
+      "prix": 55,
+      "ttc": 165,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5068,
+      "date": "30/07/2024",
+      "designation": "FIL D'ATTACHE",
+      "qte": 20,
+      "prix": 5,
+      "ttc": 100,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5069,
+      "date": "31/07/2024",
+      "designation": "FER DE 8",
+      "qte": 30,
+      "prix": 15,
+      "ttc": 450,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5070,
+      "date": "10/08/2024",
+      "designation": "CLOUX 7",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5071,
+      "date": "10/08/2024",
+      "designation": "CLOUX 10",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5072,
+      "date": "21/08/2024",
+      "designation": "CIMENT HRS (KR)",
+      "qte": 60,
+      "prix": 19.85,
+      "ttc": 1191,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5073,
+      "date": "25/08/2024",
+      "designation": "BRIQUE DE 12 BCM",
+      "qte": 500,
+      "prix": 0.82,
+      "ttc": 409.955,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5074,
+      "date": "25/08/2024",
+      "designation": "CLOUX 10",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5075,
+      "date": "26/08/2024",
+      "designation": "FER DE 12",
+      "qte": 100,
+      "prix": 26,
+      "ttc": 2600,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5076,
+      "date": "26/08/2024",
+      "designation": "FER DE 10",
+      "qte": 100,
+      "prix": 19,
+      "ttc": 1900,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5077,
+      "date": "26/08/2024",
+      "designation": "BRIQUE DE 12 BCM",
+      "qte": 500,
+      "prix": 0.82,
+      "ttc": 409.955,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5078,
+      "date": "29/08/2024",
+      "designation": "FER DE 12",
+      "qte": 50,
+      "prix": 26,
+      "ttc": 1300,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5079,
+      "date": "29/08/2024",
+      "designation": "FER DE 10",
+      "qte": 100,
+      "prix": 19,
+      "ttc": 1900,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5080,
+      "date": "29/08/2024",
+      "designation": "FIL D'ATTACHE",
+      "qte": 20,
+      "prix": 5,
+      "ttc": 50,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5081,
+      "date": "29/08/2024",
+      "designation": "SEMI GRAVIER BLEU",
+      "qte": 1,
+      "prix": 1300,
+      "ttc": 1300,
+      "categorie": "Gravier"
+    },
+    {
+      "id": 5082,
+      "date": "29/08/2024",
+      "designation": "SEMI DWIRETTE Jaune",
+      "qte": 1,
+      "prix": 890,
+      "ttc": 890,
+      "categorie": "Dwirette"
+    },
+    {
+      "id": 5083,
+      "date": "31/08/2024",
+      "designation": "FER DE 8",
+      "qte": 20,
+      "prix": 14.5,
+      "ttc": 290,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5084,
+      "date": "31/08/2024",
+      "designation": "FRAIS DE TRANSPORT",
+      "qte": 1,
+      "prix": 10,
+      "ttc": 10,
+      "categorie": "Transport"
+    },
+    {
+      "id": 5085,
+      "date": "31/08/2024",
+      "designation": "PLASTIC 1.5 M",
+      "qte": 33,
+      "prix": 2.7,
+      "ttc": 89.1,
+      "categorie": "Divers"
+    },
+    {
+      "id": 5086,
+      "date": "01/09/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 20,
+      "prix": 18.35,
+      "ttc": 367,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5087,
+      "date": "01/09/2024",
+      "designation": "SIKA LAIT OR 1 L",
+      "qte": 1,
+      "prix": 18,
+      "ttc": 18,
+      "categorie": "Sika"
+    },
+    {
+      "id": 5088,
+      "date": "01/09/2024",
+      "designation": "CIMENT HRS (KR)",
+      "qte": 40,
+      "prix": 19.85,
+      "ttc": 794,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5089,
+      "date": "02/09/2024",
+      "designation": "FER DE 8",
+      "qte": 50,
+      "prix": 15,
+      "ttc": 750,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5090,
+      "date": "02/09/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 369.995,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5091,
+      "date": "02/09/2024",
+      "designation": "FIL D'ATTACHE",
+      "qte": 10,
+      "prix": 5,
+      "ttc": 50,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5092,
+      "date": "02/09/2024",
+      "designation": "BRIQUE DE 12 BCM",
+      "qte": 60,
+      "prix": 0.8,
+      "ttc": 48,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5093,
+      "date": "03/09/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 20,
+      "prix": 18.35,
+      "ttc": 367,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5094,
+      "date": "03/09/2024",
+      "designation": "CIMENT HRS (KR)",
+      "qte": 20,
+      "prix": 19.85,
+      "ttc": 396.999,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5095,
+      "date": "14/09/2024",
+      "designation": "FER DE 12",
+      "qte": 100,
+      "prix": 26,
+      "ttc": 2600,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5096,
+      "date": "14/09/2024",
+      "designation": "FER DE 10",
+      "qte": 100,
+      "prix": 19,
+      "ttc": 1900,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5097,
+      "date": "14/09/2024",
+      "designation": "FIL D'ATTACHE",
+      "qte": 10,
+      "prix": 5,
+      "ttc": 50,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5098,
+      "date": "16/09/2024",
+      "designation": "CLOUX 7",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5099,
+      "date": "16/09/2024",
+      "designation": "CLOUX 10",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5100,
+      "date": "18/09/2024",
+      "designation": "FRAIS DE TRANSPORT",
+      "qte": 1,
+      "prix": 10,
+      "ttc": 10,
+      "categorie": "Transport"
+    },
+    {
+      "id": 5101,
+      "date": "18/09/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 10,
+      "prix": 17.85,
+      "ttc": 178.5,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5102,
+      "date": "18/09/2024",
+      "designation": "BRIQUE DE 12 BCM",
+      "qte": 161,
+      "prix": 0.82,
+      "ttc": 132.006,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5103,
+      "date": "21/09/2024",
+      "designation": "CIMENT HRS (KR)",
+      "qte": 100,
+      "prix": 20,
+      "ttc": 2000.033,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5104,
+      "date": "22/09/2024",
+      "designation": "SIKA LAIT 5 l OR",
+      "qte": 2,
+      "prix": 85,
+      "ttc": 170.001,
+      "categorie": "Sika"
+    },
+    {
+      "id": 5105,
+      "date": "24/09/2024",
+      "designation": "FER DE 12",
+      "qte": 50,
+      "prix": 26,
+      "ttc": 1300,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5106,
+      "date": "24/09/2024",
+      "designation": "FER DE 10",
+      "qte": 100,
+      "prix": 19,
+      "ttc": 1900,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5107,
+      "date": "24/09/2024",
+      "designation": "FIL D'ATTACHE",
+      "qte": 20,
+      "prix": 5,
+      "ttc": 100,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5108,
+      "date": "24/09/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 369.995,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5109,
+      "date": "24/09/2024",
+      "designation": "CIMENT HRS (KR)",
+      "qte": 20,
+      "prix": 20,
+      "ttc": 399.999,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5110,
+      "date": "25/09/2024",
+      "designation": "SIKA LAIT 5 l OR",
+      "qte": 1,
+      "prix": 85.001,
+      "ttc": 85.001,
+      "categorie": "Sika"
+    },
+    {
+      "id": 5111,
+      "date": "25/09/2024",
+      "designation": "CLOUX 10",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5112,
+      "date": "25/09/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 20,
+      "prix": 18.35,
+      "ttc": 367,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5113,
+      "date": "25/09/2024",
+      "designation": "CIMENT HRS (KR)",
+      "qte": 10,
+      "prix": 19.85,
+      "ttc": 198.5,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5114,
+      "date": "26/09/2024",
+      "designation": "FRAIS DE TRANSPORT",
+      "qte": 1,
+      "prix": 10,
+      "ttc": 10,
+      "categorie": "Transport"
+    },
+    {
+      "id": 5115,
+      "date": "26/09/2024",
+      "designation": "TRES A SOUDER 15/15 4 MM",
+      "qte": 10,
+      "prix": 45.999,
+      "ttc": 459.994,
+      "categorie": "Soudure"
+    },
+    {
+      "id": 5116,
+      "date": "30/09/2024",
+      "designation": "FER DE 10",
+      "qte": 50,
+      "prix": 19,
+      "ttc": 950,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5117,
+      "date": "06/10/2024",
+      "designation": "SEMI GRAVIER BLEU",
+      "qte": 1,
+      "prix": 1300,
+      "ttc": 1300,
+      "categorie": "Gravier"
+    },
+    {
+      "id": 5118,
+      "date": "06/10/2024",
+      "designation": "SEMI DWIRETTE Jaune",
+      "qte": 1,
+      "prix": 890,
+      "ttc": 890,
+      "categorie": "Dwirette"
+    },
+    {
+      "id": 5119,
+      "date": "29/10/2024",
+      "designation": "CLOUX 7",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5120,
+      "date": "29/10/2024",
+      "designation": "CLOUX 10",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5121,
+      "date": "29/10/2024",
+      "designation": "CIMENT CPA KR",
+      "qte": 2,
+      "prix": 17.85,
+      "ttc": 35.7,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5122,
+      "date": "02/11/2024",
+      "designation": "FER DE 8",
+      "qte": 30,
+      "prix": 14.5,
+      "ttc": 435,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5123,
+      "date": "02/11/2024",
+      "designation": "FIL D'ATTACHE",
+      "qte": 10,
+      "prix": 5,
+      "ttc": 50,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5124,
+      "date": "02/11/2024",
+      "designation": "FRAIS DE TRANSPORT",
+      "qte": 1,
+      "prix": 10,
+      "ttc": 10,
+      "categorie": "Transport"
+    },
+    {
+      "id": 5125,
+      "date": "12/11/2024",
+      "designation": "FER DE 12",
+      "qte": 50,
+      "prix": 26,
+      "ttc": 1300,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5126,
+      "date": "12/11/2024",
+      "designation": "FER DE 10",
+      "qte": 50,
+      "prix": 19,
+      "ttc": 950,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5127,
+      "date": "13/11/2024",
+      "designation": "FER DE 10",
+      "qte": 60,
+      "prix": 19,
+      "ttc": 1140,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5128,
+      "date": "14/11/2024",
+      "designation": "FIL D'ATTACHE",
+      "qte": 10,
+      "prix": 5,
+      "ttc": 50,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5129,
+      "date": "14/11/2024",
+      "designation": "CIMENT CPA G",
+      "qte": 2,
+      "prix": 18,
+      "ttc": 36,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5130,
+      "date": "18/11/2024",
+      "designation": "SIKA ANCHORFIX-1Q 150ML",
+      "qte": 1,
+      "prix": 27.04,
+      "ttc": 27.04,
+      "categorie": "Sika"
+    },
+    {
+      "id": 5131,
+      "date": "19/11/2024",
+      "designation": "FRAIS DE TRANSPORT",
+      "qte": 1,
+      "prix": 10,
+      "ttc": 10,
+      "categorie": "Transport"
+    },
+    {
+      "id": 5132,
+      "date": "19/11/2024",
+      "designation": "BRIQUE DE 6",
+      "qte": 10,
+      "prix": 0.38,
+      "ttc": 3.796,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5133,
+      "date": "19/11/2024",
+      "designation": "BRIQUE HOURDI 16 (PAL/104 P)",
+      "qte": 35,
+      "prix": 1.399,
+      "ttc": 48.98,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5134,
+      "date": "19/11/2024",
+      "designation": "TRES A SOUDER 15/15 4 MM",
+      "qte": 5,
+      "prix": 45.999,
+      "ttc": 229.997,
+      "categorie": "Soudure"
+    },
+    {
+      "id": 5135,
+      "date": "19/11/2024",
+      "designation": "CLOUX 7",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5136,
+      "date": "19/11/2024",
+      "designation": "CLOUX 10",
+      "qte": 5,
+      "prix": 6,
+      "ttc": 30,
+      "categorie": "Clous"
+    },
+    {
+      "id": 5137,
+      "date": "27/11/2024",
+      "designation": "BRIQUE DE 12  Bani Hassen ",
+      "qte": 2960,
+      "prix": 0.79,
+      "ttc": 2338.874,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5138,
+      "date": "27/11/2024",
+      "designation": "brique de 8 vente direct",
+      "qte": 4480,
+      "prix": 0.79,
+      "ttc": 3539.2,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5139,
+      "date": "02/12/2024",
+      "designation": "Berlet Gravie Bleu",
+      "qte": 1,
+      "prix": 430,
+      "ttc": 430,
+      "categorie": "Gravier"
+    },
+    {
+      "id": 5140,
+      "date": "02/12/2024",
+      "designation": "BRIQUE DE 6",
+      "qte": 675,
+      "prix": 0.38,
+      "ttc": 256.237,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5141,
+      "date": "02/12/2024",
+      "designation": "BRIQUE DE 12  Bani Hassen ",
+      "qte": 6040,
+      "prix": 0.77,
+      "ttc": 4650.8,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5142,
+      "date": "22/12/2024",
+      "designation": "CIMENT CPA G",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 370,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5143,
+      "date": "28/12/2024",
+      "designation": "CIMENT CPA G",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 370,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5144,
+      "date": "05/01/2025",
+      "designation": "CIMENT CPA KR",
+      "qte": 20,
+      "prix": 18.35,
+      "ttc": 367,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5145,
+      "date": "11/01/2025",
+      "designation": "CIMENT CPA KR",
+      "qte": 20,
+      "prix": 18.35,
+      "ttc": 367,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5146,
+      "date": "11/01/2025",
+      "designation": "BRIQUE DE 8",
+      "qte": 448,
+      "prix": 0.8,
+      "ttc": 358.257,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5147,
+      "date": "18/01/2025",
+      "designation": "PLATRE",
+      "qte": 6,
+      "prix": 7.3,
+      "ttc": 43.797,
+      "categorie": "Plâtre"
+    },
+    {
+      "id": 5148,
+      "date": "18/01/2025",
+      "designation": "CIMENT CPA KR",
+      "qte": 60,
+      "prix": 18.35,
+      "ttc": 1101,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5149,
+      "date": "18/01/2025",
+      "designation": "BRIQUE DE 6",
+      "qte": 350,
+      "prix": 0.38,
+      "ttc": 132.864,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5150,
+      "date": "06/02/2025",
+      "designation": "FER DE 8",
+      "qte": 24,
+      "prix": 14.5,
+      "ttc": 348,
+      "categorie": "Fer"
+    },
+    {
+      "id": 5151,
+      "date": "06/02/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 370,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5152,
+      "date": "12/02/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 370,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5153,
+      "date": "20/02/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 370,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5154,
+      "date": "25/02/2025",
+      "designation": "Berlet Gravie Bleu",
+      "qte": 1,
+      "prix": 430,
+      "ttc": 430,
+      "categorie": "Gravier"
+    },
+    {
+      "id": 5155,
+      "date": "01/03/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 370,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5156,
+      "date": "01/03/2025",
+      "designation": "semi dwirette blanc",
+      "qte": 1,
+      "prix": 900.001,
+      "ttc": 900.001,
+      "categorie": "Dwirette"
+    },
+    {
+      "id": 5157,
+      "date": "08/03/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 370,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5158,
+      "date": "08/03/2025",
+      "designation": "BRIQUE DE 8",
+      "qte": 224,
+      "prix": 0.8,
+      "ttc": 179.128,
+      "categorie": "Briques"
+    },
+    {
+      "id": 5159,
+      "date": "23/04/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 370,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5160,
+      "date": "29/04/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 370,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5161,
+      "date": "04/05/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 370,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5162,
+      "date": "10/05/2025",
+      "designation": "CIMENT CPA KR",
+      "qte": 20,
+      "prix": 17.3,
+      "ttc": 346,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5163,
+      "date": "14/05/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 370,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5164,
+      "date": "18/05/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 40,
+      "prix": 18.5,
+      "ttc": 740,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5165,
+      "date": "28/05/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 40,
+      "prix": 18.5,
+      "ttc": 740,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5166,
+      "date": "01/06/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 370,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5167,
+      "date": "01/06/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 20,
+      "prix": 18.5,
+      "ttc": 370,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5168,
+      "date": "02/06/2025",
+      "designation": "semi dwirette blanc",
+      "qte": 1,
+      "prix": 950,
+      "ttc": 950,
+      "categorie": "Dwirette"
+    },
+    {
+      "id": 5169,
+      "date": "24/06/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 40,
+      "prix": 18.95,
+      "ttc": 758,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5170,
+      "date": "30/06/2025",
+      "designation": "sikadur 30- colle 1.200KG EPOXY",
+      "qte": 1,
+      "prix": 85.001,
+      "ttc": 85.001,
+      "categorie": "Sika"
+    },
+    {
+      "id": 5171,
+      "date": "08/07/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 20,
+      "prix": 18.975,
+      "ttc": 379.501,
+      "categorie": "Ciment"
+    },
+    {
+      "id": 5172,
+      "date": "08/07/2025",
+      "designation": "GRILLAGE 30CM",
+      "qte": 1,
+      "prix": 23,
+      "ttc": 23,
+      "categorie": "Divers"
+    },
+    {
+      "id": 5173,
+      "date": "14/07/2025",
+      "designation": "CIMENT CPA G",
+      "qte": 40,
+      "prix": 19.4,
+      "ttc": 776,
+      "categorie": "Ciment"
+    }
+  ]
+}

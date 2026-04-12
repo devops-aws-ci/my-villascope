@@ -8,11 +8,6 @@ git clone https://`<token>`@github.com/devops-aws-ci/my-villascope.git
 ## Update and re-Build new version of prod app react
 
 ```bash
-
-
-
-
-
 sudo su -
 
 cd /mnt/c/myworkspace/personel-repos/My-VillaScope
@@ -47,15 +42,24 @@ cd /mnt/c/myworkspace/personel-repos/my-villascope/backoffice
 source ~/myenv_py3/bin/activate
 npm install express cors
 npm install cors
+npm run build
 node backup-server &
 
 ps aux | grep backup-server
-pkill -f save-server.cjs
+pkill -f backup-server
+pkill -f "node backup-server" 
+lsof -i :3001
 kill process_id
 
 curl -X POST http://localhost:3001/api/save \
   -H "Content-Type: application/json" \
   -d '{"test": true}'
+
+curl -X POST http://localhost:3001/api/save \
+  -H "Content-Type: application/json" \
+  -d '{"projects":[{"id":"test","name":"Test"}],"activeProjectId":"test"}'
+
+{"ok":true,"savedAt":"2026-04-12T18:34:18.421Z","fileSize":285,"backupCreated":"villascope_complet_data_20260412_203418.json"}
 
 
 

@@ -1202,7 +1202,7 @@ export default function VillaScope() {
                 </div>
                 <div style={{flex:1}}>
                   <p style={{margin:0,fontSize:14,fontWeight:700,color:"#0f172a"}}>Export JSON complet</p>
-                  <p style={{margin:"2px 0 0",fontSize:11,color:"#64748b"}}>{expenses.length + projections.length + chahid.length} éléments + projections + fournisseur</p>
+                  <p style={{margin:"2px 0 0",fontSize:11,color:"#64748b"}}>{projects.length} projet{projects.length > 1 ? "s" : ""} • {projects.reduce((s,p) => s + (p.expenses?.length||0) + (p.projections?.length||0) + (p.chahid?.length||0), 0)} éléments</p>
                 </div>
                 {exportStatus === "success" ? <span style={{fontSize:14}}>✅</span> : <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#475569" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>}
               </div>
@@ -1219,7 +1219,7 @@ export default function VillaScope() {
                 </div>
                 <div style={{flex:1}}>
                   <p style={{margin:0,fontSize:14,fontWeight:700,color:"#0f172a"}}>Export CSV</p>
-                  <p style={{margin:"2px 0 0",fontSize:11,color:"#64748b"}}>{expenses.length} dépenses (tableur)</p>
+                  <p style={{margin:"2px 0 0",fontSize:11,color:"#64748b"}}>{expenses.length} dépenses — {activeProject?.name || "projet actif"}</p>
                 </div>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#475569" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>
               </div>
@@ -1232,11 +1232,12 @@ export default function VillaScope() {
                 <span style={{fontSize:10,color:"#64748b",fontWeight:700,textTransform:"uppercase",letterSpacing:.5}}>Données en mémoire</span>
                 {serverLastSave && <span style={{fontSize:9,color:"#475569"}}>Dernier snap: {new Date(serverLastSave).toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})}</span>}
               </div>
-              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:6,marginBottom:8}}>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr",gap:6,marginBottom:8}}>
                 {[
-                  {l:"Dépenses",v:expenses.length,c:accentColor},
-                  {l:"Projections",v:projections.length,c:"#3b82f6"},
-                  {l:"Fournisseur",v:chahid.length,c:"#10b981"},
+                  {l:"Projets",v:projects.length,c:"#8b5cf6"},
+                  {l:"Dépenses",v:projects.reduce((s,p) => s + (p.expenses?.length||0), 0),c:accentColor},
+                  {l:"Projections",v:projects.reduce((s,p) => s + (p.projections?.length||0), 0),c:"#3b82f6"},
+                  {l:"Fournisseur",v:projects.reduce((s,p) => s + (p.chahid?.length||0), 0),c:"#10b981"},
                 ].map((s,i) => (
                   <div key={i} style={{background:"#f8fafc",borderRadius:7,padding:"6px 8px",textAlign:"center"}}>
                     <span style={{fontSize:15,fontWeight:800,color:s.c}}>{s.v}</span>
@@ -1303,21 +1304,46 @@ export default function VillaScope() {
                   {importPreview._meta?.exportDate && importPreview._meta.exportDate !== "inconnu" && (
                     <p style={{margin:"0 0 8px",fontSize:10,color:"#64748b"}}>Exporté le {new Date(importPreview._meta.exportDate).toLocaleString("fr-FR")}</p>
                   )}
-                  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:6}}>
-                    {[
-                      {l:"Dép.",v:importPreview.depenses?.length||0,c:accentColor,cur:expenses.length},
-                      {l:"Proj.",v:importPreview.projections?.length||0,c:"#3b82f6",cur:projections.length},
-                      {l:"Fourn.",v:importPreview.fournisseur_chahid?.length||0,c:"#10b981",cur:chahid.length},
-                    ].map((s,i) => (
-                      <div key={i} style={{background:"#f8fafc",borderRadius:6,padding:"6px",textAlign:"center"}}>
-                        <p style={{margin:0,fontSize:15,fontWeight:800,color:s.c}}>{s.v}</p>
-                        <p style={{margin:0,fontSize:9,color:s.v !== s.cur ? "#d97706" : "#cbd5e1"}}>{s.v !== s.cur ? `${s.cur} → ${s.v}` : "="}</p>
+
+                  {/* Multi-projet preview */}
+                  {importPreview._isMultiProject ? (
+                    <div>
+                      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:6,marginBottom:8}}>
+                        <div style={{background:"#f8fafc",borderRadius:6,padding:"6px",textAlign:"center"}}>
+                          <p style={{margin:0,fontSize:15,fontWeight:800,color:accentColor}}>{importPreview.projects?.length || 0}</p>
+                          <p style={{margin:0,fontSize:9,color:importPreview.projects?.length !== projects.length ? "#d97706" : "#cbd5e1"}}>{importPreview.projects?.length !== projects.length ? `${projects.length} → ${importPreview.projects?.length}` : "="} Projets</p>
+                        </div>
+                        <div style={{background:"#f8fafc",borderRadius:6,padding:"6px",textAlign:"center"}}>
+                          <p style={{margin:0,fontSize:15,fontWeight:800,color:"#10b981"}}>{(importPreview.projects||[]).reduce((s,p) => s + (p.expenses?.length||0) + (p.projections?.length||0) + (p.chahid?.length||0), 0)}</p>
+                          <p style={{margin:0,fontSize:9,color:"#cbd5e1"}}>Éléments total</p>
+                        </div>
                       </div>
-                    ))}
-                  </div>
+                      {(importPreview.projects||[]).map((proj, pi) => (
+                        <div key={pi} style={{background:"#f8fafc",borderRadius:6,padding:"6px 8px",marginBottom:4,display:"flex",alignItems:"center",gap:6}}>
+                          <span style={{fontSize:13}}>{proj.icon || "📁"}</span>
+                          <span style={{fontSize:11,fontWeight:700,color:"#0f172a",flex:1}}>{proj.name || proj.id}</span>
+                          <span style={{fontSize:9,color:"#64748b"}}>{proj.expenses?.length||0} dép. • {proj.projections?.length||0} proj. • {proj.chahid?.length||0} fourn.</span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    /* Legacy single-project preview */
+                    <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:6}}>
+                      {[
+                        {l:"Dép.",v:importPreview.depenses?.length||0,c:accentColor,cur:expenses.length},
+                        {l:"Proj.",v:importPreview.projections?.length||0,c:"#3b82f6",cur:projections.length},
+                        {l:"Fourn.",v:importPreview.fournisseur_chahid?.length||0,c:"#10b981",cur:chahid.length},
+                      ].map((s,i) => (
+                        <div key={i} style={{background:"#f8fafc",borderRadius:6,padding:"6px",textAlign:"center"}}>
+                          <p style={{margin:0,fontSize:15,fontWeight:800,color:s.c}}>{s.v}</p>
+                          <p style={{margin:0,fontSize:9,color:s.v !== s.cur ? "#d97706" : "#cbd5e1"}}>{s.v !== s.cur ? `${s.cur} → ${s.v}` : "="}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div style={{padding:"8px 12px",borderRadius:8,background:"rgba(217,119,6,.06)",border:"1px solid rgba(217,119,6,.2)",marginBottom:10}}>
-                  <p style={{margin:0,fontSize:11,color:accentColor,fontWeight:700}}>⚠️ Les données actuelles seront écrasées</p>
+                  <p style={{margin:0,fontSize:11,color:accentColor,fontWeight:700}}>{importPreview._isMultiProject ? "⚠️ Tous les projets seront remplacés" : "⚠️ Les données actuelles seront écrasées"}</p>
                 </div>
                 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
                   <button onClick={() => { setImportPreview(null); setImportStatus(null); }} style={{padding:"11px",borderRadius:9,border:"1px solid #e2e8f0",cursor:"pointer",fontSize:12,fontWeight:700,background:"#ffffff",color:"#475569"}}>Annuler</button>

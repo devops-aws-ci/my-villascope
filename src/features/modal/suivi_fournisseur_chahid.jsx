@@ -450,7 +450,7 @@ export default function VillaScope() {
   const currency = activeProject?.currency || "TND";
 
   // Derived data from active project (or all)
-  const expenses = useMemo(() => activeProject ? activeProject.expenses : projects.flatMap(p => p.expenses), [projects, activeProjectId]);
+  const expenses = useMemo(() => activeProject ? (activeProject.expenses || []) : projects.flatMap(p => p.expenses || []), [projects, activeProjectId]);
   const projections = useMemo(() => activeProject ? activeProject.projections : projects.flatMap(p => p.projections), [projects, activeProjectId]);
   const chahid = useMemo(() => activeProject ? activeProject.chahid : projects.flatMap(p => p.chahid), [projects, activeProjectId]);
 

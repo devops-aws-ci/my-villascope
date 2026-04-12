@@ -4,12 +4,9 @@
 //  Fichier principal : ./data/villascope_complet_data.json
 //  Backups horodatés : ./data/backups/villascope_complet_data_20260410_1430.json
 //
-//  Workflow "Sauvegarder serveur" :
-//    1) Copie le fichier live actuel → /data/backups/ avec datetime
-//    2) Écrase le fichier live avec les nouvelles données
-//
-//  Workflow "Recharger serveur" :
-//    → Relit le fichier live depuis le disque
+//  Supporte 2 formats :
+//    • Multi-projet (v5) : { projects: [...], activeProjectId: "..." }
+//    • Legacy (v4)       : { depenses, projections, fournisseur_chahid }
 //
 //  npm install express cors
 //  node backup-server.js
@@ -70,34 +67,64 @@ function listBackups() {
     .sort((a, b) => b.filename.localeCompare(a.filename));
 }
 
+/** Crée un backup horodaté du fichier live s'il existe */
+function backupLiveFile() {
+  if (!fs.existsSync(LIVE_FILE)) return null;
+  const ts = getTimestamp();
+  const backupName = `villascope_complet_data_${ts}.json`;
+  fs.copyFileSync(LIVE_FILE, path.join(BACKUP_DIR, backupName));
+  console.log(`📦 Backup créé: ${backupName}`);
+  return backupName;
+}
+
 // ─── Routes ──────────────────────────────────────────────────────
 
 /**
  * POST /api/save
- * "Sauvegarder serveur" — le workflow MyBankin :
+ * "Sauvegarder serveur" — supporte multi-projet ET legacy
  *   1) Si le fichier live existe → copie dans /backups/ avec timestamp
  *   2) Écrase le fichier live avec les nouvelles données
  */
 app.post("/api/save", (req, res) => {
   try {
-    const { depenses, projections, fournisseur_chahid } = req.body;
+    const body = req.body;
+
+    // ── Format multi-projet (v5) ──
+    if (body.projects && Array.isArray(body.projects)) {
+      const backupCreated = backupLiveFile();
+
+      const payload = {
+        _meta: {
+          app: "VillaScope",
+          version: "5.0-multiproject",
+          savedAt: new Date().toISOString(),
+          description: "Sauvegarde complète — Multi-projet",
+        },
+        projects: body.projects,
+        activeProjectId: body.activeProjectId || null,
+      };
+
+      fs.writeFileSync(LIVE_FILE, JSON.stringify(payload, null, 2), "utf-8");
+      const stat = fs.statSync(LIVE_FILE);
+      console.log(`💾 Fichier live mis à jour (multi-projet): ${(stat.size / 1024).toFixed(1)} Ko`);
+
+      return res.json({
+        ok: true,
+        savedAt: payload._meta.savedAt,
+        fileSize: stat.size,
+        backupCreated,
+      });
+    }
+
+    // ── Format legacy (v4) ──
+    const { depenses, projections, fournisseur_chahid } = body;
 
     if (!depenses && !projections && !fournisseur_chahid) {
       return res.status(400).json({ ok: false, error: "Aucune donnée à sauvegarder" });
     }
 
-    // ÉTAPE 1 : Backup horodaté de l'ancien fichier live (s'il existe)
-    let backupCreated = null;
-    if (fs.existsSync(LIVE_FILE)) {
-      const ts = getTimestamp();
-      const backupName = `villascope_complet_data_${ts}.json`;
-      const backupPath = path.join(BACKUP_DIR, backupName);
-      fs.copyFileSync(LIVE_FILE, backupPath);
-      backupCreated = backupName;
-      console.log(`📦 Backup créé: ${backupName}`);
-    }
+    const backupCreated = backupLiveFile();
 
-    // ÉTAPE 2 : Écraser le fichier live avec les nouvelles données
     const payload = {
       _meta: {
         app: "VillaScope",
@@ -111,9 +138,8 @@ app.post("/api/save", (req, res) => {
     };
 
     fs.writeFileSync(LIVE_FILE, JSON.stringify(payload, null, 2), "utf-8");
-
     const stat = fs.statSync(LIVE_FILE);
-    console.log(`💾 Fichier live mis à jour: ${(stat.size / 1024).toFixed(1)} Ko`);
+    console.log(`💾 Fichier live mis à jour (legacy): ${(stat.size / 1024).toFixed(1)} Ko`);
 
     res.json({
       ok: true,
@@ -163,7 +189,6 @@ app.get("/api/backups", (req, res) => {
   try {
     const backups = listBackups();
 
-    // Ajouter les infos du fichier live
     let liveInfo = null;
     if (fs.existsSync(LIVE_FILE)) {
       const stat = fs.statSync(LIVE_FILE);
