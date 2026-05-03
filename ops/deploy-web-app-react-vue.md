@@ -4,7 +4,7 @@ sudo su -
 
 chmod 777 /root/projects/my-villascope/ops/update-last-version.sh
 
-/root/projects/My-Bankin/ops/PROD/update-last-version.sh
+/root/projects/my-villascope/ops/update-last-version.sh
 
 echo "redeploy ok"
 

@@ -4,6 +4,8 @@
 # git clone https://tokennn@github.com/devops-aws-ci/My-Bankin.git
 # git clone https://`<token>`@github.com/devops-aws-ci/my-villascope.git
 
+echo "start deploy frontend webapp"
+
 cd /root/projects/my-villascope/
 # get last version of code from git repos
 git stash
@@ -24,8 +26,10 @@ ls /var/www/myvillascope/
 sudo systemctl reload nginx
 # check web server url 
 curl http://ec2-18-200-174-106.eu-west-1.compute.amazonaws.com/
+echo "end deploy frontend webapp"
 
 ### restart api services node exppress
+echo "start deploy backend service with systemD"
 cd /root/projects/my-villascope
 git stash
 git pull origin
@@ -33,3 +37,4 @@ sudo cp ./ops/conf/myvillascope-server.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable myvillascope-server
 sudo systemctl restart myvillascope-server
+echo "End deploy backend service with systemD"
