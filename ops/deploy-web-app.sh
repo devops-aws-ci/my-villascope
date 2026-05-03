@@ -25,6 +25,11 @@ sudo systemctl reload nginx
 # check web server url 
 curl http://ec2-18-200-174-106.eu-west-1.compute.amazonaws.com/
 
-### restart api services node exppress 
+### restart api services node exppress
+cd /root/projects/my-villascope
+git stash
+git pull origin
+sudo cp ./ops/conf/myvillascope-server.service /etc/systemd/system/
 sudo systemctl daemon-reload
-sudo systemctl restart mybankin-server
+sudo systemctl enable myvillascope-server
+sudo systemctl restart myvillascope-server
