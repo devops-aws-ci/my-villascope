@@ -1,3 +1,15 @@
+## Updatye app with script ssm session ec2 aws and run this cmd
+
+sudo su -
+
+chmod 777 /root/projects/my-villascope/ops/update-last-version.sh
+
+/root/projects/My-Bankin/ops/PROD/update-last-version.sh
+
+echo "redeploy ok"
+
+http://mybankin.cloudsecops-services.com/
+
 ## Clone git code initial
 
 mkdir projects
