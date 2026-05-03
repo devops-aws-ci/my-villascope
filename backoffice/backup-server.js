@@ -7,9 +7,6 @@
 //  Supporte 2 formats :
 //    • Multi-projet (v5) : { projects: [...], activeProjectId: "..." }
 //    • Legacy (v4)       : { depenses, projections, fournisseur_chahid }
-//
-//  npm install express cors
-//  node backup-server.js
 // ─────────────────────────────────────────────────────────────────
 
 const express = require("express");
@@ -18,6 +15,8 @@ const path = require("path");
 const cors = require("cors");
 
 const app = express();
+
+require('dotenv').config();
 const PORT = process.env.BACKUP_PORT || 3001;
 
 // ─── Chemins ─────────────────────────────────────────────────────
